@@ -1,0 +1,10 @@
+F:\Desktop\EM-EateryManage\EM-EateryManage\bin\Debug\EM-EateryManage.exe.config
+F:\Desktop\EM-EateryManage\EM-EateryManage\bin\Debug\EM-EateryManage.exe
+F:\Desktop\EM-EateryManage\EM-EateryManage\bin\Debug\EM-EateryManage.pdb
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csprojAssemblyReference.cache
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.Form1.resources
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.Properties.Resources.resources
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.GenerateResource.cache
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CoreCompileInputs.cache
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.exe
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.pdb
