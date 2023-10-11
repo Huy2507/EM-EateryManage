@@ -41,6 +41,6 @@ F:\Desktop\EM-EateryManage\EM-EateryManage\bin\Debug\System.Text.Encoding.CodePa
 F:\Desktop\EM-EateryManage\EM-EateryManage\bin\Debug\System.Threading.AccessControl.xml
 F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.Fody.CopyLocal.cache
 F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CopyComplete
-F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csprojAssemblyReference.cache
 F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmOrder.resources
 F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.Food.resources
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.AssemblyReference.cache

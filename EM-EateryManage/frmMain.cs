@@ -18,28 +18,28 @@ namespace EM_EateryManage
         }
         List<DataTable> lstDataTB = new List<DataTable>();
         DataTable dtOrder = new DataTable();
-
+        private List<Form> displayedForms = new List<Form>();
+        
         private void frmMain_Load(object sender, EventArgs e)
         {
 
         }
-
         public void AddControls(Form f)
         {
             panelOrder.Controls.Clear();
             f.Dock = DockStyle.Fill;
             f.TopLevel = false;
-            
-            if (panelOrder.Controls.Count == 0)
-            {
-                panelOrder.Controls.Add(f);
+            panelOrder.Controls.Add(f);
+            if (displayedForms.Contains(f))
+            { 
+                f.Activate();
                 f.Show();
             }
             else
             {
-                f.BringToFront();
+                displayedForms.Add(f);
+                f.Show();
             }
-
         }
         private void btnOrder_Click(object sender, EventArgs e)
         {
@@ -47,8 +47,8 @@ namespace EM_EateryManage
             {
                 btnOrder.Checked = !btnOrder.Checked;
                 btnTable.Checked = btnSetting.Checked = false;
-                AddControls(new frmOrder());
             }
+            AddControls(new frmOrder());
         }
 
         private void btnTable_Click(object sender, EventArgs e)

@@ -196,6 +196,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionString.cs" />
     <Compile Include="Food.cs">
       <SubType>UserControl</SubType>
     </Compile>

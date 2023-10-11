@@ -29,42 +29,41 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvOrder = new Guna.UI2.WinForms.Guna2DataGridView();
             this.cbTable = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.food1 = new EM_EateryManage.Food();
-            this.food2 = new EM_EateryManage.Food();
-            this.food3 = new EM_EateryManage.Food();
+            this.flpnlMenu = new System.Windows.Forms.FlowLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flpnlMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvOrder
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvOrder.ColumnHeadersHeight = 24;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvOrder.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvOrder.Location = new System.Drawing.Point(601, 0);
@@ -117,50 +116,34 @@
             this.cbTable.TabIndex = 1;
             this.cbTable.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // flowLayoutPanel1
+            // flpnlMenu
             // 
-            this.flowLayoutPanel1.Controls.Add(this.food1);
-            this.flowLayoutPanel1.Controls.Add(this.food2);
-            this.flowLayoutPanel1.Controls.Add(this.food3);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 36);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(601, 637);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.flpnlMenu.AutoScroll = true;
+            this.flpnlMenu.Controls.Add(this.button1);
+            this.flpnlMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpnlMenu.Location = new System.Drawing.Point(0, 36);
+            this.flpnlMenu.Name = "flpnlMenu";
+            this.flpnlMenu.Size = new System.Drawing.Size(601, 637);
+            this.flpnlMenu.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // food1
             // 
-            this.food1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.food1.Location = new System.Drawing.Point(3, 3);
-            this.food1.Name = "food1";
-            this.food1.Size = new System.Drawing.Size(192, 173);
-            this.food1.TabIndex = 0;
-            this.food1.Click += new System.EventHandler(this.food1_Click);
-            // 
-            // food2
-            // 
-            this.food2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.food2.Location = new System.Drawing.Point(201, 3);
-            this.food2.Name = "food2";
-            this.food2.Size = new System.Drawing.Size(192, 173);
-            this.food2.TabIndex = 1;
-            this.food2.Click += new System.EventHandler(this.btnFood);
-            // 
-            // food3
-            // 
-            this.food3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.food3.Location = new System.Drawing.Point(399, 3);
-            this.food3.Name = "food3";
-            this.food3.Size = new System.Drawing.Size(192, 173);
-            this.food3.TabIndex = 2;
-            this.food3.Click += new System.EventHandler(this.btnFood);
             // 
             // frmOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1062, 673);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flpnlMenu);
             this.Controls.Add(this.cbTable);
             this.Controls.Add(this.dgvOrder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -168,7 +151,7 @@
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flpnlMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -178,9 +161,8 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvOrder;
         private Guna.UI2.WinForms.Guna2ComboBox cbTable;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flpnlMenu;
+        private System.Windows.Forms.Button button1;
         private Food food1;
-        private Food food2;
-        private Food food3;
     }
 }

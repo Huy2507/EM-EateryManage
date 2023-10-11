@@ -12,29 +12,41 @@ namespace EM_EateryManage
 {
     public partial class Food : UserControl
     {
-        public Food()
+        private frmOrder form1;
+        public class food
         {
-            InitializeComponent();
-        }
-        public new event EventHandler Click
-        {
-            add
+            public string Name { get; set; }
+            public decimal Price { get; set; }
+            public string Image { get; set; }
+
+            public food(string name, decimal price, string image)
             {
-                base.Click += value;
-                foreach (Control control in Controls)
-                {
-                    control.Click += value;
-                }
-            }
-            remove
-            {
-                base.Click -= value;
-                foreach (Control control in Controls)
-                {
-                    control.Click -= value;
-                }
+                Name = name;
+                Price = price;
+                Image = image;
             }
         }
 
+        public List<food> value;
+
+        public Food(List<food> value)
+        {
+            InitializeComponent();
+            this.value = value;
+            foreach (food f in value)
+            {
+                lblNameFood.Text = f.Name;
+                lblPrice.Text = f.Price.ToString();
+                picFood.ImageLocation = f.Image;
+                
+                // Gán các giá trị khác cho các control khác
+            }
+
+        }
+
+        private void Food_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

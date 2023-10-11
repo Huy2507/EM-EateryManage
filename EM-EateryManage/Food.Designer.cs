@@ -28,43 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblNameFood = new System.Windows.Forms.Label();
-            this.picSpagetti = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblPrice = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.picSpagetti)).BeginInit();
+            this.picFood = new System.Windows.Forms.PictureBox();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.picFood)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNameFood
             // 
             this.lblNameFood.AutoSize = true;
-            this.lblNameFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameFood.Location = new System.Drawing.Point(3, 107);
+            this.lblNameFood.Location = new System.Drawing.Point(3, 92);
             this.lblNameFood.Name = "lblNameFood";
-            this.lblNameFood.Size = new System.Drawing.Size(151, 20);
+            this.lblNameFood.Size = new System.Drawing.Size(46, 17);
             this.lblNameFood.TabIndex = 1;
-            this.lblNameFood.Text = "Mỳ Ý ( Spagetti )";
-            // 
-            // picSpagetti
-            // 
-            this.picSpagetti.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picSpagetti.Image = global::EM_EateryManage.Properties.Resources.MiYsotdautoi;
-            this.picSpagetti.ImageRotate = 0F;
-            this.picSpagetti.Location = new System.Drawing.Point(3, 3);
-            this.picSpagetti.Name = "picSpagetti";
-            this.picSpagetti.Size = new System.Drawing.Size(188, 101);
-            this.picSpagetti.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSpagetti.TabIndex = 0;
-            this.picSpagetti.TabStop = false;
+            this.lblNameFood.Text = "label1";
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(101, 148);
+            this.lblPrice.Location = new System.Drawing.Point(91, 123);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(90, 25);
+            this.lblPrice.Size = new System.Drawing.Size(46, 17);
             this.lblPrice.TabIndex = 2;
-            this.lblPrice.Text = "50.000đ";
+            this.lblPrice.Text = "label2";
+            // 
+            // picFood
+            // 
+            this.picFood.Location = new System.Drawing.Point(0, 3);
+            this.picFood.Name = "picFood";
+            this.picFood.Size = new System.Drawing.Size(150, 77);
+            this.picFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFood.TabIndex = 0;
+            this.picFood.TabStop = false;
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // Food
             // 
@@ -73,10 +76,11 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblNameFood);
-            this.Controls.Add(this.picSpagetti);
+            this.Controls.Add(this.picFood);
             this.Name = "Food";
-            this.Size = new System.Drawing.Size(192, 173);
-            ((System.ComponentModel.ISupportInitialize)(this.picSpagetti)).EndInit();
+            this.Size = new System.Drawing.Size(148, 148);
+            this.Click += new System.EventHandler(this.Food_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.picFood)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,8 +88,9 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2PictureBox picSpagetti;
+        private System.Windows.Forms.PictureBox picFood;
         private System.Windows.Forms.Label lblNameFood;
         private System.Windows.Forms.Label lblPrice;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

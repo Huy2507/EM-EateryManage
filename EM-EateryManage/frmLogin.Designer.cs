@@ -31,8 +31,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtTK = new System.Windows.Forms.TextBox();
-            this.txtMK = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -68,22 +68,22 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Mật Khẩu";
             // 
-            // txtTK
+            // txtUsername
             // 
-            this.txtTK.Location = new System.Drawing.Point(215, 189);
-            this.txtTK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtTK.Name = "txtTK";
-            this.txtTK.Size = new System.Drawing.Size(285, 22);
-            this.txtTK.TabIndex = 2;
+            this.txtUsername.Location = new System.Drawing.Point(215, 189);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(285, 22);
+            this.txtUsername.TabIndex = 0;
             // 
-            // txtMK
+            // txtPassword
             // 
-            this.txtMK.Location = new System.Drawing.Point(215, 248);
-            this.txtMK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMK.Name = "txtMK";
-            this.txtMK.Size = new System.Drawing.Size(285, 22);
-            this.txtMK.TabIndex = 2;
-            this.txtMK.UseSystemPasswordChar = true;
+            this.txtPassword.Location = new System.Drawing.Point(215, 248);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(285, 22);
+            this.txtPassword.TabIndex = 1;
+            this.txtPassword.UseSystemPasswordChar = true;
             // 
             // btnLogin
             // 
@@ -92,7 +92,7 @@
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(148, 57);
-            this.btnLogin.TabIndex = 3;
+            this.btnLogin.TabIndex = 2;
             this.btnLogin.Text = "Đăng Nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -107,6 +107,7 @@
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Thoát";
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmLogin
             // 
@@ -116,8 +117,8 @@
             this.ClientSize = new System.Drawing.Size(543, 473);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.txtMK);
-            this.Controls.Add(this.txtTK);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -134,8 +135,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTK;
-        private System.Windows.Forms.TextBox txtMK;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnExit;
     }

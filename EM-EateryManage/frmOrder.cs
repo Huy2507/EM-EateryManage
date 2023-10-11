@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using static EM_EateryManage.Food;
 
 namespace EM_EateryManage
 {
     public partial class frmOrder : Form
     {
+        private Food form1;
         public frmOrder()
         {
             InitializeComponent();
-        }
 
+        }
+        public event EventHandler FormClicked;
         List<DataTable> lstDataTB = new List<DataTable>();
         DataTable dtOrder = new DataTable();
         public void AddDataTocbTable()
@@ -37,8 +41,9 @@ namespace EM_EateryManage
         }
         public void btnFood(object sender, EventArgs e)
         {
-
-            Control food = (Control)sender;
+            FormClicked?.Invoke(this, EventArgs.Empty);
+            Food food = (Food)sender;
+            
             Label label = food.Controls.Find("lblNameFood", true).FirstOrDefault() as Label;
             if (label != null)
             {
@@ -105,11 +110,53 @@ namespace EM_EateryManage
             AddColumnToDGV();
             
         }
-
-        private void food1_Click(object sender, EventArgs e)
+        private void AttachClickEventToControls(Food f)
         {
-            Food food = new Food();
-            food.Click += btnFood;
+            // Lặp qua tất cả các control trong panel
+            foreach (Control control in f.Controls)
+            {
+                // Gắn sự kiện click cho từng control
+                control.Click += btnFood;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT food_name, food_price, food_image FROM dbo.FOOD";
+
+            List<food> value = new List<food>();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            // Lấy dữ liệu từ cột thích hợp trong truy vấn và tạo đối tượng Person
+                            string name = reader.GetString(0);
+                            decimal price = reader.GetDecimal(1);
+                            string image = reader.GetString(2);
+
+                            food f = new food(name, price, image);
+
+                            value.Add(f);
+                            Food childForm = new Food(value);
+
+                            // Hiển thị Form mới
+                            flpnlMenu.Controls.Add(childForm);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }
