@@ -18,11 +18,16 @@ namespace EM_EateryManage
         }
         List<DataTable> lstDataTB = new List<DataTable>();
         DataTable dtOrder = new DataTable();
+        //Mở lại form cũ
         private List<Form> displayedForms = new List<Form>();
-        
+        private frmOrder openedOrderForm;
+        //
         private void frmMain_Load(object sender, EventArgs e)
         {
+            lblClock.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
+            // Bắt đầu Timer
+            timerClock.Start();
         }
         public void AddControls(Form f)
         {
@@ -39,6 +44,10 @@ namespace EM_EateryManage
             {
                 displayedForms.Add(f);
                 f.Show();
+                if (f is frmOrder)
+                {
+                    openedOrderForm = (frmOrder)f;
+                }
             }
         }
         private void btnOrder_Click(object sender, EventArgs e)
@@ -48,7 +57,14 @@ namespace EM_EateryManage
                 btnOrder.Checked = !btnOrder.Checked;
                 btnTable.Checked = btnSetting.Checked = false;
             }
-            AddControls(new frmOrder());
+            if (openedOrderForm != null)
+            {
+                AddControls(openedOrderForm);
+            }
+            else
+            {
+                AddControls(new frmOrder());
+            }
         }
 
         private void btnTable_Click(object sender, EventArgs e)
@@ -69,6 +85,10 @@ namespace EM_EateryManage
                 btnOrder.Checked = btnTable.Checked = false;
 
             }
+        }
+        private void timerClock_Tick(object sender, EventArgs e)
+        {
+            lblClock.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
     }
 }

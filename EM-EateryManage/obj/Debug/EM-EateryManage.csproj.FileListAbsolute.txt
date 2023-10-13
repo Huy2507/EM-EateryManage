@@ -43,4 +43,4 @@ F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.Fody
 F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CopyComplete
 F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmOrder.resources
 F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.Food.resources
-F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.AssemblyReference.cache
+F:\Desktop\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csprojAssemblyReference.cache

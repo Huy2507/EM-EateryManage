@@ -9,18 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using static EM_EateryManage.Food;
+using System.Text.RegularExpressions;
 
 namespace EM_EateryManage
 {
     public partial class frmOrder : Form
     {
-        private Food form1;
         public frmOrder()
         {
             InitializeComponent();
 
         }
-        public event EventHandler FormClicked;
         List<DataTable> lstDataTB = new List<DataTable>();
         DataTable dtOrder = new DataTable();
         public void AddDataTocbTable()
@@ -30,26 +29,28 @@ namespace EM_EateryManage
                 cbTable.Items.Add("Table " + i.ToString());
             }
         }
-        private void panel_MouseDown(object sender, MouseEventArgs e)
+        public void AddColumnToDGV()
         {
-            Panel panel = (Panel)sender;
-            // Kiểm tra xem vị trí chuột có nằm trong Panel không
-            if (panel.ClientRectangle.Contains(e.Location))
-            {
-                
-            }
+            dtOrder = new DataTable();
+            dtOrder.Columns.Add("Food");
+            dtOrder.Columns.Add("Amount");
+            dtOrder.Columns.Add("Table");
+            dtOrder.Columns.Add("Price");
+            dtOrder.Columns.Add("Total Price");
+            dgvOrder.DataSource = dtOrder;
+
         }
         public void btnFood(object sender, EventArgs e)
         {
-            FormClicked?.Invoke(this, EventArgs.Empty);
             Food food = (Food)sender;
-            
-            Label label = food.Controls.Find("lblNameFood", true).FirstOrDefault() as Label;
-            if (label != null)
+            Label labelName = food.Controls.Find("lblNameFood", true).FirstOrDefault() as Label;
+            if (labelName != null)
             {
-                string labelText = label.Text;
+                string labelText = labelName.Text;
                 string foodName = labelText;
                 DataRow dr;
+                Label labelPrice = food.Controls.Find("lblPrice", true).FirstOrDefault() as Label;
+                decimal price = decimal.Parse(labelPrice.Text);
                 int total = 0;
                 total = dgvOrder.RowCount - 1;
                 if (dgvOrder.Rows[0].Cells[0].Value == null)
@@ -57,13 +58,16 @@ namespace EM_EateryManage
                     dr = dtOrder.NewRow();
                     dr["Food"] = foodName;
                     dr["Amount"] = 1;
+
                     if (cbTable.SelectedIndex < 0)
                     {
                         MessageBox.Show("Chossen Table!!!");
                         cbTable.Focus();
                         return;
                     }
-                    dr["Table"] = cbTable.Text;
+                    dr["Table"] = Regex.Match(cbTable.Text, @"\d+").Value;
+                    dr["Price"] = price;
+                    dr["Total Price"] = Convert.ToDecimal(dr["Amount"]) * Convert.ToDecimal(dr["Price"]);
                     dtOrder.Rows.Add(dr);
                     dgvOrder.DataSource = dtOrder;
                 }
@@ -75,8 +79,10 @@ namespace EM_EateryManage
                         {
                             int _amount = Convert.ToInt32(dgvOrder.Rows[i].Cells[1].Value.ToString());
                             dgvOrder.Rows[i].Cells[1].Value = (_amount + 1).ToString();
+                            dgvOrder.Rows[i].Cells[4].Value = Convert.ToDecimal(dgvOrder.Rows[i].Cells[1].Value) * Convert.ToDecimal(dgvOrder.Rows[i].Cells[3].Value);
                             return;
                         }
+
                     }
                     dr = dtOrder.NewRow();
                     dr["Food"] = foodName;
@@ -87,28 +93,14 @@ namespace EM_EateryManage
                         cbTable.Focus();
                         return;
                     }
-                    dr["Table"] = cbTable.Text;
+                    dr["Table"] = Regex.Match(cbTable.Text, @"\d+").Value;
+                    dr["Price"] = price;
+                    dr["Total Price"] = Convert.ToDecimal(dr["Amount"]) * Convert.ToDecimal(dr["Price"]);
                     dtOrder.Rows.Add(dr);
                     dgvOrder.DataSource = dtOrder;
                 }
 
             }
-
-        }
-        public void AddColumnToDGV()
-        {
-            dtOrder = new DataTable();
-            dtOrder.Columns.Add("Food");
-            dtOrder.Columns.Add("Amount");
-            dtOrder.Columns.Add("Table");
-            dgvOrder.DataSource = dtOrder;
-
-        }
-        private void frmOrder_Load(object sender, EventArgs e)
-        {
-            AddDataTocbTable();
-            AddColumnToDGV();
-            
         }
         private void AttachClickEventToControls(Food f)
         {
@@ -119,6 +111,24 @@ namespace EM_EateryManage
                 control.Click += btnFood;
             }
         }
+        private void dgvOrder_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow selectedRow = dgvOrder.Rows[e.RowIndex];
+            if (selectedRow.Cells[1].Value.ToString() != "1")
+            {
+                int _amount = Convert.ToInt32(selectedRow.Cells[1].Value.ToString());
+                selectedRow.Cells[1].Value = (_amount - 1).ToString();
+                selectedRow.Cells[4].Value = Convert.ToDecimal(selectedRow.Cells[1].Value) * Convert.ToDecimal(selectedRow.Cells[3].Value);
+                return;
+            }
+            dgvOrder.Rows.Remove(selectedRow);
+        }
+        private void frmOrder_Load(object sender, EventArgs e)
+        {
+            AddDataTocbTable();
+            AddColumnToDGV();
+        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -137,16 +147,14 @@ namespace EM_EateryManage
 
                         while (reader.Read())
                         {
-                            // Lấy dữ liệu từ cột thích hợp trong truy vấn và tạo đối tượng Person
                             string name = reader.GetString(0);
                             decimal price = reader.GetDecimal(1);
                             string image = reader.GetString(2);
 
                             food f = new food(name, price, image);
-
                             value.Add(f);
                             Food childForm = new Food(value);
-
+                            childForm.FoodClicked += btnFood;
                             // Hiển thị Form mới
                             flpnlMenu.Controls.Add(childForm);
                         }
@@ -158,5 +166,71 @@ namespace EM_EateryManage
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-    }
+
+        private void cbTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int total = dgvOrder.RowCount;
+            if (total > 1)
+            {
+                MessageBox.Show("Hãy Hoàn Tất Gọi Món Cho " + dgvOrder.Rows[0].Cells[2].Value.ToString() +" !!!");
+                cbTable.Text = dgvOrder.Rows[0].Cells[2].Value.ToString();
+                return;
+            }
+        }
+
+        private void btnConfirmOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch(Exception ex)
+            {
+                
+            }
+
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    foreach(DataGridViewRow row in dgvOrder.Rows)
+                    {
+                        if(!row.IsNewRow)
+                        {
+                            string query = "INSERT INTO BILLINFO (item_name, quantity, unit_price, line_total, table_id) VALUES (@name, @amount, @price, @total, @table)";
+                            command.CommandText = query;
+                            command.Parameters.Clear();
+                            command.Parameters.AddWithValue("@name", row.Cells[0].Value.ToString());
+                            command.Parameters.AddWithValue("@amount", row.Cells[1].Value);
+                            command.Parameters.AddWithValue("@price", row.Cells[3].Value);
+                            command.Parameters.AddWithValue("@total", row.Cells[4].Value);
+                            command.Parameters.AddWithValue("@table", row.Cells[2].Value);
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                    MessageBox.Show("Thêm hàng thành công!");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            
+        }
+
+        private void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+            int rowCount = dgvOrder.Rows.Count;
+            for (int n = 0; n < rowCount; n++)
+            {
+                if (dgvOrder.Rows[0].IsNewRow == false)
+                    dgvOrder.Rows.RemoveAt(0);
+            }
+        }
+    } 
 }

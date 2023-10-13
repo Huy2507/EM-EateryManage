@@ -12,7 +12,6 @@ namespace EM_EateryManage
 {
     public partial class Food : UserControl
     {
-        private frmOrder form1;
         public class food
         {
             public string Name { get; set; }
@@ -43,10 +42,24 @@ namespace EM_EateryManage
             }
 
         }
-
+        public event EventHandler FoodClicked;
+        private void AttachClickEvent(Control control)
+        {
+            control.Click += Food_Click;
+            foreach (Control childControl in control.Controls)
+            {
+                AttachClickEvent(childControl);
+            }
+        }
         private void Food_Click(object sender, EventArgs e)
         {
-            
+            // Gọi sự kiện FoodClicked
+            FoodClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void Food_Load(object sender, EventArgs e)
+        {
+            AttachClickEvent(this);
         }
     }
 }
