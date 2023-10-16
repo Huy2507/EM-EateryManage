@@ -50,7 +50,7 @@ namespace EM_EateryManage
                 string foodName = labelText;
                 DataRow dr;
                 Label labelPrice = food.Controls.Find("lblPrice", true).FirstOrDefault() as Label;
-                decimal price = decimal.Parse(labelPrice.Text);
+                string price = labelPrice.Text;
                 int total = 0;
                 total = dgvOrder.RowCount - 1;
                 if (dgvOrder.Rows[0].Cells[0].Value == null)
@@ -66,7 +66,8 @@ namespace EM_EateryManage
                         return;
                     }
                     dr["Table"] = Regex.Match(cbTable.Text, @"\d+").Value;
-                    dr["Price"] = price;
+                    string gia = price.ToString().Replace(".", "");
+                    dr["Price"] = gia;
                     dr["Total Price"] = Convert.ToDecimal(dr["Amount"]) * Convert.ToDecimal(dr["Price"]);
                     dtOrder.Rows.Add(dr);
                     dgvOrder.DataSource = dtOrder;
@@ -94,7 +95,8 @@ namespace EM_EateryManage
                         return;
                     }
                     dr["Table"] = Regex.Match(cbTable.Text, @"\d+").Value;
-                    dr["Price"] = price;
+                    string gia = price.ToString().Replace(".", "");
+                    dr["Price"] = gia;
                     dr["Total Price"] = Convert.ToDecimal(dr["Amount"]) * Convert.ToDecimal(dr["Price"]);
                     dtOrder.Rows.Add(dr);
                     dgvOrder.DataSource = dtOrder;
@@ -127,10 +129,11 @@ namespace EM_EateryManage
         {
             AddDataTocbTable();
             AddColumnToDGV();
+            AddDataToFlowlayoutPanel();
         }
        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AddDataToFlowlayoutPanel()
         {
             string query = "SELECT food_name, food_price, food_image FROM dbo.FOOD";
 
@@ -148,7 +151,7 @@ namespace EM_EateryManage
                         while (reader.Read())
                         {
                             string name = reader.GetString(0);
-                            decimal price = reader.GetDecimal(1);
+                            string price = reader.GetString(1);
                             string image = reader.GetString(2);
 
                             food f = new food(name, price, image);

@@ -174,6 +174,7 @@
             this.Controls.Add(this.panelOrder);
             this.Controls.Add(this.guna2Panel2);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();

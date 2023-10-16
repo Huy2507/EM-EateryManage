@@ -15,10 +15,10 @@ namespace EM_EateryManage
         public class food
         {
             public string Name { get; set; }
-            public decimal Price { get; set; }
+            public string Price { get; set; }
             public string Image { get; set; }
 
-            public food(string name, decimal price, string image)
+            public food(string name, string price, string image)
             {
                 Name = name;
                 Price = price;

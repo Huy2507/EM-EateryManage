@@ -203,6 +203,12 @@
     <Compile Include="Food.Designer.cs">
       <DependentUpon>Food.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmADMIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmADMIN.Designer.cs">
+      <DependentUpon>frmADMIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Food.resx">
       <DependentUpon>Food.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmADMIN.resx">
+      <DependentUpon>frmADMIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

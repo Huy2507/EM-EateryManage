@@ -35,13 +35,11 @@
             this.dgvOrder = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.flpnlMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelOrder = new Guna.UI2.WinForms.Guna2Button();
             this.btnConfirmOrder = new Guna.UI2.WinForms.Guna2Button();
             this.cbTable = new Guna.UI2.WinForms.Guna2ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
-            this.flpnlMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +70,7 @@
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
             this.dgvOrder.RowHeadersVisible = false;
+            this.dgvOrder.RowHeadersWidth = 51;
             this.dgvOrder.RowTemplate.Height = 24;
             this.dgvOrder.RowTemplate.ReadOnly = true;
             this.dgvOrder.Size = new System.Drawing.Size(461, 535);
@@ -103,21 +102,10 @@
             // 
             this.flpnlMenu.AutoScroll = true;
             this.flpnlMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpnlMenu.Controls.Add(this.button1);
             this.flpnlMenu.Location = new System.Drawing.Point(0, 32);
             this.flpnlMenu.Name = "flpnlMenu";
             this.flpnlMenu.Size = new System.Drawing.Size(601, 607);
             this.flpnlMenu.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Show Menu";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -200,7 +188,6 @@
             this.Text = " ";
             this.Load += new System.EventHandler(this.frmOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).EndInit();
-            this.flpnlMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -211,7 +198,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvOrder;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private System.Windows.Forms.FlowLayoutPanel flpnlMenu;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button btnConfirmOrder;
         private Guna.UI2.WinForms.Guna2Button btnCancelOrder;

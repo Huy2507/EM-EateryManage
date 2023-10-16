@@ -21,6 +21,7 @@ namespace EM_EateryManage
         //Mở lại form cũ
         private List<Form> displayedForms = new List<Form>();
         private frmOrder openedOrderForm;
+        private frmADMIN openFormAdmin;
         //
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -47,6 +48,10 @@ namespace EM_EateryManage
                 if (f is frmOrder)
                 {
                     openedOrderForm = (frmOrder)f;
+                }
+                if (f is frmADMIN)
+                {
+                    openFormAdmin = (frmADMIN)f;
                 }
             }
         }
@@ -84,6 +89,14 @@ namespace EM_EateryManage
                 btnSetting.Checked = !btnSetting.Checked;
                 btnOrder.Checked = btnTable.Checked = false;
 
+            }
+            if (openFormAdmin != null)
+            {
+                AddControls(openFormAdmin);
+            }
+            else
+            {
+                AddControls(new frmADMIN());
             }
         }
         private void timerClock_Tick(object sender, EventArgs e)
