@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Guna.UI2.WinForms;
 
 namespace EM_EateryManage
 {
@@ -28,19 +29,32 @@ namespace EM_EateryManage
                     connection.Open();
 
                     // Truy vấn để kiểm tra tài khoản
-                    string query = "SELECT COUNT(*) FROM dbo.ACCOUNT WHERE username = @Username AND password = @Password";
+                    string query = "SELECT Chuc_Vu FROM dbo.ACCOUNT WHERE username = @Username AND password = @Password";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Username", txtUsername.Text);
                     command.Parameters.AddWithValue("@Password", txtPassword.Text);
 
-                    int result = (int)command.ExecuteScalar();
+                    string result = (string)command.ExecuteScalar();
 
-                    if (result == 1)
+                    if (result != null)
                     {
-                        frmMain FormMain = new frmMain();
-                        FormMain.Show();
-                        this.Hide();
+                        string role = result;
+                        if(role == "staff")
+                        {
+                            frmMain FormMain = new frmMain();
+                            Guna2Button btnsetting = FormMain.Controls.Find("btnSetting", true).FirstOrDefault() as Guna2Button;
+                            btnsetting.Enabled = false;
+                            FormMain.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            frmMain FormMain = new frmMain();
+                            FormMain.Show();
+                            this.Hide();
+                        }
                     }
+
                     else
                     {
                         MessageBox.Show("Tài khoản hoặc mật khẩu sai. Hãy thử lại !!!");
