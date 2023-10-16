@@ -124,5 +124,10 @@ namespace EM_EateryManage
                 e.Handled = true;
             }
         }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

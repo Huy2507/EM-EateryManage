@@ -32,7 +32,6 @@
             this.tpTaiKhoan = new System.Windows.Forms.TabPage();
             this.tpThucAn = new System.Windows.Forms.TabPage();
             this.btnTimMon = new System.Windows.Forms.Button();
-            this.txtTimMON = new System.Windows.Forms.TextBox();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -61,6 +60,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtpkNgayDen = new System.Windows.Forms.DateTimePicker();
             this.dgvBill = new System.Windows.Forms.DataGridView();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.tabControl1.SuspendLayout();
             this.tpThucAn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSMonAn)).BeginInit();
@@ -100,8 +100,7 @@
             // tpThucAn
             // 
             this.tpThucAn.BackColor = System.Drawing.Color.RosyBrown;
-            this.tpThucAn.Controls.Add(this.btnTimMon);
-            this.tpThucAn.Controls.Add(this.txtTimMON);
+            this.tpThucAn.Controls.Add(this.dgvDSMonAn);
             this.tpThucAn.Controls.Add(this.btnXoa);
             this.tpThucAn.Controls.Add(this.btnSua);
             this.tpThucAn.Controls.Add(this.btnThem);
@@ -111,7 +110,6 @@
             this.tpThucAn.Controls.Add(this.label4);
             this.tpThucAn.Controls.Add(this.label3);
             this.tpThucAn.Controls.Add(this.label2);
-            this.tpThucAn.Controls.Add(this.dgvDSMonAn);
             this.tpThucAn.Controls.Add(this.panel1);
             this.tpThucAn.Location = new System.Drawing.Point(4, 29);
             this.tpThucAn.Name = "tpThucAn";
@@ -122,19 +120,12 @@
             // 
             // btnTimMon
             // 
-            this.btnTimMon.Location = new System.Drawing.Point(284, 12);
+            this.btnTimMon.Location = new System.Drawing.Point(330, 9);
             this.btnTimMon.Name = "btnTimMon";
             this.btnTimMon.Size = new System.Drawing.Size(148, 41);
             this.btnTimMon.TabIndex = 5;
             this.btnTimMon.Text = "Tìm Món";
             this.btnTimMon.UseVisualStyleBackColor = true;
-            // 
-            // txtTimMON
-            // 
-            this.txtTimMON.Location = new System.Drawing.Point(20, 19);
-            this.txtTimMON.Name = "txtTimMON";
-            this.txtTimMON.Size = new System.Drawing.Size(258, 27);
-            this.txtTimMON.TabIndex = 4;
             // 
             // btnXoa
             // 
@@ -168,6 +159,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Gray;
             this.label7.Location = new System.Drawing.Point(7, 398);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 20);
@@ -177,6 +169,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Gray;
             this.label6.Location = new System.Drawing.Point(7, 330);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(108, 20);
@@ -186,6 +179,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Gray;
             this.label5.Location = new System.Drawing.Point(7, 267);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(133, 20);
@@ -195,6 +189,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Gray;
             this.label4.Location = new System.Drawing.Point(7, 207);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(44, 20);
@@ -204,6 +199,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Gray;
             this.label3.Location = new System.Drawing.Point(7, 153);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 20);
@@ -213,6 +209,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Gray;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.label2.Location = new System.Drawing.Point(7, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 20);
@@ -233,6 +231,9 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.Controls.Add(this.guna2TextBox1);
+            this.panel1.Controls.Add(this.btnTimMon);
             this.panel1.Controls.Add(this.txtAdd_TenMon);
             this.panel1.Controls.Add(this.txtAdd_DanhMuc);
             this.panel1.Controls.Add(this.txtAdd_Gia);
@@ -398,6 +399,28 @@
             this.dgvBill.Size = new System.Drawing.Size(1048, 520);
             this.dgvBill.TabIndex = 4;
             // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.BorderRadius = 20;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(3, 9);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(290, 41);
+            this.guna2TextBox1.TabIndex = 3;
+            this.guna2TextBox1.TextChanged += new System.EventHandler(this.guna2TextBox1_TextChanged);
+            // 
             // frmADMIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -447,7 +470,6 @@
         private System.Windows.Forms.Button btnSua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Button btnTimMon;
-        private System.Windows.Forms.TextBox txtTimMON;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TabPage tpDoanhThu;
         private System.Windows.Forms.Panel panel2;
@@ -458,5 +480,6 @@
         private System.Windows.Forms.DateTimePicker dtpkNgayDen;
         private System.Windows.Forms.DataGridView dgvBill;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }
