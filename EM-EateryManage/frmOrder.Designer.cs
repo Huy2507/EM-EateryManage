@@ -169,6 +169,7 @@
             this.cbTable.BackColor = System.Drawing.Color.Transparent;
             this.cbTable.BorderRadius = 4;
             this.cbTable.BorderThickness = 2;
+            this.cbTable.DisplayMember = "Table 1";
             this.cbTable.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbTable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTable.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));

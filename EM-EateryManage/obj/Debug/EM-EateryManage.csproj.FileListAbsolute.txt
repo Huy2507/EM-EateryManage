@@ -91,6 +91,7 @@ C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryM
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.exe
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.pdb
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmADMIN.resources
+<<<<<<< HEAD
 F:\Desktop\EM_EateryManagement\EM-EateryManage\bin\Debug\EM-EateryManage.exe.config
 F:\Desktop\EM_EateryManagement\EM-EateryManage\bin\Debug\EM-EateryManage.exe
 F:\Desktop\EM_EateryManagement\EM-EateryManage\bin\Debug\EM-EateryManage.pdb
@@ -138,3 +139,7 @@ F:\Desktop\EM_EateryManagement\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.
 F:\Desktop\EM_EateryManagement\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CopyComplete
 F:\Desktop\EM_EateryManagement\EM-EateryManage\obj\Debug\EM-EateryManage.exe
 F:\Desktop\EM_EateryManagement\EM-EateryManage\obj\Debug\EM-EateryManage.pdb
+=======
+C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmXem_TTCN.resources
+>>>>>>> 8a4464513e2b8b04b66d2a5dc89e747418e47d8a
+F:\Desktop\EM_EateryManagement\EM-EateryManage\obj\Debug\EM_EateryManage.frmXem_TTCN.resources
