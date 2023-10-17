@@ -31,7 +31,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "SELECT * FROM FOOD";
+                    string query = "select food_id as N'Mã Món', food_name as N'Tên Món', food_price as N'Giá', food_image as N'Hình Ảnh', food_material as N'Nguyên Liệu Chính', food_detail as N'Mô Tả'\r\nfrom FOOD";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
 
@@ -48,7 +48,34 @@ namespace EM_EateryManage
             }
             
         }
+        public void AddDataToDGV_BanAn()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
 
+
+                    string query = "SELECT id as N'Mã Bàn(Auto)', ten_ban as N'Tên Bàn', so_ghe as N'Số Ghế' FROM QuanLyBan";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+
+                    // Đổ dữ liệu vào DataTable
+                    adapter.Fill(dataTable);
+
+                    // Gán DataTable làm nguồn dữ liệu cho DataGridView
+                    dgvBanAn.DataSource = dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
@@ -59,13 +86,20 @@ namespace EM_EateryManage
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
 
-                    string gia = txtAdd_Gia.Text.ToString().Replace(",",".");
+                    string gia = txtAdd_Gia.Text.ToString().Replace(",", ".");
                     string query = "INSERT INTO FOOD ( food_name, food_price, food_image,food_material, food_detail) VALUES (@name, @price, @Image, @material, @detail)";
                     command.CommandText = query;
                     command.Parameters.Clear();
-                    
-                    command.Parameters.AddWithValue("@name", txtAdd_TenMon.Text);
-                    command.Parameters.AddWithValue("@price", gia);
+
+                    if (txtAdd_TenMon.Text != "" && txtAdd_Gia.Text != "")
+                    {
+                        command.Parameters.AddWithValue("@name", txtAdd_TenMon.Text);
+                        command.Parameters.AddWithValue("@price", gia);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui Lòng Nhập Đầy Đủ Tên và Giá!", "Thông Báo");
+                    }
                     command.Parameters.AddWithValue("@Image", txtAdd_LinkIMG.Text);
                     command.Parameters.AddWithValue("@material", txtAdd_Loai.Text);
                     command.Parameters.AddWithValue("@detail", txtAdd_MoTa.Text);
@@ -93,6 +127,7 @@ namespace EM_EateryManage
         private void frmADMIN_Load(object sender, EventArgs e)
         {
             AddDataToDGV();
+            AddDataToDGV_BanAn();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -128,6 +163,238 @@ namespace EM_EateryManage
         private void guna2TextBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDanhMuc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tpTaiKhoan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpThucAn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDSMonAn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnTimMon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdd_TenMon_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdd_LinkIMG_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdd_Loai_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtAdd_MoTa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpDanhMuc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpBanAn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tpDoanhThu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnDisplayBill_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpkNgayDi_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dtpkNgayDen_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvBill_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtID_DM_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTenDM_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnThemDM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSuaDM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoaDM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXemDM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void btnThemBan_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    
+                    string query = "INSERT INTO QuanLyBan (ten_Ban, so_ghe) VALUES (@name, @SLGhe)";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+                    if ( txtTenDN_TK.Text != "" && cbbSLGhe.Text != "")
+                    {
+                        command.Parameters.AddWithValue("@name", txtTenDN_TK.Text);
+                        command.Parameters.AddWithValue("@SLGhe", cbbSLGhe.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui Lòng Nhập Đầy Đủ!", "Thông Báo");
+                    }
+                    
+
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("Thêm bàn thành công!");
+                    AddDataToDGV_BanAn();
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex is FormatException)
+                {
+                    MessageBox.Show("Giá trị giá tiền không hợp lệ!");
+                }
+                else
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
         }
     }
 }

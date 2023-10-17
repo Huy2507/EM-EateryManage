@@ -22,6 +22,7 @@ namespace EM_EateryManage
         private List<Form> displayedForms = new List<Form>();
         private frmOrder openedOrderForm;
         private frmADMIN openFormAdmin;
+        private frmXem_TTCN xTTCN;
         //
         private void frmMain_Load(object sender, EventArgs e)
         {

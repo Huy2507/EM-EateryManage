@@ -91,3 +91,4 @@ C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryM
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.exe
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.pdb
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmADMIN.resources
+C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmXem_TTCN.resources
