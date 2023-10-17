@@ -76,6 +76,34 @@ namespace EM_EateryManage
             }
 
         }
+        public void AddDataToDGV_TaiKhoan()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+
+                    string query = "select id as N'Mã Tài Khoản', display_name as N'Tên Hiển Thị', username as N'Tên Tài Khoản', password as N'Mật Khẩu', Chuc_Vu as N'Loại Tài Khoản'\r\nfrom account";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+
+                    // Đổ dữ liệu vào DataTable
+                    adapter.Fill(dataTable);
+
+                    // Gán DataTable làm nguồn dữ liệu cho DataGridView
+                    dgvACC.DataSource = dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
@@ -128,6 +156,7 @@ namespace EM_EateryManage
         {
             AddDataToDGV();
             AddDataToDGV_BanAn();
+            AddDataToDGV_TaiKhoan();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -366,9 +395,9 @@ namespace EM_EateryManage
                     command.CommandText = query;
                     command.Parameters.Clear();
 
-                    if ( txtTenDN_TK.Text != "" && cbbSLGhe.Text != "")
+                    if ( txtTenBan.Text != "" && cbbSLGhe.Text != "")
                     {
-                        command.Parameters.AddWithValue("@name", txtTenDN_TK.Text);
+                        command.Parameters.AddWithValue("@name", txtTenBan.Text);
                         command.Parameters.AddWithValue("@SLGhe", cbbSLGhe.Text);
                     }
                     else
@@ -396,5 +425,77 @@ namespace EM_EateryManage
                 }
             }
         }
+
+        private void btnThemTK_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    string query = "INSERT INTO Account (display_name, username, password, Chuc_Vu) VALUES (@1, @2, @3, @4)";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+                    // Kiểm tra xem tên tài khoản được thêm vào đã tồn tại trong csdl hay chưa
+                    bool usernameExists = false;
+                    int total = dgvACC.Rows.Count-1;
+                    for (int i =0; i<total; i++)
+                    {
+                        if (txtTenDN_TK.Text == dgvACC.Rows[i].Cells[2].Value.ToString())
+                        {
+                            usernameExists = true;
+                            break;
+                        }
+                    }
+
+                    if (usernameExists)
+                    {
+                        MessageBox.Show("Tài Khoản Đã Tồn Tại!", "Thông Báo!");
+                        return;
+                    }
+                    else
+                    {
+                        // Nếu tên tài khoản không tồn tại, thì thêm tài khoản mới
+                        command.Parameters.AddWithValue("@1", txtTenHT_TK.Text);
+                        command.Parameters.AddWithValue("@2", txtTenDN_TK.Text);
+                        command.Parameters.AddWithValue("@3", txtMK_TK.Text);
+
+                        if (cbLoaiTK_TK.Text == "admin" || cbLoaiTK_TK.Text == "staff")
+                        {
+                            command.Parameters.AddWithValue("@4", cbLoaiTK_TK.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Loại Tài Khoản Không Hợp Lệ!\nVui Lòng Chọn Loại admin Hoặc staff!", "Thông Báo");
+                            return;
+                        }
+
+                        command.ExecuteNonQuery();
+
+                        MessageBox.Show("Thêm Tài Khoản Thành Công!");
+                        AddDataToDGV_TaiKhoan();
+                    }
+
+                    
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("Giá trị giá tiền không hợp lệ!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+        }
+
     }
 }

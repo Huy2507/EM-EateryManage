@@ -95,7 +95,7 @@
             this.btnSuaTK = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvACC = new System.Windows.Forms.DataGridView();
             this.label18 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpDoanhThu.SuspendLayout();
@@ -114,7 +114,7 @@
             this.tpTaiKhoan.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvACC)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -338,6 +338,7 @@
             this.btnThemBan.TabIndex = 26;
             this.btnThemBan.Text = "Thêm";
             this.btnThemBan.UseVisualStyleBackColor = true;
+            this.btnThemBan.Click += new System.EventHandler(this.btnThemBan_Click);
             // 
             // btnSuaBan
             // 
@@ -735,6 +736,7 @@
             this.btnThemTK.TabIndex = 4;
             this.btnThemTK.Text = "Thêm";
             this.btnThemTK.UseVisualStyleBackColor = true;
+            this.btnThemTK.Click += new System.EventHandler(this.btnThemTK_Click);
             // 
             // label25
             // 
@@ -896,23 +898,23 @@
             // 
             // panel12
             // 
-            this.panel12.Controls.Add(this.dataGridView1);
+            this.panel12.Controls.Add(this.dgvACC);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel12.Location = new System.Drawing.Point(521, 0);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(527, 600);
             this.panel12.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvACC
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(527, 600);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvACC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvACC.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvACC.Location = new System.Drawing.Point(0, 0);
+            this.dgvACC.Name = "dgvACC";
+            this.dgvACC.RowHeadersWidth = 51;
+            this.dgvACC.RowTemplate.Height = 24;
+            this.dgvACC.Size = new System.Drawing.Size(527, 600);
+            this.dgvACC.TabIndex = 0;
             // 
             // label18
             // 
@@ -971,7 +973,7 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvACC)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1031,7 +1033,7 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvACC;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Button btnSuaTK;
         private System.Windows.Forms.Label label19;
