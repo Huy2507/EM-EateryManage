@@ -196,7 +196,7 @@
         private Guna.UI2.WinForms.Guna2Button btnTable;
         private Guna.UI2.WinForms.Guna2Button btnSetting;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private System.Windows.Forms.Label lblClock;
-        private System.Windows.Forms.Timer timerClock;
+        public System.Windows.Forms.Label lblClock;
+        public System.Windows.Forms.Timer timerClock;
     }
 }
