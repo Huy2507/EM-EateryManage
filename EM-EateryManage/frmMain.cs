@@ -23,7 +23,7 @@ namespace EM_EateryManage
         private frmOrder openedOrderForm;
         private frmADMIN openFormAdmin;
         //
-        private void frmMain_Load(object sender, EventArgs e)
+        public void frmMain_Load(object sender, EventArgs e)
         {
             lblClock.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -99,9 +99,9 @@ namespace EM_EateryManage
                 AddControls(new frmADMIN());
             }
         }
-        private void timerClock_Tick(object sender, EventArgs e)
+        public void timerClock_Tick(object sender, EventArgs e)
         {
-            lblClock.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            lblClock.Text = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
         }
     }
 }
