@@ -30,19 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-<<<<<<< HEAD
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblNameFood = new System.Windows.Forms.Label();
-            this.picFood = new System.Windows.Forms.PictureBox();
-            this.guna2Panel1.SuspendLayout();
-=======
             this.pnFood = new Guna.UI2.WinForms.Guna2Panel();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblNameFood = new System.Windows.Forms.Label();
             this.picFood = new System.Windows.Forms.PictureBox();
             this.pnFood.SuspendLayout();
->>>>>>> de4504eef60f4d96843c0691405ee7af511b7213
+
             ((System.ComponentModel.ISupportInitialize)(this.picFood)).BeginInit();
             this.SuspendLayout();
             // 

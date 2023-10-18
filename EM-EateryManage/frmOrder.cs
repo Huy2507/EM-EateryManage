@@ -167,7 +167,7 @@ namespace EM_EateryManage
 
         public void AddDataToFlowlayoutPanel()
         {
-            flpnlMenu.Controls.Clear();
+            
             string query = "SELECT food_name, food_price, food_image FROM dbo.FOOD";
 
             List<food> value = new List<food>();
@@ -277,9 +277,6 @@ namespace EM_EateryManage
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            AddDataToFlowlayoutPanel();
-        }
+
     } 
 }

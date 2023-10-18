@@ -226,6 +226,7 @@
             // 
             // dgvBill
             // 
+            this.dgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBill.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -348,6 +349,7 @@
             this.btnXoaBan.TabIndex = 28;
             this.btnXoaBan.Text = "Xóa";
             this.btnXoaBan.UseVisualStyleBackColor = true;
+            this.btnXoaBan.Click += new System.EventHandler(this.btnXoaBan_Click);
             // 
             // btnSuaBan
             // 
@@ -434,6 +436,7 @@
             // 
             // dgvBanAn
             // 
+            this.dgvBanAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBanAn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvBanAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBanAn.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -462,12 +465,12 @@
             // 
             // dgvDSMonAn
             // 
+            this.dgvDSMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDSMonAn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvDSMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSMonAn.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvDSMonAn.Location = new System.Drawing.Point(528, 3);
             this.dgvDSMonAn.Name = "dgvDSMonAn";
-            this.dgvDSMonAn.RowHeadersVisible = false;
             this.dgvDSMonAn.RowHeadersWidth = 51;
             this.dgvDSMonAn.RowTemplate.Height = 24;
             this.dgvDSMonAn.Size = new System.Drawing.Size(523, 600);
@@ -793,6 +796,7 @@
             // 
             // dgvACC
             // 
+            this.dgvACC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvACC.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvACC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvACC.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -965,6 +969,7 @@
             this.btnXoaTK.TabIndex = 6;
             this.btnXoaTK.Text = "Xóa";
             this.btnXoaTK.UseVisualStyleBackColor = true;
+            this.btnXoaTK.Click += new System.EventHandler(this.btnXoaTK_Click);
             // 
             // label11
             // 

@@ -27,6 +27,7 @@ namespace EM_EateryManage
             AddDataToDGV_BanAn();
             AddDataToDGV_TaiKhoan();
         }
+        #region Các Hàm Đổ Dữ Liệu Từ CSDL Vào_DGV
         public void AddDataToDGV()
         {
             try
@@ -49,11 +50,11 @@ namespace EM_EateryManage
                     dgvDSMonAn.DataSource = dataTable;
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-            
+
         }
         public void AddDataToDGV_BanAn()
         {
@@ -111,6 +112,9 @@ namespace EM_EateryManage
             }
 
         }
+        #endregion
+
+        #region Các Hàm Thêm
         private void btnThem_Click(object sender, EventArgs e)
         {
             try
@@ -137,7 +141,7 @@ namespace EM_EateryManage
                         }
                     }
 
-                    if(usernameExists)
+                    if (usernameExists)
                     {
                         MessageBox.Show("Món Ăn Đã Tồn Tại, Vui Lòng Đặt Tên Khác Hoặc Chọn \"Sửa\"!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         txtAdd_TenMon.Focus();
@@ -166,9 +170,9 @@ namespace EM_EateryManage
                     }
                 }
             }
-            catch //(Exception ex)
+            catch (Exception ex)
             {
-                //MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
         private void btnThemBan_Click(object sender, EventArgs e)
@@ -197,7 +201,7 @@ namespace EM_EateryManage
                         }
                     }
 
-                    if(usernameExists)
+                    if (usernameExists)
                     {
                         MessageBox.Show("Bàn Đã Tồn Tại, Vui Lòng Đặt Tên Khác Hoặc Chọn \"Sửa\"!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         txtTenBan.Focus();
@@ -224,17 +228,17 @@ namespace EM_EateryManage
                     }
                 }
             }
-            catch //(Exception ex)
+            catch (Exception ex)
             {
-                //MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
 
         private void btnThemTK_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            try
             {
-                try
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                 {
                     connection.Open();
                     SqlCommand command = new SqlCommand();
@@ -294,48 +298,16 @@ namespace EM_EateryManage
                         }
                     }
                 }
-                catch
-                {
-
-                }
             }
-        }
-
-        private void txtAdd_Gia_TextChanged(object sender, EventArgs e)
-        {
-            int cursorPos = txtAdd_Gia.SelectionStart;
-
-            if (!string.IsNullOrWhiteSpace(txtAdd_Gia.Text))
+            catch (Exception ex)
             {
-                if (double.TryParse(txtAdd_Gia.Text, out double value))
-                {
-                    txtAdd_Gia.Text = value.ToString("#,###");
-                    
-                }
-                
-            }
 
-            txtAdd_Gia.SelectionStart = cursorPos+1;
-        }
-
-        private void txtAdd_Gia_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
+                MessageBox.Show("An Error Occured: "+ex.Message);
             }
         }
+        #endregion
 
-        private void btnTimMon_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnXoaMon_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        #region Các Hàm Sửa
         private void btnSuaMon_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
@@ -458,14 +430,218 @@ namespace EM_EateryManage
                         txtID_TK.Visible = false;
                         connection.Close();
                     }
-                    
+
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An Error Occured:"+ex.Message);
+                    MessageBox.Show("An Error Occured:" + ex.Message);
                 }
             }
         }
+
+
+
+        private void btnSuaBan_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    string query = "UPDATE QuanLyBan SET ten_ban = @2, so_ghe = @3 WHERE id = @1";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+                    bool usernameExists = false;
+                    int total = dgvBanAn.Rows.Count - 1;
+                    for (int i = 0; i < total; i++)
+                    {
+                        if (txtTenBan.Text == dgvBanAn.Rows[i].Cells[1].Value.ToString() && txtIDBan.Text != dgvBanAn.Rows[i].Cells[0].Value.ToString())
+                        {
+                            usernameExists = true;
+                            break;
+                        }
+                    }
+
+                    if (usernameExists)
+                    {
+                        MessageBox.Show("Bàn Đã Tồn Tại", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                        txtTenBan.Focus();
+                    }
+                    else
+                    {
+                        if (txtTenBan.Text != "" && cbbSLGhe.Text != "")
+                        {
+                            command.Parameters.AddWithValue("@2", txtTenBan.Text);
+                            command.Parameters.AddWithValue("@3", cbbSLGhe.Text);
+                            command.Parameters.AddWithValue("@1", txtIDBan.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vui lòng chọn bàn muốn sửa!");
+                            return;
+                        }
+
+                        // Thực thi câu lệnh update
+                        command.ExecuteNonQuery();
+
+                        // Hiển thị thông báo sửa thành công
+                        MessageBox.Show("Sửa Bàn Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        AddDataToDGV_BanAn();
+                        lblIDBan.Visible = false;
+                        txtIDBan.Visible = false;
+                        connection.Close();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured:" + ex.Message);
+                }
+            }
+        }
+        #endregion
+
+        #region Các Hàm Xóa
+        private void btnXoaMon_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    string query = "delete from food WHERE food_id = @6";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+
+                    if (txtID_mon.Text != "")
+                    {
+                        command.Parameters.AddWithValue("@6", txtID_mon.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng chọn món muốn xóa!");
+                        return;
+                    }
+
+                    // Thực thi câu lệnh update
+                    command.ExecuteNonQuery();
+
+                    // Hiển thị thông báo xóa thành công
+                    MessageBox.Show("Xóa Món Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    AddDataToDGV();
+                    label8.Visible = false;
+                    txtID_mon.Visible = false;
+                    connection.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured:" + ex.Message);
+                }
+            }
+        }
+
+
+
+        private void btnXoaTK_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    string query = "delete from account WHERE id = @6";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+
+                    if (txtID_TK.Text != "")
+                    {
+                        command.Parameters.AddWithValue("@6", txtID_TK.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng chọn tài khoản muốn xóa!");
+                        return;
+                    }
+
+                    // Thực thi câu lệnh update
+                    command.ExecuteNonQuery();
+
+                    // Hiển thị thông báo xóa thành công
+                    MessageBox.Show("Xóa Tài Khoản Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    AddDataToDGV_TaiKhoan();
+                    label1.Visible = false;
+                    txtID_TK.Visible = false;
+                    connection.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured:" + ex.Message);
+                }
+            }
+        }
+
+        private void btnXoaBan_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    string query = "delete from quanlyban WHERE id = @6";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+
+                    if (txtIDBan.Text != "")
+                    {
+                        command.Parameters.AddWithValue("@6", txtIDBan.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui lòng chọn bàn muốn xóa!");
+                        return;
+                    }
+
+                    // Thực thi câu lệnh update
+                    command.ExecuteNonQuery();
+
+                    // Hiển thị thông báo xóa thành công
+                    MessageBox.Show("Xóa Bàn Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                    AddDataToDGV_BanAn();
+                    lblIDBan.Visible = false;
+                    txtIDBan.Visible = false;
+                    connection.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured:" + ex.Message);
+                }
+            }
+        }
+        #endregion
+
+        #region Các Hàm Phụ
 
         private void dgvACC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -482,7 +658,7 @@ namespace EM_EateryManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An Error Occured: "+ex.Message);
+                MessageBox.Show("An Error Occured: " + ex.Message);
             }
 
         }
@@ -530,71 +706,36 @@ namespace EM_EateryManage
                 MessageBox.Show("An Error Occured: " + ex.Message);
             }
         }
-
-        private void btnSuaBan_Click(object sender, EventArgs e)
+        private void txtAdd_Gia_TextChanged(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            int cursorPos = txtAdd_Gia.SelectionStart;
+
+            if (!string.IsNullOrWhiteSpace(txtAdd_Gia.Text))
             {
-                try
+                if (double.TryParse(txtAdd_Gia.Text, out double value))
                 {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = connection;
-
-                    string query = "UPDATE QuanLyBan SET ten_ban = @2, so_ghe = @3 WHERE id = @1";
-                    command.CommandText = query;
-                    command.Parameters.Clear();
-
-                    // Lấy giá trị của các ô trong DataGridView
-
-
-                    // Thêm các giá trị vào SqlCommand parameters
-                    bool usernameExists = false;
-                    int total = dgvBanAn.Rows.Count - 1;
-                    for (int i = 0; i < total; i++)
-                    {
-                        if (txtTenBan.Text == dgvBanAn.Rows[i].Cells[1].Value.ToString() && txtIDBan.Text != dgvBanAn.Rows[i].Cells[0].Value.ToString())
-                        {
-                            usernameExists = true;
-                            break;
-                        }
-                    }
-                    if (usernameExists)
-                    {
-                        MessageBox.Show("Bàn Đã Tồn Tại","Thông Báo!", MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
-                        txtTenBan.Focus();
-                    }
-                    else
-                    {
-                        if (txtTenBan.Text != "" && cbbSLGhe.Text != "")
-                        {
-                            command.Parameters.AddWithValue("@2", txtTenBan.Text);
-                            command.Parameters.AddWithValue("@3", cbbSLGhe.Text);
-                            command.Parameters.AddWithValue("@1", txtIDBan.Text);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Vui lòng chọn bàn muốn sửa!");
-                            return;
-                        }
-
-                        // Thực thi câu lệnh update
-                        command.ExecuteNonQuery();
-
-                        // Hiển thị thông báo sửa thành công
-                        MessageBox.Show("Sửa Bàn Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                        AddDataToDGV_BanAn();
-                        lblIDBan.Visible = false;
-                        txtIDBan.Visible = false;
-                        connection.Close();
-                    }
+                    txtAdd_Gia.Text = value.ToString("#,###");
 
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An Error Occured:" + ex.Message);
-                }
+
             }
+
+            txtAdd_Gia.SelectionStart = cursorPos + 1;
+        }
+
+        private void txtAdd_Gia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
+
+        private void btnTimMon_Click(object sender, EventArgs e)
+        {
+
         }
 
         
