@@ -15,9 +15,11 @@ namespace EM_EateryManage
 {
     public partial class frmOrder : Form
     {
+        public frmADMIN frmAdmin { get; set; }
         public frmOrder()
         {
             InitializeComponent();
+            this.frmAdmin = frmAdmin;
 
         }
         List<DataTable> lstDataTB = new List<DataTable>();
@@ -208,7 +210,7 @@ namespace EM_EateryManage
             if (total > 1)
             {
                 cbTable.Text = "Table " + dgvOrder.Rows[0].Cells[2].Value.ToString();
-                MessageBox.Show("Hãy Hoàn Tất Gọi Món Cho " + dgvOrder.Rows[0].Cells[2].Value.ToString() +" !!!");
+                MessageBox.Show("Hãy Hoàn Tất Gọi Món Cho 1 " + dgvOrder.Rows[0].Cells[2].Value.ToString() +" !!!");
                 
                 return;
             }
