@@ -264,14 +264,14 @@ namespace EM_EateryManage
                     }
                     else
                     {
-                        if ((txtTenDN_TK.Text == "" && txtTenHT_TK.Text == "" && txtMK_TK.Text == ""))
+                        if ((txtTenDN_TK.Text == "" || txtTenHT_TK.Text == "" || txtMK_TK.Text == ""))
                         {
                             MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                             txtTenDN_TK.Focus();
                         }
                         else
                         {
-                            // Nếu tên tài khoản không tồn tại, thì thêm tài khoản mới
+                            // Nếu tên tài khoản không tồn tại và không thiếu bất kì thông tin bắt buộc nào thì thêm tài khoản mới
                             command.Parameters.AddWithValue("@1", txtTenHT_TK.Text);
                             command.Parameters.AddWithValue("@2", txtTenDN_TK.Text);
                             command.Parameters.AddWithValue("@3", txtMK_TK.Text);
