@@ -37,8 +37,6 @@ namespace EM_EateryManage
                 lblNameFood.Text = f.Name;
                 lblPrice.Text = f.Price.ToString();
                 picFood.ImageLocation = f.Image;
-                
-                // Gán các giá trị khác cho các control khác
             }
 
         }
@@ -60,6 +58,14 @@ namespace EM_EateryManage
         private void Food_Load(object sender, EventArgs e)
         {
             AttachClickEvent(this);
+        }
+
+        private void lblPrice_SizeChanged_1(object sender, EventArgs e)
+        {
+            if (lblPrice.Right > pnFood.Right)
+            {
+                lblPrice.Left -= (lblPrice.Right - pnFood.Right);
+            }
         }
     }
 }

@@ -20,7 +20,7 @@ namespace EM_EateryManage
         DataTable dtOrder = new DataTable();
         //Mở lại form cũ
         private List<Form> displayedForms = new List<Form>();
-        private frmOrder openedOrderForm;
+        public frmOrder openedOrderForm;
         private frmADMIN openFormAdmin;
         private frmXem_TTCN xTTCN;
         //
