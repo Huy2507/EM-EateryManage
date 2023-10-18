@@ -50,8 +50,10 @@
             this.btnXoaBan = new System.Windows.Forms.Button();
             this.btnSuaBan = new System.Windows.Forms.Button();
             this.btnThemBan = new System.Windows.Forms.Button();
+            this.lblIDBan = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.txtIDBan = new System.Windows.Forms.TextBox();
             this.txtTenBan = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.dgvBanAn = new System.Windows.Forms.DataGridView();
@@ -70,8 +72,10 @@
             this.txtAdd_Gia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtID_mon = new System.Windows.Forms.TextBox();
             this.txtAdd_LinkIMG = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.txtAdd_Loai = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAdd_MoTa = new System.Windows.Forms.TextBox();
@@ -84,6 +88,7 @@
             this.label24 = new System.Windows.Forms.Label();
             this.btnSuaTK = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
+            this.txtID_TK = new System.Windows.Forms.TextBox();
             this.txtTenDN_TK = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtMK_TK = new System.Windows.Forms.TextBox();
@@ -93,6 +98,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.btnXemTK = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnXoaTK = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -220,6 +226,7 @@
             // 
             // dgvBill
             // 
+            this.dgvBill.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBill.Location = new System.Drawing.Point(0, 0);
@@ -261,8 +268,10 @@
             this.panel10.Controls.Add(this.btnXoaBan);
             this.panel10.Controls.Add(this.btnSuaBan);
             this.panel10.Controls.Add(this.btnThemBan);
+            this.panel10.Controls.Add(this.lblIDBan);
             this.panel10.Controls.Add(this.label21);
             this.panel10.Controls.Add(this.label22);
+            this.panel10.Controls.Add(this.txtIDBan);
             this.panel10.Controls.Add(this.txtTenBan);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
@@ -276,7 +285,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(19, 245);
+            this.label15.Location = new System.Drawing.Point(19, 457);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(250, 20);
             this.label15.TabIndex = 56;
@@ -323,7 +332,7 @@
             // btnXemBan
             // 
             this.btnXemBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXemBan.Location = new System.Drawing.Point(323, 41);
+            this.btnXemBan.Location = new System.Drawing.Point(323, 502);
             this.btnXemBan.Name = "btnXemBan";
             this.btnXemBan.Size = new System.Drawing.Size(94, 52);
             this.btnXemBan.TabIndex = 29;
@@ -333,7 +342,7 @@
             // btnXoaBan
             // 
             this.btnXoaBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoaBan.Location = new System.Drawing.Point(223, 41);
+            this.btnXoaBan.Location = new System.Drawing.Point(223, 502);
             this.btnXoaBan.Name = "btnXoaBan";
             this.btnXoaBan.Size = new System.Drawing.Size(94, 52);
             this.btnXoaBan.TabIndex = 28;
@@ -343,23 +352,35 @@
             // btnSuaBan
             // 
             this.btnSuaBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSuaBan.Location = new System.Drawing.Point(123, 41);
+            this.btnSuaBan.Location = new System.Drawing.Point(123, 502);
             this.btnSuaBan.Name = "btnSuaBan";
             this.btnSuaBan.Size = new System.Drawing.Size(94, 52);
             this.btnSuaBan.TabIndex = 27;
             this.btnSuaBan.Text = "Sửa";
             this.btnSuaBan.UseVisualStyleBackColor = true;
+            this.btnSuaBan.Click += new System.EventHandler(this.btnSuaBan_Click);
             // 
             // btnThemBan
             // 
             this.btnThemBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThemBan.Location = new System.Drawing.Point(23, 41);
+            this.btnThemBan.Location = new System.Drawing.Point(23, 502);
             this.btnThemBan.Name = "btnThemBan";
             this.btnThemBan.Size = new System.Drawing.Size(94, 52);
             this.btnThemBan.TabIndex = 26;
             this.btnThemBan.Text = "Thêm";
             this.btnThemBan.UseVisualStyleBackColor = true;
             this.btnThemBan.Click += new System.EventHandler(this.btnThemBan_Click);
+            // 
+            // lblIDBan
+            // 
+            this.lblIDBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIDBan.AutoSize = true;
+            this.lblIDBan.Location = new System.Drawing.Point(19, 67);
+            this.lblIDBan.Name = "lblIDBan";
+            this.lblIDBan.Size = new System.Drawing.Size(28, 20);
+            this.lblIDBan.TabIndex = 47;
+            this.lblIDBan.Text = "ID";
+            this.lblIDBan.Visible = false;
             // 
             // label21
             // 
@@ -381,6 +402,18 @@
             this.label22.TabIndex = 48;
             this.label22.Text = "Số Ghế";
             // 
+            // txtIDBan
+            // 
+            this.txtIDBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtIDBan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtIDBan.Enabled = false;
+            this.txtIDBan.Location = new System.Drawing.Point(163, 67);
+            this.txtIDBan.Name = "txtIDBan";
+            this.txtIDBan.ReadOnly = true;
+            this.txtIDBan.Size = new System.Drawing.Size(254, 27);
+            this.txtIDBan.TabIndex = 30;
+            this.txtIDBan.Visible = false;
+            // 
             // txtTenBan
             // 
             this.txtTenBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -401,6 +434,7 @@
             // 
             // dgvBanAn
             // 
+            this.dgvBanAn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvBanAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBanAn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBanAn.Location = new System.Drawing.Point(0, 0);
@@ -409,6 +443,7 @@
             this.dgvBanAn.RowTemplate.Height = 24;
             this.dgvBanAn.Size = new System.Drawing.Size(522, 600);
             this.dgvBanAn.TabIndex = 0;
+            this.dgvBanAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBanAn_CellClick);
             // 
             // tpThucAn
             // 
@@ -427,6 +462,7 @@
             // 
             // dgvDSMonAn
             // 
+            this.dgvDSMonAn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvDSMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSMonAn.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvDSMonAn.Location = new System.Drawing.Point(528, 3);
@@ -436,6 +472,7 @@
             this.dgvDSMonAn.RowTemplate.Height = 24;
             this.dgvDSMonAn.Size = new System.Drawing.Size(523, 600);
             this.dgvDSMonAn.TabIndex = 0;
+            this.dgvDSMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSMonAn_CellClick);
             // 
             // btnXoaMon
             // 
@@ -482,8 +519,10 @@
             this.panel1.Controls.Add(this.txtAdd_Gia);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.txtID_mon);
             this.panel1.Controls.Add(this.txtAdd_LinkIMG);
             this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.txtAdd_Loai);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtAdd_MoTa);
@@ -512,7 +551,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(31, 395);
+            this.label3.Location = new System.Drawing.Point(31, 469);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(250, 20);
             this.label3.TabIndex = 6;
@@ -607,6 +646,18 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Mô Tả:";
             // 
+            // txtID_mon
+            // 
+            this.txtID_mon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtID_mon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtID_mon.Enabled = false;
+            this.txtID_mon.Location = new System.Drawing.Point(179, 401);
+            this.txtID_mon.Name = "txtID_mon";
+            this.txtID_mon.ReadOnly = true;
+            this.txtID_mon.Size = new System.Drawing.Size(281, 27);
+            this.txtID_mon.TabIndex = 14;
+            this.txtID_mon.Visible = false;
+            // 
             // txtAdd_LinkIMG
             // 
             this.txtAdd_LinkIMG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -626,6 +677,18 @@
             this.label6.Size = new System.Drawing.Size(108, 20);
             this.label6.TabIndex = 1;
             this.label6.Text = "Loại Đồ Ăn:";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Location = new System.Drawing.Point(31, 408);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 20);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "ID:";
+            this.label8.Visible = false;
             // 
             // txtAdd_Loai
             // 
@@ -686,6 +749,7 @@
             this.panel11.Controls.Add(this.label24);
             this.panel11.Controls.Add(this.btnSuaTK);
             this.panel11.Controls.Add(this.label19);
+            this.panel11.Controls.Add(this.txtID_TK);
             this.panel11.Controls.Add(this.txtTenDN_TK);
             this.panel11.Controls.Add(this.label26);
             this.panel11.Controls.Add(this.txtMK_TK);
@@ -695,6 +759,7 @@
             this.panel11.Controls.Add(this.label13);
             this.panel11.Controls.Add(this.btnXemTK);
             this.panel11.Controls.Add(this.label23);
+            this.panel11.Controls.Add(this.label1);
             this.panel11.Controls.Add(this.btnXoaTK);
             this.panel11.Controls.Add(this.label11);
             this.panel11.Controls.Add(this.label25);
@@ -711,7 +776,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
-            this.label18.Location = new System.Drawing.Point(46, 313);
+            this.label18.Location = new System.Drawing.Point(46, 372);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(250, 20);
             this.label18.TabIndex = 51;
@@ -728,6 +793,7 @@
             // 
             // dgvACC
             // 
+            this.dgvACC.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvACC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvACC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvACC.Location = new System.Drawing.Point(0, 0);
@@ -736,6 +802,7 @@
             this.dgvACC.RowTemplate.Height = 24;
             this.dgvACC.Size = new System.Drawing.Size(598, 600);
             this.dgvACC.TabIndex = 0;
+            this.dgvACC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvACC_CellClick);
             // 
             // label24
             // 
@@ -758,6 +825,7 @@
             this.btnSuaTK.TabIndex = 5;
             this.btnSuaTK.Text = "Sửa";
             this.btnSuaTK.UseVisualStyleBackColor = true;
+            this.btnSuaTK.Click += new System.EventHandler(this.btnSuaTK_Click);
             // 
             // label19
             // 
@@ -770,6 +838,18 @@
             this.label19.Size = new System.Drawing.Size(16, 20);
             this.label19.TabIndex = 49;
             this.label19.Text = "*";
+            // 
+            // txtID_TK
+            // 
+            this.txtID_TK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtID_TK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtID_TK.Enabled = false;
+            this.txtID_TK.Location = new System.Drawing.Point(190, 306);
+            this.txtID_TK.Name = "txtID_TK";
+            this.txtID_TK.ReadOnly = true;
+            this.txtID_TK.Size = new System.Drawing.Size(254, 27);
+            this.txtID_TK.TabIndex = 0;
+            this.txtID_TK.Visible = false;
             // 
             // txtTenDN_TK
             // 
@@ -864,6 +944,17 @@
             this.label23.Size = new System.Drawing.Size(135, 20);
             this.label23.TabIndex = 41;
             this.label23.Text = "Loại Tài Khoản";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(21, 306);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 20);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "ID:";
+            this.label1.Visible = false;
             // 
             // btnXoaTK
             // 
@@ -1028,5 +1119,11 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button btnThemTK;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TextBox txtID_TK;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtID_mon;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblIDBan;
+        private System.Windows.Forms.TextBox txtIDBan;
     }
 }

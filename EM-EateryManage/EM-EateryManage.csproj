@@ -286,6 +286,9 @@
   <ItemGroup>
     <None Include="Picture\MiYsotdautoi.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Picture\Corgy.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.0.2\build\Fody.targets" Condition="Exists('..\packages\Fody.4.0.2\build\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

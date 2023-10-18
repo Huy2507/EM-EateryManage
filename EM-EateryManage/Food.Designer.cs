@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.picFood = new System.Windows.Forms.PictureBox();
-            this.lblNameFood = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
+            this.lblNameFood = new System.Windows.Forms.Label();
+            this.picFood = new System.Windows.Forms.PictureBox();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picFood)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,28 @@
             this.guna2Panel1.Size = new System.Drawing.Size(192, 187);
             this.guna2Panel1.TabIndex = 3;
             // 
+            // lblPrice
+            // 
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(26, 151);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblPrice.Size = new System.Drawing.Size(56, 25);
+            this.lblPrice.TabIndex = 9;
+            this.lblPrice.Text = "Price";
+            // 
+            // lblNameFood
+            // 
+            this.lblNameFood.AutoEllipsis = true;
+            this.lblNameFood.AutoSize = true;
+            this.lblNameFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNameFood.Location = new System.Drawing.Point(4, 112);
+            this.lblNameFood.Name = "lblNameFood";
+            this.lblNameFood.Size = new System.Drawing.Size(123, 25);
+            this.lblNameFood.TabIndex = 8;
+            this.lblNameFood.Text = "Name Food";
+            // 
             // picFood
             // 
             this.picFood.Location = new System.Drawing.Point(0, 0);
@@ -64,27 +86,6 @@
             this.picFood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picFood.TabIndex = 7;
             this.picFood.TabStop = false;
-            // 
-            // lblNameFood
-            // 
-            this.lblNameFood.AutoEllipsis = true;
-            this.lblNameFood.AutoSize = true;
-            this.lblNameFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNameFood.Location = new System.Drawing.Point(4, 112);
-            this.lblNameFood.Name = "lblNameFood";
-            this.lblNameFood.Size = new System.Drawing.Size(114, 25);
-            this.lblNameFood.TabIndex = 8;
-            this.lblNameFood.Text = "Name Food";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.AutoSize = true;
-            this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(101, 153);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(56, 25);
-            this.lblPrice.TabIndex = 9;
-            this.lblPrice.Text = "Price";
             // 
             // Food
             // 

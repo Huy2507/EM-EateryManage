@@ -19,10 +19,10 @@ namespace EM_EateryManage
         List<DataTable> lstDataTB = new List<DataTable>();
         DataTable dtOrder = new DataTable();
         //Mở lại form cũ
-        private List<Form> displayedForms = new List<Form>();
-        private frmOrder openedOrderForm;
-        private frmADMIN openFormAdmin;
-        private frmXem_TTCN xTTCN;
+        public List<Form> displayedForms = new List<Form>();
+        public frmOrder openedOrderForm;
+        public frmADMIN openFormAdmin;
+        public frmXem_TTCN xTTCN;
         //
         public void frmMain_Load(object sender, EventArgs e)
         {

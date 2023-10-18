@@ -162,10 +162,10 @@ namespace EM_EateryManage
             AddColumnToDGV();
             AddDataToFlowlayoutPanel();
         }
-       
 
-        private void AddDataToFlowlayoutPanel()
+        public void AddDataToFlowlayoutPanel()
         {
+            flpnlMenu.Controls.Clear();
             string query = "SELECT food_name, food_price, food_image FROM dbo.FOOD";
 
             List<food> value = new List<food>();
@@ -189,6 +189,7 @@ namespace EM_EateryManage
                             value.Add(f);
                             Food childForm = new Food(value);
                             childForm.FoodClicked += btnFood;
+                            
                             // Hiển thị Form mới
                             flpnlMenu.Controls.Add(childForm);
                         }
@@ -272,6 +273,11 @@ namespace EM_EateryManage
                 if (dgvOrder.Rows[0].IsNewRow == false)
                     dgvOrder.Rows.RemoveAt(0);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddDataToFlowlayoutPanel();
         }
     } 
 }

@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-
+using EM_EateryManage;
 namespace EM_EateryManage
 {
     public partial class frmADMIN : Form
@@ -139,7 +139,7 @@ namespace EM_EateryManage
 
                     if(usernameExists)
                     {
-                        MessageBox.Show("Món Ăn Đã Tồn Tại!","Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        MessageBox.Show("Món Ăn Đã Tồn Tại, Vui Lòng Đặt Tên Khác Hoặc Chọn \"Sửa\"!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         txtAdd_TenMon.Focus();
                         return;
                     }
@@ -199,8 +199,8 @@ namespace EM_EateryManage
 
                     if(usernameExists)
                     {
-                        MessageBox.Show("Bàn Đã Tồn Tại!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                        txtAdd_TenMon.Focus();
+                        MessageBox.Show("Bàn Đã Tồn Tại, Vui Lòng Đặt Tên Khác Hoặc Chọn \"Sửa\"!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        txtTenBan.Focus();
                         return;
                     }
                     else
@@ -258,7 +258,7 @@ namespace EM_EateryManage
 
                     if (usernameExists)
                     {
-                        MessageBox.Show("Tài Khoản Đã Tồn Tại!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                        MessageBox.Show("Tài Khoản Đã Tồn Tại, Vui Lòng Đặt Tên Tài Khoản Khác Hoặc Chọn \"Sửa\"!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
                         txtTenDN_TK.Focus();
                         return;
                     }
@@ -282,7 +282,7 @@ namespace EM_EateryManage
                             }
                             else
                             {
-                                MessageBox.Show("Loại Tài Khoản Không Hợp Lệ!\nVui Lòng Chọn Loại admin Hoặc staff!", "Thông Báo");
+                                MessageBox.Show("Loại Tài Khoản Không Hợp Lệ!\nVui Lòng Chọn Loại \"admin\" Hoặc \"staff\"!", "Thông Báo");
                                 return;
                             }
 
@@ -290,6 +290,7 @@ namespace EM_EateryManage
 
                             MessageBox.Show("Thêm Tài Khoản Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                             AddDataToDGV_TaiKhoan();
+                            connection.Close();
                         }
                     }
                 }
@@ -337,7 +338,265 @@ namespace EM_EateryManage
 
         private void btnSuaMon_Click(object sender, EventArgs e)
         {
-            
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    string query = "UPDATE food SET food_name = @1, food_price = @2, food_image = @3, food_material = @4 , food_detail = @5 WHERE food_id = @6";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+                    bool usernameExists = false;
+                    int total = dgvDSMonAn.Rows.Count - 1;
+                    for (int i = 0; i < total; i++)
+                    {
+                        if (txtAdd_TenMon.Text == dgvDSMonAn.Rows[i].Cells[1].Value.ToString() && txtID_mon.Text != dgvDSMonAn.Rows[i].Cells[0].Value.ToString())
+                        {
+                            usernameExists = true;
+                            break;
+                        }
+                    }
+                    if (usernameExists)
+                    {
+                        MessageBox.Show("Món Đã Tồn Tại!");
+                    }
+                    else
+                    {
+                        if (txtID_mon.Text != "")
+                        {
+                            command.Parameters.AddWithValue("@1", txtAdd_TenMon.Text);
+                            command.Parameters.AddWithValue("@2", txtAdd_Gia.Text);
+                            command.Parameters.AddWithValue("@3", txtAdd_LinkIMG.Text);
+                            command.Parameters.AddWithValue("@4", txtAdd_Loai.Text);
+                            command.Parameters.AddWithValue("@5", txtAdd_MoTa.Text);
+                            command.Parameters.AddWithValue("@6", txtID_mon.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vui lòng chọn món muốn sửa!");
+                            return;
+                        }
+
+                        // Thực thi câu lệnh update
+                        command.ExecuteNonQuery();
+
+                        // Hiển thị thông báo sửa thành công
+                        MessageBox.Show("Sửa Món Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        AddDataToDGV();
+                        label8.Visible = false;
+                        txtID_mon.Visible = false;
+                        connection.Close();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured:" + ex.Message);
+                }
+            }
         }
+
+        private void btnSuaTK_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    string query = "UPDATE Account SET display_name = @1, username = @2, password = @3, Chuc_Vu = @4 WHERE id = @5";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+                    // Lấy giá trị của các ô trong DataGridView
+
+
+                    // Thêm các giá trị vào SqlCommand parameters
+                    bool usernameExists = false;
+                    int total = dgvACC.Rows.Count - 1;
+                    for (int i = 0; i < total; i++)
+                    {
+                        if (txtTenDN_TK.Text == dgvACC.Rows[i].Cells[2].Value.ToString() && txtID_TK.Text != dgvACC.Rows[i].Cells[0].Value.ToString())
+                        {
+                            usernameExists = true;
+                            break;
+                        }
+                    }
+                    if (usernameExists)
+                    {
+                        MessageBox.Show("Tài Khoản Đã Tồn Tại!");
+                    }
+                    else
+                    {
+                        if (txtID_TK.Text != "")
+                        {
+                            command.Parameters.AddWithValue("@2", txtTenDN_TK.Text);
+                            command.Parameters.AddWithValue("@1", txtTenHT_TK.Text);
+                            command.Parameters.AddWithValue("@3", txtMK_TK.Text);
+                            command.Parameters.AddWithValue("@4", cbLoaiTK_TK.Text);
+                            command.Parameters.AddWithValue("@5", txtID_TK.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vui lòng chọn tài khoản muốn sửa!");
+                            return;
+                        }
+
+                        // Thực thi câu lệnh update
+                        command.ExecuteNonQuery();
+
+                        // Hiển thị thông báo sửa thành công
+                        MessageBox.Show("Sửa Tài Khoản Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        AddDataToDGV_TaiKhoan();
+                        label1.Visible = false;
+                        txtID_TK.Visible = false;
+                        connection.Close();
+                    }
+                    
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("An Error Occured:"+ex.Message);
+                }
+            }
+        }
+
+        private void dgvACC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow selectedRow = dgvACC.Rows[e.RowIndex];
+                label1.Visible = true;
+                txtID_TK.Visible = true;
+                txtID_TK.Text = selectedRow.Cells[0].Value.ToString();
+                txtTenDN_TK.Text = selectedRow.Cells[2].Value.ToString();
+                txtTenHT_TK.Text = selectedRow.Cells[1].Value.ToString();
+                cbLoaiTK_TK.Text = selectedRow.Cells[4].Value.ToString();
+                txtMK_TK.Text = selectedRow.Cells[3].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An Error Occured: "+ex.Message);
+            }
+
+        }
+
+        private void dgvDSMonAn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow selectedRow = dgvDSMonAn.Rows[e.RowIndex];
+                label8.Visible = true;
+                txtID_mon.Visible = true;
+                txtID_mon.Text = selectedRow.Cells[0].Value.ToString();
+                txtAdd_TenMon.Text = selectedRow.Cells[1].Value.ToString();
+                txtAdd_Gia.Text = selectedRow.Cells[2].Value.ToString();
+                txtAdd_LinkIMG.Text = selectedRow.Cells[3].Value.ToString();
+                txtAdd_Loai.Text = selectedRow.Cells[4].Value.ToString();
+                txtAdd_MoTa.Text = selectedRow.Cells[5].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An Error Occured: " + ex.Message);
+            }
+
+        }
+        private void dgvBanAn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    DataGridViewRow selectedRow = dgvBanAn.Rows[e.RowIndex];
+                    lblIDBan.Visible = true;
+                    txtIDBan.Visible = true;
+                    txtIDBan.Text = selectedRow.Cells[0].Value.ToString();
+                    txtTenBan.Text = selectedRow.Cells[1].Value.ToString();
+                    cbbSLGhe.Text = selectedRow.Cells[2].Value.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured: " + ex.Message);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An Error Occured: " + ex.Message);
+            }
+        }
+
+        private void btnSuaBan_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+
+                    string query = "UPDATE QuanLyBan SET ten_ban = @2, so_ghe = @3 WHERE id = @1";
+                    command.CommandText = query;
+                    command.Parameters.Clear();
+
+                    // Lấy giá trị của các ô trong DataGridView
+
+
+                    // Thêm các giá trị vào SqlCommand parameters
+                    bool usernameExists = false;
+                    int total = dgvBanAn.Rows.Count - 1;
+                    for (int i = 0; i < total; i++)
+                    {
+                        if (txtTenBan.Text == dgvBanAn.Rows[i].Cells[1].Value.ToString() && txtIDBan.Text != dgvBanAn.Rows[i].Cells[0].Value.ToString())
+                        {
+                            usernameExists = true;
+                            break;
+                        }
+                    }
+                    if (usernameExists)
+                    {
+                        MessageBox.Show("Bàn Đã Tồn Tại","Thông Báo!", MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                        txtTenBan.Focus();
+                    }
+                    else
+                    {
+                        if (txtTenBan.Text != "" && cbbSLGhe.Text != "")
+                        {
+                            command.Parameters.AddWithValue("@2", txtTenBan.Text);
+                            command.Parameters.AddWithValue("@3", cbbSLGhe.Text);
+                            command.Parameters.AddWithValue("@1", txtIDBan.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Vui lòng chọn bàn muốn sửa!");
+                            return;
+                        }
+
+                        // Thực thi câu lệnh update
+                        command.ExecuteNonQuery();
+
+                        // Hiển thị thông báo sửa thành công
+                        MessageBox.Show("Sửa Bàn Thành Công!", "Thông Báo!", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                        AddDataToDGV_BanAn();
+                        lblIDBan.Visible = false;
+                        txtIDBan.Visible = false;
+                        connection.Close();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An Error Occured:" + ex.Message);
+                }
+            }
+        }
+
+        
     }
 }
