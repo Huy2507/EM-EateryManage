@@ -884,6 +884,7 @@
             this.txtMK_TK.Name = "txtMK_TK";
             this.txtMK_TK.Size = new System.Drawing.Size(254, 27);
             this.txtMK_TK.TabIndex = 3;
+            this.txtMK_TK.TextChanged += new System.EventHandler(this.txtMK_TK_TextChanged);
             // 
             // label17
             // 

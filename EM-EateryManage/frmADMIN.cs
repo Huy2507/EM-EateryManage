@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using EM_EateryManage;
+using System.Text.RegularExpressions;
+
 namespace EM_EateryManage
 {
     public partial class frmADMIN : Form
@@ -20,6 +22,7 @@ namespace EM_EateryManage
         {
 
             InitializeComponent();
+            themSKChoTKMK();
         }
         private void frmADMIN_Load(object sender, EventArgs e)
         {
@@ -642,6 +645,35 @@ namespace EM_EateryManage
         #endregion
 
         #region Các Hàm Phụ
+       
+        private void themSKChoTKMK()
+        {
+            // Thiết lập hộp văn bản mật khẩu
+            txtMK_TK = new TextBox();
+            txtMK_TK.TextChanged += txtMK_TK_TextChanged;
+
+            // Thêm hộp văn bản mật khẩu vào form
+            this.Controls.Add(txtMK_TK);
+        }
+        private void txtMK_TK_TextChanged(object sender, EventArgs e)
+        {
+            // Kiểm tra xem mật khẩu có hợp lệ không
+            // Kiểm tra xem mật khẩu có hợp lệ không
+            // Kiểm tra xem mật khẩu có hợp lệ không
+            if (IsValidPassword(txtMK_TK.Text) == false)
+            {
+                MessageBox.Show("Lỗi");
+                txtMK_TK.Focus();
+                return;
+            }
+
+        }
+        private bool IsValidPassword(string password)
+        {
+            // Sử dụng biểu thức chính quy để kiểm tra mật khẩu
+            const string regex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=])[a-zA-Z0-9@#$%^&+=]{8,16}$";
+            return Regex.IsMatch(password, regex);
+        }
 
         private void dgvACC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
