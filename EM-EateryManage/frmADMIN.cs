@@ -22,7 +22,6 @@ namespace EM_EateryManage
         {
 
             InitializeComponent();
-            themSKChoTKMK();
         }
         private void frmADMIN_Load(object sender, EventArgs e)
         {
@@ -42,7 +41,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "select food_id as N'Mã Món', food_name as N'Tên Món', food_price as N'Giá', food_image as N'Hình Ảnh', food_material as N'Nguyên Liệu Chính', food_detail as N'Mô Tả'\r\nfrom FOOD";
+                    string query = "select food_id as N'Mã Món(AUTO)', food_name as N'Tên Món', food_price as N'Giá', food_image as N'Hình Ảnh', food_material as N'Nguyên Liệu Chính', food_detail as N'Mô Tả'\r\nfrom FOOD";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
 
@@ -70,7 +69,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "SELECT id as N'Mã Bàn(Auto)', ten_ban as N'Tên Bàn', so_ghe as N'Số Ghế' FROM QuanLyBan";
+                    string query = "SELECT id as N'Mã Bàn(AUTO)', ten_ban as N'Tên Bàn', so_ghe as N'Số Ghế' FROM QuanLyBan";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
 
@@ -98,7 +97,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "select id as N'Mã Tài Khoản', display_name as N'Tên Hiển Thị', username as N'Tên Tài Khoản', password as N'Mật Khẩu', Chuc_Vu as N'Loại Tài Khoản'\r\nfrom account";
+                    string query = "select id as N'Mã Tài Khoản(AUTO)', display_name as N'Tên Hiển Thị', username as N'Tên Tài Khoản', password as N'Mật Khẩu', Chuc_Vu as N'Loại Tài Khoản'\r\nfrom account";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
 
@@ -646,35 +645,6 @@ namespace EM_EateryManage
 
         #region Các Hàm Phụ
        
-        private void themSKChoTKMK()
-        {
-            // Thiết lập hộp văn bản mật khẩu
-            txtMK_TK = new TextBox();
-            txtMK_TK.TextChanged += txtMK_TK_TextChanged;
-
-            // Thêm hộp văn bản mật khẩu vào form
-            this.Controls.Add(txtMK_TK);
-        }
-        private void txtMK_TK_TextChanged(object sender, EventArgs e)
-        {
-            // Kiểm tra xem mật khẩu có hợp lệ không
-            // Kiểm tra xem mật khẩu có hợp lệ không
-            // Kiểm tra xem mật khẩu có hợp lệ không
-            if (IsValidPassword(txtMK_TK.Text) == false)
-            {
-                MessageBox.Show("Lỗi");
-                txtMK_TK.Focus();
-                return;
-            }
-
-        }
-        private bool IsValidPassword(string password)
-        {
-            // Sử dụng biểu thức chính quy để kiểm tra mật khẩu
-            const string regex = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+=])[a-zA-Z0-9@#$%^&+=]{8,16}$";
-            return Regex.IsMatch(password, regex);
-        }
-
         private void dgvACC_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -683,10 +653,11 @@ namespace EM_EateryManage
                 label1.Visible = true;
                 txtID_TK.Visible = true;
                 txtID_TK.Text = selectedRow.Cells[0].Value.ToString();
-                txtTenDN_TK.Text = selectedRow.Cells[2].Value.ToString();
                 txtTenHT_TK.Text = selectedRow.Cells[1].Value.ToString();
-                cbLoaiTK_TK.Text = selectedRow.Cells[4].Value.ToString();
+                txtTenDN_TK.Text = selectedRow.Cells[2].Value.ToString();
                 txtMK_TK.Text = selectedRow.Cells[3].Value.ToString();
+                cbLoaiTK_TK.Text = selectedRow.Cells[4].Value.ToString();
+                
             }
             catch (Exception ex)
             {
@@ -765,11 +736,32 @@ namespace EM_EateryManage
         #endregion
 
 
-        private void btnTimMon_Click(object sender, EventArgs e)
+        private void txtTim_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
 
+
+                    string query = "select * from food where food_name like N'%" + txtTim.Text + "%'";
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+
+                    // Đổ dữ liệu vào DataTable
+                    adapter.Fill(dataTable);
+
+                    // Gán DataTable làm nguồn dữ liệu cho DataGridView
+                    dgvDSMonAn.DataSource = dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
         }
-
-        
     }
 }
