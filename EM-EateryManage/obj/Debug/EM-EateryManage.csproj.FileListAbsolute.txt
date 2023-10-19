@@ -35,6 +35,7 @@ C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\bin\Debug\System.Thr
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.AssemblyReference.cache
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.Food.resources
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmADMIN.resources
+C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmBill.resources
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmLogin.resources
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmOrder.resources
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmMain.resources
@@ -46,53 +47,3 @@ C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryM
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CopyComplete
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.exe
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.pdb
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\EM-EateryManage.exe.config
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\EM-EateryManage.exe
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\EM-EateryManage.pdb
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\Microsoft.Win32.Registry.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\Microsoft.Win32.Registry.AccessControl.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\Microsoft.Win32.SystemEvents.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\RestSharp.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Buffers.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.CodeDom.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Configuration.ConfigurationManager.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Data.Odbc.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Data.OleDb.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Data.SqlClient.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Diagnostics.EventLog.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Diagnostics.PerformanceCounter.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Drawing.Common.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.IO.FileSystem.AccessControl.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.IO.Packaging.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.IO.Ports.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Memory.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Numerics.Vectors.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Security.AccessControl.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Security.Cryptography.Cng.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Security.Cryptography.Pkcs.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Security.Cryptography.ProtectedData.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Security.Cryptography.Xml.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Security.Permissions.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Security.Principal.Windows.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.ServiceModel.Syndication.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.ServiceProcess.ServiceController.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Text.Encoding.CodePages.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\bin\Debug\System.Threading.AccessControl.xml
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.AssemblyReference.cache
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.SuggestedBindingRedirects.cache
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.Food.resources
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmADMIN.resources
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmBill.resources
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmLogin.resources
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmOrder.resources
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmMain.resources
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmXem_TTCN.resources
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.Properties.Resources.resources
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.GenerateResource.cache
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CoreCompileInputs.cache
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.Fody.CopyLocal.cache
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CopyComplete
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.exe
-C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.pdb

@@ -16,7 +16,7 @@ namespace EM_EateryManage
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmBill());
+            Application.Run(new frmLogin());
         }
     }
 }

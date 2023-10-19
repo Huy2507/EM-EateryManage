@@ -747,7 +747,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "select * from food where food_name like N'%" + txtTim.Text + "%'";
+                    string query = "select food_id as N'Mã Món(AUTO)', food_name as N'Tên Món', food_price as N'Giá', food_image as N'Hình Ảnh', food_material as N'Nguyên Liệu Chính', food_detail as N'Mô Tả' from food where food_name like N'%" + txtTim.Text + "%'";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
 
