@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using static EM_EateryManage.Food;
 using System.Text.RegularExpressions;
+using Guna.UI2.WinForms;
 
 namespace EM_EateryManage
 {
@@ -26,10 +27,18 @@ namespace EM_EateryManage
         DataTable dtOrder = new DataTable();
         public void AddDataTocbTable()
         {
-            cbTable.Text = "Hãy Chọn Bàn !!!";
-            for (int i = 1; i < 11; i++)
+            string query = "SELECT * FROM QuanLyBan";
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
-                cbTable.Items.Add("Table " + i.ToString());
+                connection.Open();
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        cbTable.Items.Add(reader.GetString(1));
+                    }
+                }
             }
         }
         public void AddColumnToDGV()
@@ -41,7 +50,7 @@ namespace EM_EateryManage
             dtOrder.Columns.Add("Price");
             dtOrder.Columns.Add("Total Price");
             dgvOrder.DataSource = dtOrder;
-
+            dgvOrder.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
         public string DeleteDot(string price)
         {
@@ -70,7 +79,7 @@ namespace EM_EateryManage
         public void btnFood(object sender, EventArgs e)
         {
             Food food = (Food)sender;
-            
+
             Label labelName = food.Controls.Find("lblNameFood", true).FirstOrDefault() as Label;
             if (labelName != null)
             {
@@ -112,7 +121,7 @@ namespace EM_EateryManage
                             Sumtotal();
                             return;
                         }
-                        
+
 
                     }
                     dr = dtOrder.NewRow();
@@ -133,9 +142,9 @@ namespace EM_EateryManage
                     dgvOrder.DataSource = dtOrder;
                 }
                 Sumtotal();
-               
+
             }
-            
+
         }
         private void AttachClickEventToControls(Food f)
         {
@@ -148,27 +157,40 @@ namespace EM_EateryManage
         }
         private void dgvOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow selectedRow = dgvOrder.Rows[e.RowIndex];
-            if (selectedRow.Cells[1].Value.ToString() != "1")
+            if (e.RowIndex >= 0 && e.RowIndex < dgvOrder.Rows.Count)
             {
-                int _amount = Convert.ToInt32(selectedRow.Cells[1].Value.ToString());
-                selectedRow.Cells[1].Value = (_amount - 1).ToString();
-                selectedRow.Cells[4].Value = Convert.ToDecimal(selectedRow.Cells[1].Value) * Convert.ToDecimal(selectedRow.Cells[3].Value);
-                return;
+                DataGridViewRow selectedRow = dgvOrder.Rows[e.RowIndex];
+                if (selectedRow.Cells[1].Value.ToString() != "1")
+                {
+                    int _amount = Convert.ToInt32(selectedRow.Cells[1].Value.ToString());
+                    selectedRow.Cells[1].Value = (_amount - 1).ToString();
+                    selectedRow.Cells[4].Value = Convert.ToDecimal(selectedRow.Cells[1].Value) * Convert.ToDecimal(selectedRow.Cells[3].Value);
+                    return;
+                }
+                dgvOrder.Rows.Remove(selectedRow);
             }
-            dgvOrder.Rows.Remove(selectedRow);
         }
         private void frmOrder_Load(object sender, EventArgs e)
         {
             AddDataTocbTable();
             AddColumnToDGV();
-            AddDataToFlowlayoutPanel();
+            string a = "Tất Cả";
+            AddDataToFlowlayoutPanel(a);
         }
 
-        public void AddDataToFlowlayoutPanel()
+        public void AddDataToFlowlayoutPanel(string dm)
         {
-            
-            string query = "SELECT food_name, food_price, food_image FROM dbo.FOOD";
+            flpnlMenu.Controls.Clear();
+            string datadm = dm;
+            string query = "";
+            if (datadm == "Tất Cả")
+            {
+                query = "SELECT food_name, food_price, food_image, food_material FROM dbo.FOOD";
+            }
+            else
+            {
+                query = "SELECT food_name, food_price, food_image, food_material FROM dbo.FOOD where food_material = @danhmuc";
+            }
 
             List<food> value = new List<food>();
             try
@@ -179,21 +201,27 @@ namespace EM_EateryManage
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
+                        command.Parameters.Clear();
+                        command.Parameters.AddWithValue("@danhmuc", datadm);
                         SqlDataReader reader = command.ExecuteReader();
-
                         while (reader.Read())
                         {
-                            string name = reader.GetString(0);
-                            string price = reader.GetString(1);
-                            string image = reader.GetString(2);
+                            string material = reader.GetString(3);
 
-                            food f = new food(name, price, image);
-                            value.Add(f);
-                            Food childForm = new Food(value);
-                            childForm.FoodClicked += btnFood;
-                            
-                            // Hiển thị Form mới
-                            flpnlMenu.Controls.Add(childForm);
+                            if (datadm == material || datadm == "Tất Cả")
+                            {
+                                string name = reader.GetString(0);
+                                string price = reader.GetString(1);
+                                string image = reader.GetString(2);
+
+                                food f = new food(name, price, image);
+                                value.Add(f);
+                                Food childForm = new Food(value);
+                                childForm.FoodClicked += btnFood;
+
+                                // Hiển thị Form mới
+                                flpnlMenu.Controls.Add(childForm);
+                            }
                         }
                     }
                 }
@@ -210,8 +238,8 @@ namespace EM_EateryManage
             if (total > 1)
             {
                 cbTable.Text = "Table " + dgvOrder.Rows[0].Cells[2].Value.ToString();
-                MessageBox.Show("Hãy Hoàn Tất Gọi Món Cho 1 " + dgvOrder.Rows[0].Cells[2].Value.ToString() +" !!!");
-                
+                MessageBox.Show("Hãy Hoàn Tất Gọi Món Cho 1 " + dgvOrder.Rows[0].Cells[2].Value.ToString() + " !!!");
+
                 return;
             }
         }
@@ -258,7 +286,7 @@ namespace EM_EateryManage
                             command.ExecuteNonQuery();
                         }
                     }
-                    MessageBox.Show("Thêm hàng thành công!");
+                    MessageBox.Show("Thêm hàng thành công!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -276,7 +304,21 @@ namespace EM_EateryManage
                     dgvOrder.Rows.RemoveAt(0);
             }
         }
+        private void MyButton_Click(object sender, EventArgs e)
+        {
+            Guna2Button clickedButton = (Guna2Button)sender;
+            clickedButton.Checked = true;
+            string dm = clickedButton.Text;
+            AddDataToFlowlayoutPanel(dm);
+            foreach (Guna2Button button in pnDanhMuc.Controls.OfType<Guna2Button>())
+            {
+                // Kiểm tra xem button hiện tại có là button được click không
+                if (button != clickedButton)
+                {
+                    button.Checked = false;
+                }
+            }
+        }
 
-
-    } 
+    }
 }

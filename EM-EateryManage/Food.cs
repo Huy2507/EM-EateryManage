@@ -60,12 +60,6 @@ namespace EM_EateryManage
             AttachClickEvent(this);
         }
 
-        private void lblPrice_SizeChanged_1(object sender, EventArgs e)
-        {
-            if (lblPrice.Right > pnFood.Right)
-            {
-                lblPrice.Left -= (lblPrice.Right - pnFood.Right);
-            }
-        }
+
     }
 }

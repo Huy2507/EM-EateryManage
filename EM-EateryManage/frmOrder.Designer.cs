@@ -28,18 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvOrder = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
             this.flpnlMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCancelOrder = new Guna.UI2.WinForms.Guna2Button();
             this.btnConfirmOrder = new Guna.UI2.WinForms.Guna2Button();
             this.cbTable = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pnDanhMuc = new System.Windows.Forms.Panel();
+            this.btnDrink = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodTrangMieng = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodNuoc = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodHaiSan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodChay = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodRau = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodCa = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodThit = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodMy = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodCom = new Guna.UI2.WinForms.Guna2Button();
+            this.btnFoodAll = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
@@ -48,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.pnDanhMuc.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +78,7 @@
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -110,9 +121,10 @@
             // 
             this.flpnlMenu.AutoScroll = true;
             this.flpnlMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flpnlMenu.Location = new System.Drawing.Point(0, 42);
+            this.flpnlMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flpnlMenu.Location = new System.Drawing.Point(0, 79);
             this.flpnlMenu.Name = "flpnlMenu";
-            this.flpnlMenu.Size = new System.Drawing.Size(600, 597);
+            this.flpnlMenu.Size = new System.Drawing.Size(601, 569);
             this.flpnlMenu.TabIndex = 2;
             // 
             // panel1
@@ -187,12 +199,252 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pnDanhMuc);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.flpnlMenu);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(601, 648);
             this.panel2.TabIndex = 0;
+            // 
+            // pnDanhMuc
+            // 
+            this.pnDanhMuc.Controls.Add(this.btnDrink);
+            this.pnDanhMuc.Controls.Add(this.btnFoodTrangMieng);
+            this.pnDanhMuc.Controls.Add(this.btnFoodNuoc);
+            this.pnDanhMuc.Controls.Add(this.btnFoodHaiSan);
+            this.pnDanhMuc.Controls.Add(this.btnFoodChay);
+            this.pnDanhMuc.Controls.Add(this.btnFoodRau);
+            this.pnDanhMuc.Controls.Add(this.btnFoodCa);
+            this.pnDanhMuc.Controls.Add(this.btnFoodThit);
+            this.pnDanhMuc.Controls.Add(this.btnFoodMy);
+            this.pnDanhMuc.Controls.Add(this.btnFoodCom);
+            this.pnDanhMuc.Controls.Add(this.btnFoodAll);
+            this.pnDanhMuc.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnDanhMuc.Location = new System.Drawing.Point(0, 37);
+            this.pnDanhMuc.Name = "pnDanhMuc";
+            this.pnDanhMuc.Size = new System.Drawing.Size(601, 42);
+            this.pnDanhMuc.TabIndex = 3;
+            // 
+            // btnDrink
+            // 
+            this.btnDrink.BorderRadius = 6;
+            this.btnDrink.BorderThickness = 1;
+            this.btnDrink.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnDrink.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDrink.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDrink.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDrink.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDrink.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDrink.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnDrink.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnDrink.ForeColor = System.Drawing.Color.Black;
+            this.btnDrink.Location = new System.Drawing.Point(547, 0);
+            this.btnDrink.Name = "btnDrink";
+            this.btnDrink.Size = new System.Drawing.Size(54, 42);
+            this.btnDrink.TabIndex = 10;
+            this.btnDrink.Text = "Nước";
+            this.btnDrink.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodTrangMieng
+            // 
+            this.btnFoodTrangMieng.BorderRadius = 6;
+            this.btnFoodTrangMieng.BorderThickness = 1;
+            this.btnFoodTrangMieng.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodTrangMieng.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodTrangMieng.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodTrangMieng.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodTrangMieng.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodTrangMieng.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodTrangMieng.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodTrangMieng.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodTrangMieng.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodTrangMieng.Location = new System.Drawing.Point(486, 0);
+            this.btnFoodTrangMieng.Name = "btnFoodTrangMieng";
+            this.btnFoodTrangMieng.Size = new System.Drawing.Size(61, 42);
+            this.btnFoodTrangMieng.TabIndex = 9;
+            this.btnFoodTrangMieng.Text = "Tráng Miệng";
+            this.btnFoodTrangMieng.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodNuoc
+            // 
+            this.btnFoodNuoc.BorderRadius = 6;
+            this.btnFoodNuoc.BorderThickness = 1;
+            this.btnFoodNuoc.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodNuoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodNuoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodNuoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodNuoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodNuoc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodNuoc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodNuoc.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodNuoc.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodNuoc.Location = new System.Drawing.Point(432, 0);
+            this.btnFoodNuoc.Name = "btnFoodNuoc";
+            this.btnFoodNuoc.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodNuoc.TabIndex = 8;
+            this.btnFoodNuoc.Text = "Món Nước";
+            this.btnFoodNuoc.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodHaiSan
+            // 
+            this.btnFoodHaiSan.BorderRadius = 6;
+            this.btnFoodHaiSan.BorderThickness = 1;
+            this.btnFoodHaiSan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodHaiSan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodHaiSan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodHaiSan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodHaiSan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodHaiSan.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodHaiSan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodHaiSan.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodHaiSan.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodHaiSan.Location = new System.Drawing.Point(378, 0);
+            this.btnFoodHaiSan.Name = "btnFoodHaiSan";
+            this.btnFoodHaiSan.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodHaiSan.TabIndex = 7;
+            this.btnFoodHaiSan.Text = "Hải Sản";
+            this.btnFoodHaiSan.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodChay
+            // 
+            this.btnFoodChay.BorderRadius = 6;
+            this.btnFoodChay.BorderThickness = 1;
+            this.btnFoodChay.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodChay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodChay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodChay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodChay.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodChay.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodChay.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodChay.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodChay.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodChay.Location = new System.Drawing.Point(324, 0);
+            this.btnFoodChay.Name = "btnFoodChay";
+            this.btnFoodChay.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodChay.TabIndex = 6;
+            this.btnFoodChay.Text = "Chay";
+            this.btnFoodChay.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodRau
+            // 
+            this.btnFoodRau.BorderRadius = 6;
+            this.btnFoodRau.BorderThickness = 1;
+            this.btnFoodRau.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodRau.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodRau.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodRau.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodRau.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodRau.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodRau.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodRau.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodRau.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodRau.Location = new System.Drawing.Point(270, 0);
+            this.btnFoodRau.Name = "btnFoodRau";
+            this.btnFoodRau.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodRau.TabIndex = 5;
+            this.btnFoodRau.Text = "Rau";
+            this.btnFoodRau.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodCa
+            // 
+            this.btnFoodCa.BorderRadius = 6;
+            this.btnFoodCa.BorderThickness = 1;
+            this.btnFoodCa.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodCa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodCa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodCa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodCa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodCa.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodCa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodCa.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodCa.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodCa.Location = new System.Drawing.Point(216, 0);
+            this.btnFoodCa.Name = "btnFoodCa";
+            this.btnFoodCa.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodCa.TabIndex = 4;
+            this.btnFoodCa.Text = "Cá";
+            this.btnFoodCa.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodThit
+            // 
+            this.btnFoodThit.BorderRadius = 6;
+            this.btnFoodThit.BorderThickness = 1;
+            this.btnFoodThit.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodThit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodThit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodThit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodThit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodThit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodThit.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodThit.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodThit.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodThit.Location = new System.Drawing.Point(162, 0);
+            this.btnFoodThit.Name = "btnFoodThit";
+            this.btnFoodThit.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodThit.TabIndex = 3;
+            this.btnFoodThit.Text = "Thịt";
+            this.btnFoodThit.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodMy
+            // 
+            this.btnFoodMy.BorderRadius = 6;
+            this.btnFoodMy.BorderThickness = 1;
+            this.btnFoodMy.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodMy.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodMy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodMy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodMy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodMy.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodMy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodMy.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodMy.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodMy.Location = new System.Drawing.Point(108, 0);
+            this.btnFoodMy.Name = "btnFoodMy";
+            this.btnFoodMy.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodMy.TabIndex = 2;
+            this.btnFoodMy.Text = "Mỳ";
+            this.btnFoodMy.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodCom
+            // 
+            this.btnFoodCom.BorderRadius = 6;
+            this.btnFoodCom.BorderThickness = 1;
+            this.btnFoodCom.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodCom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodCom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodCom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodCom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodCom.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodCom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodCom.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodCom.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodCom.Location = new System.Drawing.Point(54, 0);
+            this.btnFoodCom.Name = "btnFoodCom";
+            this.btnFoodCom.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodCom.TabIndex = 1;
+            this.btnFoodCom.Text = "Cơm";
+            this.btnFoodCom.Click += new System.EventHandler(this.MyButton_Click);
+            // 
+            // btnFoodAll
+            // 
+            this.btnFoodAll.BorderRadius = 6;
+            this.btnFoodAll.BorderThickness = 1;
+            this.btnFoodAll.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnFoodAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFoodAll.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFoodAll.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFoodAll.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnFoodAll.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFoodAll.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Bold);
+            this.btnFoodAll.ForeColor = System.Drawing.Color.Black;
+            this.btnFoodAll.Location = new System.Drawing.Point(0, 0);
+            this.btnFoodAll.Name = "btnFoodAll";
+            this.btnFoodAll.Size = new System.Drawing.Size(54, 42);
+            this.btnFoodAll.TabIndex = 0;
+            this.btnFoodAll.Text = "Tất Cả";
+            this.btnFoodAll.Click += new System.EventHandler(this.MyButton_Click);
             // 
             // label1
             // 
@@ -262,6 +514,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.pnDanhMuc.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -272,7 +525,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView dgvOrder;
-        private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private System.Windows.Forms.FlowLayoutPanel flpnlMenu;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2Button btnConfirmOrder;
@@ -284,5 +536,17 @@
         private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Label lblTongTien;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel pnDanhMuc;
+        private Guna.UI2.WinForms.Guna2Button btnFoodAll;
+        private Guna.UI2.WinForms.Guna2Button btnDrink;
+        private Guna.UI2.WinForms.Guna2Button btnFoodTrangMieng;
+        private Guna.UI2.WinForms.Guna2Button btnFoodNuoc;
+        private Guna.UI2.WinForms.Guna2Button btnFoodHaiSan;
+        private Guna.UI2.WinForms.Guna2Button btnFoodChay;
+        private Guna.UI2.WinForms.Guna2Button btnFoodRau;
+        private Guna.UI2.WinForms.Guna2Button btnFoodCa;
+        private Guna.UI2.WinForms.Guna2Button btnFoodThit;
+        private Guna.UI2.WinForms.Guna2Button btnFoodMy;
+        private Guna.UI2.WinForms.Guna2Button btnFoodCom;
     }
 }
