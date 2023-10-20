@@ -67,7 +67,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtTim = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnTimMon = new System.Windows.Forms.Button();
             this.txtAdd_TenMon = new System.Windows.Forms.TextBox();
             this.txtAdd_Gia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -104,6 +103,8 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnThemTK = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.label27 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -112,7 +113,6 @@
             this.tpBanAn.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBanAn)).BeginInit();
             this.tpThucAn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSMonAn)).BeginInit();
@@ -122,10 +122,12 @@
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvACC)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpDoanhThu
             // 
+            this.tpDoanhThu.BackColor = System.Drawing.Color.RosyBrown;
             this.tpDoanhThu.Controls.Add(this.panel2);
             this.tpDoanhThu.Location = new System.Drawing.Point(4, 29);
             this.tpDoanhThu.Name = "tpDoanhThu";
@@ -133,7 +135,6 @@
             this.tpDoanhThu.Size = new System.Drawing.Size(1054, 606);
             this.tpDoanhThu.TabIndex = 4;
             this.tpDoanhThu.Text = "Doanh Thu";
-            this.tpDoanhThu.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -239,6 +240,7 @@
             // 
             // tpBanAn
             // 
+            this.tpBanAn.BackColor = System.Drawing.Color.RosyBrown;
             this.tpBanAn.Controls.Add(this.panel8);
             this.tpBanAn.Location = new System.Drawing.Point(4, 29);
             this.tpBanAn.Name = "tpBanAn";
@@ -246,7 +248,6 @@
             this.tpBanAn.Size = new System.Drawing.Size(1054, 606);
             this.tpBanAn.TabIndex = 3;
             this.tpBanAn.Text = "Bàn Ăn";
-            this.tpBanAn.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
@@ -261,6 +262,7 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panel10.Controls.Add(this.dgvBanAn);
             this.panel10.Controls.Add(this.label15);
             this.panel10.Controls.Add(this.label16);
             this.panel10.Controls.Add(this.label20);
@@ -277,12 +279,11 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(0, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(526, 600);
+            this.panel10.Size = new System.Drawing.Size(1048, 600);
             this.panel10.TabIndex = 1;
             // 
             // label15
             // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
@@ -294,7 +295,6 @@
             // 
             // label16
             // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Red;
@@ -306,7 +306,6 @@
             // 
             // label20
             // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Red;
@@ -318,7 +317,6 @@
             // 
             // cbbSLGhe
             // 
-            this.cbbSLGhe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbSLGhe.FormattingEnabled = true;
             this.cbbSLGhe.Items.AddRange(new object[] {
             "2",
@@ -332,7 +330,6 @@
             // 
             // btnXemBan
             // 
-            this.btnXemBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXemBan.Location = new System.Drawing.Point(323, 502);
             this.btnXemBan.Name = "btnXemBan";
             this.btnXemBan.Size = new System.Drawing.Size(94, 52);
@@ -342,7 +339,6 @@
             // 
             // btnXoaBan
             // 
-            this.btnXoaBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoaBan.Location = new System.Drawing.Point(223, 502);
             this.btnXoaBan.Name = "btnXoaBan";
             this.btnXoaBan.Size = new System.Drawing.Size(94, 52);
@@ -353,7 +349,6 @@
             // 
             // btnSuaBan
             // 
-            this.btnSuaBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSuaBan.Location = new System.Drawing.Point(123, 502);
             this.btnSuaBan.Name = "btnSuaBan";
             this.btnSuaBan.Size = new System.Drawing.Size(94, 52);
@@ -364,7 +359,6 @@
             // 
             // btnThemBan
             // 
-            this.btnThemBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThemBan.Location = new System.Drawing.Point(23, 502);
             this.btnThemBan.Name = "btnThemBan";
             this.btnThemBan.Size = new System.Drawing.Size(94, 52);
@@ -375,7 +369,6 @@
             // 
             // lblIDBan
             // 
-            this.lblIDBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblIDBan.AutoSize = true;
             this.lblIDBan.Location = new System.Drawing.Point(19, 67);
             this.lblIDBan.Name = "lblIDBan";
@@ -386,7 +379,6 @@
             // 
             // label21
             // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(19, 128);
             this.label21.Name = "label21";
@@ -396,7 +388,6 @@
             // 
             // label22
             // 
-            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(19, 190);
             this.label22.Name = "label22";
@@ -406,7 +397,6 @@
             // 
             // txtIDBan
             // 
-            this.txtIDBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIDBan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtIDBan.Enabled = false;
             this.txtIDBan.Location = new System.Drawing.Point(163, 67);
@@ -418,7 +408,6 @@
             // 
             // txtTenBan
             // 
-            this.txtTenBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenBan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTenBan.Location = new System.Drawing.Point(163, 128);
             this.txtTenBan.Name = "txtTenBan";
@@ -427,24 +416,27 @@
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.dgvBanAn);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(526, 0);
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel9.Location = new System.Drawing.Point(423, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(522, 600);
+            this.panel9.Size = new System.Drawing.Size(625, 600);
             this.panel9.TabIndex = 0;
             // 
             // dgvBanAn
             // 
+            this.dgvBanAn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvBanAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBanAn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvBanAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBanAn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBanAn.Location = new System.Drawing.Point(0, 0);
+            this.dgvBanAn.Location = new System.Drawing.Point(426, 3);
             this.dgvBanAn.Name = "dgvBanAn";
             this.dgvBanAn.RowHeadersWidth = 51;
             this.dgvBanAn.RowTemplate.Height = 24;
-            this.dgvBanAn.Size = new System.Drawing.Size(522, 600);
+            this.dgvBanAn.Size = new System.Drawing.Size(617, 594);
             this.dgvBanAn.TabIndex = 0;
             this.dgvBanAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBanAn_CellClick);
             // 
@@ -465,21 +457,22 @@
             // 
             // dgvDSMonAn
             // 
-            this.dgvDSMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDSMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDSMonAn.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDSMonAn.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvDSMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDSMonAn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dgvDSMonAn.Location = new System.Drawing.Point(528, 3);
+            this.dgvDSMonAn.Location = new System.Drawing.Point(469, 6);
             this.dgvDSMonAn.Name = "dgvDSMonAn";
             this.dgvDSMonAn.RowHeadersWidth = 51;
             this.dgvDSMonAn.RowTemplate.Height = 24;
-            this.dgvDSMonAn.Size = new System.Drawing.Size(523, 600);
+            this.dgvDSMonAn.Size = new System.Drawing.Size(579, 594);
             this.dgvDSMonAn.TabIndex = 0;
             this.dgvDSMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDSMonAn_CellClick);
             // 
             // btnXoaMon
             // 
-            this.btnXoaMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoaMon.Location = new System.Drawing.Point(302, 506);
             this.btnXoaMon.Name = "btnXoaMon";
             this.btnXoaMon.Size = new System.Drawing.Size(126, 71);
@@ -490,7 +483,6 @@
             // 
             // btnSua
             // 
-            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSua.Location = new System.Drawing.Point(170, 506);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(126, 71);
@@ -501,7 +493,6 @@
             // 
             // btnThem
             // 
-            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.Location = new System.Drawing.Point(38, 506);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(126, 71);
@@ -516,8 +507,6 @@
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtTim);
-            this.panel1.Controls.Add(this.btnTimMon);
             this.panel1.Controls.Add(this.txtAdd_TenMon);
             this.panel1.Controls.Add(this.txtAdd_Gia);
             this.panel1.Controls.Add(this.label2);
@@ -530,6 +519,7 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtAdd_MoTa);
             this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.panel5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -538,7 +528,6 @@
             // 
             // label9
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
@@ -550,7 +539,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Red;
@@ -562,7 +550,6 @@
             // 
             // label10
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Red;
@@ -574,7 +561,7 @@
             // 
             // txtTim
             // 
-            this.txtTim.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTim.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.txtTim.BorderColor = System.Drawing.Color.Gray;
             this.txtTim.BorderRadius = 20;
             this.txtTim.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -584,31 +571,22 @@
             this.txtTim.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTim.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTim.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTim.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtTim.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTim.ForeColor = System.Drawing.SystemColors.ControlText;
             this.txtTim.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTim.Location = new System.Drawing.Point(3, 9);
+            this.txtTim.Location = new System.Drawing.Point(173, 21);
             this.txtTim.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtTim.Name = "txtTim";
             this.txtTim.PasswordChar = '\0';
             this.txtTim.PlaceholderText = "";
             this.txtTim.SelectedText = "";
-            this.txtTim.Size = new System.Drawing.Size(290, 41);
+            this.txtTim.Size = new System.Drawing.Size(281, 41);
             this.txtTim.TabIndex = 10;
-            // 
-            // btnTimMon
-            // 
-            this.btnTimMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTimMon.Location = new System.Drawing.Point(312, 9);
-            this.btnTimMon.Name = "btnTimMon";
-            this.btnTimMon.Size = new System.Drawing.Size(148, 41);
-            this.btnTimMon.TabIndex = 11;
-            this.btnTimMon.Text = "Tìm Món";
-            this.btnTimMon.UseVisualStyleBackColor = true;
-            this.btnTimMon.Click += new System.EventHandler(this.btnTimMon_Click);
+            this.txtTim.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTim.TextChanged += new System.EventHandler(this.txtTim_TextChanged);
             // 
             // txtAdd_TenMon
             // 
-            this.txtAdd_TenMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAdd_TenMon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdd_TenMon.Location = new System.Drawing.Point(179, 84);
             this.txtAdd_TenMon.Name = "txtAdd_TenMon";
@@ -617,7 +595,6 @@
             // 
             // txtAdd_Gia
             // 
-            this.txtAdd_Gia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAdd_Gia.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdd_Gia.Location = new System.Drawing.Point(179, 143);
             this.txtAdd_Gia.Name = "txtAdd_Gia";
@@ -628,7 +605,6 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -640,7 +616,6 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Location = new System.Drawing.Point(31, 341);
@@ -651,7 +626,6 @@
             // 
             // txtID_mon
             // 
-            this.txtID_mon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtID_mon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtID_mon.Enabled = false;
             this.txtID_mon.Location = new System.Drawing.Point(179, 401);
@@ -663,7 +637,6 @@
             // 
             // txtAdd_LinkIMG
             // 
-            this.txtAdd_LinkIMG.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAdd_LinkIMG.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdd_LinkIMG.Location = new System.Drawing.Point(179, 203);
             this.txtAdd_LinkIMG.Name = "txtAdd_LinkIMG";
@@ -672,7 +645,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Location = new System.Drawing.Point(31, 273);
@@ -683,7 +655,6 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Location = new System.Drawing.Point(31, 408);
@@ -695,7 +666,6 @@
             // 
             // txtAdd_Loai
             // 
-            this.txtAdd_Loai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAdd_Loai.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdd_Loai.Location = new System.Drawing.Point(179, 266);
             this.txtAdd_Loai.Name = "txtAdd_Loai";
@@ -704,7 +674,6 @@
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Location = new System.Drawing.Point(31, 210);
@@ -715,7 +684,6 @@
             // 
             // txtAdd_MoTa
             // 
-            this.txtAdd_MoTa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAdd_MoTa.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdd_MoTa.Location = new System.Drawing.Point(179, 334);
             this.txtAdd_MoTa.Name = "txtAdd_MoTa";
@@ -724,7 +692,6 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Location = new System.Drawing.Point(31, 150);
@@ -735,6 +702,7 @@
             // 
             // tpTaiKhoan
             // 
+            this.tpTaiKhoan.BackColor = System.Drawing.Color.RosyBrown;
             this.tpTaiKhoan.Controls.Add(this.panel11);
             this.tpTaiKhoan.Location = new System.Drawing.Point(4, 29);
             this.tpTaiKhoan.Name = "tpTaiKhoan";
@@ -742,7 +710,6 @@
             this.tpTaiKhoan.Size = new System.Drawing.Size(1054, 606);
             this.tpTaiKhoan.TabIndex = 0;
             this.tpTaiKhoan.Text = "Tài Khoản";
-            this.tpTaiKhoan.UseVisualStyleBackColor = true;
             // 
             // panel11
             // 
@@ -775,7 +742,6 @@
             // 
             // label18
             // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.Red;
@@ -787,8 +753,10 @@
             // 
             // panel12
             // 
+            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel12.Controls.Add(this.dgvACC);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel12.Location = new System.Drawing.Point(450, 0);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(598, 600);
@@ -796,21 +764,22 @@
             // 
             // dgvACC
             // 
-            this.dgvACC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvACC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvACC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvACC.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvACC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvACC.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvACC.Location = new System.Drawing.Point(0, 0);
+            this.dgvACC.Location = new System.Drawing.Point(0, 3);
             this.dgvACC.Name = "dgvACC";
             this.dgvACC.RowHeadersWidth = 51;
             this.dgvACC.RowTemplate.Height = 24;
-            this.dgvACC.Size = new System.Drawing.Size(598, 600);
+            this.dgvACC.Size = new System.Drawing.Size(595, 592);
             this.dgvACC.TabIndex = 0;
             this.dgvACC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvACC_CellClick);
             // 
             // label24
             // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.Red;
@@ -822,7 +791,6 @@
             // 
             // btnSuaTK
             // 
-            this.btnSuaTK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSuaTK.Location = new System.Drawing.Point(150, 466);
             this.btnSuaTK.Name = "btnSuaTK";
             this.btnSuaTK.Size = new System.Drawing.Size(94, 52);
@@ -833,7 +801,6 @@
             // 
             // label19
             // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.Red;
@@ -845,7 +812,6 @@
             // 
             // txtID_TK
             // 
-            this.txtID_TK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtID_TK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtID_TK.Enabled = false;
             this.txtID_TK.Location = new System.Drawing.Point(190, 306);
@@ -857,7 +823,6 @@
             // 
             // txtTenDN_TK
             // 
-            this.txtTenDN_TK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenDN_TK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTenDN_TK.Location = new System.Drawing.Point(190, 36);
             this.txtTenDN_TK.Name = "txtTenDN_TK";
@@ -866,7 +831,6 @@
             // 
             // label26
             // 
-            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.Red;
@@ -878,17 +842,14 @@
             // 
             // txtMK_TK
             // 
-            this.txtMK_TK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMK_TK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMK_TK.Location = new System.Drawing.Point(190, 238);
             this.txtMK_TK.Name = "txtMK_TK";
             this.txtMK_TK.Size = new System.Drawing.Size(254, 27);
             this.txtMK_TK.TabIndex = 3;
-            this.txtMK_TK.TextChanged += new System.EventHandler(this.txtMK_TK_TextChanged);
             // 
             // label17
             // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Red;
@@ -900,7 +861,6 @@
             // 
             // txtTenHT_TK
             // 
-            this.txtTenHT_TK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenHT_TK.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTenHT_TK.Location = new System.Drawing.Point(190, 101);
             this.txtTenHT_TK.Name = "txtTenHT_TK";
@@ -909,7 +869,6 @@
             // 
             // cbLoaiTK_TK
             // 
-            this.cbLoaiTK_TK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbLoaiTK_TK.FormattingEnabled = true;
             this.cbLoaiTK_TK.Items.AddRange(new object[] {
             "admin",
@@ -922,7 +881,6 @@
             // 
             // label13
             // 
-            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(21, 98);
             this.label13.Name = "label13";
@@ -932,7 +890,6 @@
             // 
             // btnXemTK
             // 
-            this.btnXemTK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXemTK.Location = new System.Drawing.Point(350, 466);
             this.btnXemTK.Name = "btnXemTK";
             this.btnXemTK.Size = new System.Drawing.Size(94, 52);
@@ -942,7 +899,6 @@
             // 
             // label23
             // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(21, 162);
             this.label23.Name = "label23";
@@ -952,7 +908,6 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(21, 306);
             this.label1.Name = "label1";
@@ -963,7 +918,6 @@
             // 
             // btnXoaTK
             // 
-            this.btnXoaTK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXoaTK.Location = new System.Drawing.Point(250, 466);
             this.btnXoaTK.Name = "btnXoaTK";
             this.btnXoaTK.Size = new System.Drawing.Size(94, 52);
@@ -974,7 +928,6 @@
             // 
             // label11
             // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(21, 36);
             this.label11.Name = "label11";
@@ -984,7 +937,6 @@
             // 
             // label25
             // 
-            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(21, 238);
             this.label25.Name = "label25";
@@ -994,7 +946,6 @@
             // 
             // btnThemTK
             // 
-            this.btnThemTK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThemTK.Location = new System.Drawing.Point(50, 466);
             this.btnThemTK.Name = "btnThemTK";
             this.btnThemTK.Size = new System.Drawing.Size(94, 52);
@@ -1017,6 +968,26 @@
             this.tabControl1.Size = new System.Drawing.Size(1062, 639);
             this.tabControl1.TabIndex = 0;
             // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.label27.Location = new System.Drawing.Point(20, 30);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(138, 20);
+            this.label27.TabIndex = 17;
+            this.label27.Text = "Món Muốn Tìm:";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel5.Controls.Add(this.label27);
+            this.panel5.Controls.Add(this.txtTim);
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(457, 75);
+            this.panel5.TabIndex = 18;
+            // 
             // frmADMIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1037,7 +1008,6 @@
             this.panel8.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBanAn)).EndInit();
             this.tpThucAn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDSMonAn)).EndInit();
@@ -1049,6 +1019,8 @@
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvACC)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1092,7 +1064,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox txtTim;
-        private System.Windows.Forms.Button btnTimMon;
         private System.Windows.Forms.TextBox txtAdd_TenMon;
         private System.Windows.Forms.TextBox txtAdd_Gia;
         private System.Windows.Forms.Label label2;
@@ -1131,5 +1102,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblIDBan;
         private System.Windows.Forms.TextBox txtIDBan;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel panel5;
     }
 }

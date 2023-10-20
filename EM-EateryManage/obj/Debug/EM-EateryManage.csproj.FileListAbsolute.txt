@@ -35,6 +35,7 @@ C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\bin\Debug\System.Thr
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.AssemblyReference.cache
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.Food.resources
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmADMIN.resources
+C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmBill.resources
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmLogin.resources
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmOrder.resources
 C:\Users\pnn10\source\repos\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmMain.resources
