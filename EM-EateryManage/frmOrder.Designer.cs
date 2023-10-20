@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvOrder = new Guna.UI2.WinForms.Guna2DataGridView();
             this.flpnlMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -38,6 +38,8 @@
             this.btnConfirmOrder = new Guna.UI2.WinForms.Guna2Button();
             this.cbTable = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtFindFood = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnDanhMuc = new System.Windows.Forms.Panel();
             this.btnDrink = new Guna.UI2.WinForms.Guna2Button();
             this.btnFoodTrangMieng = new Guna.UI2.WinForms.Guna2Button();
@@ -55,35 +57,37 @@
             this.lbl1 = new System.Windows.Forms.Label();
             this.lblTongTien = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnX = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrder)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.pnDanhMuc.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvOrder
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
+            this.dgvOrder.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvOrder.ColumnHeadersHeight = 24;
             this.dgvOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle21;
             this.dgvOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvOrder.Location = new System.Drawing.Point(601, 42);
             this.dgvOrder.Name = "dgvOrder";
@@ -179,7 +183,7 @@
             // 
             this.cbTable.AllowDrop = true;
             this.cbTable.BackColor = System.Drawing.Color.Transparent;
-            this.cbTable.BorderRadius = 4;
+            this.cbTable.BorderRadius = 12;
             this.cbTable.BorderThickness = 2;
             this.cbTable.DisplayMember = "Table 1";
             this.cbTable.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
@@ -192,13 +196,14 @@
             this.cbTable.ItemHeight = 30;
             this.cbTable.Location = new System.Drawing.Point(128, 0);
             this.cbTable.Name = "cbTable";
-            this.cbTable.Size = new System.Drawing.Size(422, 36);
+            this.cbTable.Size = new System.Drawing.Size(121, 36);
             this.cbTable.TabIndex = 1;
             this.cbTable.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cbTable.SelectedIndexChanged += new System.EventHandler(this.cbTable_SelectedIndexChanged);
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.pnDanhMuc);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.flpnlMenu);
@@ -206,6 +211,41 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(601, 648);
             this.panel2.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnX);
+            this.panel4.Controls.Add(this.txtFindFood);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(255, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(346, 37);
+            this.panel4.TabIndex = 4;
+            // 
+            // txtFindFood
+            // 
+            this.txtFindFood.BorderRadius = 12;
+            this.txtFindFood.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtFindFood.DefaultText = "Nhập Món Muốn Tìm";
+            this.txtFindFood.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtFindFood.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtFindFood.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFindFood.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtFindFood.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFindFood.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFindFood.Font = new System.Drawing.Font("Segoe UI", 12.5F, System.Drawing.FontStyle.Bold);
+            this.txtFindFood.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtFindFood.Location = new System.Drawing.Point(0, 0);
+            this.txtFindFood.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtFindFood.Name = "txtFindFood";
+            this.txtFindFood.PasswordChar = '\0';
+            this.txtFindFood.PlaceholderText = "";
+            this.txtFindFood.SelectedText = "";
+            this.txtFindFood.Size = new System.Drawing.Size(346, 37);
+            this.txtFindFood.TabIndex = 0;
+            this.txtFindFood.TextChanged += new System.EventHandler(this.txtFindFood_TextChanged);
+            this.txtFindFood.Click += new System.EventHandler(this.txtFindFood_Click);
+            this.txtFindFood.Leave += new System.EventHandler(this.txtFindFood_Leave);
             // 
             // pnDanhMuc
             // 
@@ -244,7 +284,7 @@
             this.btnDrink.Size = new System.Drawing.Size(54, 42);
             this.btnDrink.TabIndex = 10;
             this.btnDrink.Text = "Nước";
-            this.btnDrink.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnDrink.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodTrangMieng
             // 
@@ -264,7 +304,7 @@
             this.btnFoodTrangMieng.Size = new System.Drawing.Size(61, 42);
             this.btnFoodTrangMieng.TabIndex = 9;
             this.btnFoodTrangMieng.Text = "Tráng Miệng";
-            this.btnFoodTrangMieng.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodTrangMieng.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodNuoc
             // 
@@ -284,7 +324,7 @@
             this.btnFoodNuoc.Size = new System.Drawing.Size(54, 42);
             this.btnFoodNuoc.TabIndex = 8;
             this.btnFoodNuoc.Text = "Món Nước";
-            this.btnFoodNuoc.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodNuoc.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodHaiSan
             // 
@@ -304,7 +344,7 @@
             this.btnFoodHaiSan.Size = new System.Drawing.Size(54, 42);
             this.btnFoodHaiSan.TabIndex = 7;
             this.btnFoodHaiSan.Text = "Hải Sản";
-            this.btnFoodHaiSan.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodHaiSan.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodChay
             // 
@@ -324,7 +364,7 @@
             this.btnFoodChay.Size = new System.Drawing.Size(54, 42);
             this.btnFoodChay.TabIndex = 6;
             this.btnFoodChay.Text = "Chay";
-            this.btnFoodChay.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodChay.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodRau
             // 
@@ -344,7 +384,7 @@
             this.btnFoodRau.Size = new System.Drawing.Size(54, 42);
             this.btnFoodRau.TabIndex = 5;
             this.btnFoodRau.Text = "Rau";
-            this.btnFoodRau.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodRau.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodCa
             // 
@@ -364,7 +404,7 @@
             this.btnFoodCa.Size = new System.Drawing.Size(54, 42);
             this.btnFoodCa.TabIndex = 4;
             this.btnFoodCa.Text = "Cá";
-            this.btnFoodCa.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodCa.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodThit
             // 
@@ -384,7 +424,7 @@
             this.btnFoodThit.Size = new System.Drawing.Size(54, 42);
             this.btnFoodThit.TabIndex = 3;
             this.btnFoodThit.Text = "Thịt";
-            this.btnFoodThit.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodThit.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodMy
             // 
@@ -404,7 +444,7 @@
             this.btnFoodMy.Size = new System.Drawing.Size(54, 42);
             this.btnFoodMy.TabIndex = 2;
             this.btnFoodMy.Text = "Mỳ";
-            this.btnFoodMy.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodMy.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodCom
             // 
@@ -424,12 +464,13 @@
             this.btnFoodCom.Size = new System.Drawing.Size(54, 42);
             this.btnFoodCom.TabIndex = 1;
             this.btnFoodCom.Text = "Cơm";
-            this.btnFoodCom.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodCom.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // btnFoodAll
             // 
             this.btnFoodAll.BorderRadius = 6;
             this.btnFoodAll.BorderThickness = 1;
+            this.btnFoodAll.Checked = true;
             this.btnFoodAll.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnFoodAll.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnFoodAll.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -444,7 +485,7 @@
             this.btnFoodAll.Size = new System.Drawing.Size(54, 42);
             this.btnFoodAll.TabIndex = 0;
             this.btnFoodAll.Text = "Tất Cả";
-            this.btnFoodAll.Click += new System.EventHandler(this.MyButton_Click);
+            this.btnFoodAll.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
             // 
             // label1
             // 
@@ -496,6 +537,25 @@
             this.panel3.Size = new System.Drawing.Size(461, 35);
             this.panel3.TabIndex = 9;
             // 
+            // btnX
+            // 
+            this.btnX.BackColor = System.Drawing.Color.White;
+            this.btnX.BorderRadius = 12;
+            this.btnX.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnX.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnX.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnX.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnX.FillColor = System.Drawing.Color.White;
+            this.btnX.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnX.ForeColor = System.Drawing.Color.Red;
+            this.btnX.Location = new System.Drawing.Point(300, 3);
+            this.btnX.Name = "btnX";
+            this.btnX.Size = new System.Drawing.Size(35, 31);
+            this.btnX.TabIndex = 1;
+            this.btnX.Text = "x";
+            this.btnX.Visible = false;
+            this.btnX.Click += new System.EventHandler(this.btnX_Click);
+            // 
             // frmOrder
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -514,6 +574,7 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.pnDanhMuc.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -548,5 +609,8 @@
         private Guna.UI2.WinForms.Guna2Button btnFoodThit;
         private Guna.UI2.WinForms.Guna2Button btnFoodMy;
         private Guna.UI2.WinForms.Guna2Button btnFoodCom;
+        private System.Windows.Forms.Panel panel4;
+        private Guna.UI2.WinForms.Guna2TextBox txtFindFood;
+        private Guna.UI2.WinForms.Guna2Button btnX;
     }
 }

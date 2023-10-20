@@ -95,3 +95,4 @@ F:\Desktop\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj
 F:\Desktop\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CopyComplete
 F:\Desktop\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.exe
 F:\Desktop\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.pdb
+F:\Desktop\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmBill.resources

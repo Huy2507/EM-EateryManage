@@ -46,6 +46,8 @@
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.Wheat;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.guna2Panel2.BorderThickness = 1;
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.label1);
             this.guna2Panel2.Controls.Add(this.btnSetting);
@@ -72,7 +74,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 43);
+            this.label1.Size = new System.Drawing.Size(173, 43);
             this.label1.TabIndex = 1;
             this.label1.Text = "Eatery Manage";
             // 
@@ -118,6 +120,7 @@
             // 
             this.btnOrder.BorderRadius = 24;
             this.btnOrder.BorderThickness = 2;
+            this.btnOrder.Checked = true;
             this.btnOrder.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.btnOrder.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnOrder.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -135,13 +138,17 @@
             // 
             // panelOrder
             // 
+            this.panelOrder.BorderThickness = 1;
+            this.panelOrder.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelOrder.Location = new System.Drawing.Point(200, 0);
             this.panelOrder.Name = "panelOrder";
-            this.panelOrder.Size = new System.Drawing.Size(1062, 639);
+            this.panelOrder.Size = new System.Drawing.Size(1062, 641);
             this.panelOrder.TabIndex = 1;
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.lblClock);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -173,6 +180,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panelOrder);
             this.Controls.Add(this.guna2Panel2);
+            this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eatery ManageMent";

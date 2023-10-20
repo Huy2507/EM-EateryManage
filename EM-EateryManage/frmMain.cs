@@ -27,11 +27,10 @@ namespace EM_EateryManage
         public void frmMain_Load(object sender, EventArgs e)
         {
             lblClock.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-
-            // Bắt đầu Timer
+            AddForm(new frmOrder());
             timerClock.Start();
         }
-        public void AddControls(Form f)
+        public void AddForm(Form f)
         {
             panelOrder.Controls.Clear();
             f.Dock = DockStyle.Fill;
@@ -65,11 +64,11 @@ namespace EM_EateryManage
             }
             if (openedOrderForm != null)
             {
-                AddControls(openedOrderForm);
+                AddForm(openedOrderForm);
             }
             else
             {
-                AddControls(new frmOrder());
+                AddForm(new frmOrder());
             }
         }
 
@@ -93,11 +92,11 @@ namespace EM_EateryManage
             }
             if (openFormAdmin != null)
             {
-                AddControls(openFormAdmin);
+                AddForm(openFormAdmin);
             }
             else
             {
-                AddControls(new frmADMIN());
+                AddForm(new frmADMIN());
             }
         }
         public void timerClock_Tick(object sender, EventArgs e)

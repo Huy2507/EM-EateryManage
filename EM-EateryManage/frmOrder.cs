@@ -79,7 +79,7 @@ namespace EM_EateryManage
         public void btnFood(object sender, EventArgs e)
         {
             Food food = (Food)sender;
-
+            
             Label labelName = food.Controls.Find("lblNameFood", true).FirstOrDefault() as Label;
             if (labelName != null)
             {
@@ -111,6 +111,12 @@ namespace EM_EateryManage
                 }
                 else
                 {
+                    if (cbTable.SelectedIndex < 0)
+                    {
+                        MessageBox.Show("Chossen Table!!!");
+                        cbTable.Focus();
+                        return;
+                    }
                     for (int i = 0; i < total; i++)
                     {
                         if (dgvOrder.Rows[i].Cells[0].Value.ToString() == foodName)
@@ -142,17 +148,6 @@ namespace EM_EateryManage
                     dgvOrder.DataSource = dtOrder;
                 }
                 Sumtotal();
-
-            }
-
-        }
-        private void AttachClickEventToControls(Food f)
-        {
-            // Lặp qua tất cả các control trong panel
-            foreach (Control control in f.Controls)
-            {
-                // Gắn sự kiện click cho từng control
-                control.Click += btnFood;
             }
         }
         private void dgvOrder_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -175,21 +170,28 @@ namespace EM_EateryManage
             AddDataTocbTable();
             AddColumnToDGV();
             string a = "Tất Cả";
-            AddDataToFlowlayoutPanel(a);
+            AddDataToFlowlayoutPanel(a,"");
         }
-
-        public void AddDataToFlowlayoutPanel(string dm)
+        public void AddDataToFlowlayoutPanel(string dm, string a)
         {
             flpnlMenu.Controls.Clear();
             string datadm = dm;
+            string textFinded = a;
             string query = "";
-            if (datadm == "Tất Cả")
+            if (datadm == "Tất Cả" && (txtFindFood.Text == "" || txtFindFood.Text == "Nhập Món Muốn Tìm"))
             {
                 query = "SELECT food_name, food_price, food_image, food_material FROM dbo.FOOD";
             }
             else
             {
-                query = "SELECT food_name, food_price, food_image, food_material FROM dbo.FOOD where food_material = @danhmuc";
+                if (datadm != "Tất Cả" && (txtFindFood.Text == "" || txtFindFood.Text == "Nhập Món Muốn Tìm"))
+                {
+                    query = "SELECT food_name, food_price, food_image, food_material FROM dbo.FOOD where food_material = @danhmuc";
+                }
+                else
+                {
+                    query = "SELECT food_name, food_price, food_image, food_material FROM dbo.FOOD where food_name like N'%' + @textfind + '%'";
+                }
             }
 
             List<food> value = new List<food>();
@@ -203,6 +205,7 @@ namespace EM_EateryManage
                     {
                         command.Parameters.Clear();
                         command.Parameters.AddWithValue("@danhmuc", datadm);
+                        command.Parameters.AddWithValue("@textfind", a);
                         SqlDataReader reader = command.ExecuteReader();
                         while (reader.Read())
                         {
@@ -228,7 +231,7 @@ namespace EM_EateryManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message, "Error!");
             }
         }
 
@@ -238,7 +241,7 @@ namespace EM_EateryManage
             if (total > 1)
             {
                 cbTable.Text = "Table " + dgvOrder.Rows[0].Cells[2].Value.ToString();
-                MessageBox.Show("Hãy Hoàn Tất Gọi Món Cho 1 " + dgvOrder.Rows[0].Cells[2].Value.ToString() + " !!!");
+                MessageBox.Show("Hãy Hoàn Tất Gọi Món Cho Bàn " + dgvOrder.Rows[0].Cells[2].Value.ToString() + " !!!", "Hoàn Tất");
 
                 return;
             }
@@ -304,12 +307,10 @@ namespace EM_EateryManage
                     dgvOrder.Rows.RemoveAt(0);
             }
         }
-        private void MyButton_Click(object sender, EventArgs e)
+        private void MyButtonDanhMuc_Click(object sender, EventArgs e)
         {
             Guna2Button clickedButton = (Guna2Button)sender;
             clickedButton.Checked = true;
-            string dm = clickedButton.Text;
-            AddDataToFlowlayoutPanel(dm);
             foreach (Guna2Button button in pnDanhMuc.Controls.OfType<Guna2Button>())
             {
                 // Kiểm tra xem button hiện tại có là button được click không
@@ -317,8 +318,54 @@ namespace EM_EateryManage
                 {
                     button.Checked = false;
                 }
+                if(button.Checked == true)
+                {
+                    string dm = clickedButton.Text;
+                    AddDataToFlowlayoutPanel(dm, "");
+                }
+            }
+        }
+        private bool isFirstClick = true;
+        private void txtFindFood_Click(object sender, EventArgs e)
+        {
+            if (isFirstClick)
+            {
+                txtFindFood.Text = "";
+                isFirstClick = false;
+            }
+        }
+        private void txtFindFood_TextChanged(object sender, EventArgs e)
+        {
+            foreach (Guna2Button button in pnDanhMuc.Controls.OfType<Guna2Button>())
+            {
+                if (button.Checked == true)
+                {
+                    string dm = button.Text;
+                    string textFind = txtFindFood.Text;
+                    AddDataToFlowlayoutPanel(dm, textFind);
+                }
+            }
+            if(txtFindFood.Text == "" || txtFindFood.Text == "Nhập Món Muốn Tìm" )
+            {
+                btnX.Visible= false;
+            }
+            else
+            {
+                btnX.Visible= true;
             }
         }
 
+        private void txtFindFood_Leave(object sender, EventArgs e)
+        {
+            if (txtFindFood.Text == "")
+            {
+                txtFindFood.Text = "Nhập Món Muốn Tìm";
+                isFirstClick = true;
+            }
+        }
+        private void btnX_Click(object sender, EventArgs e)
+        {
+            txtFindFood.Clear();
+        }
     }
 }

@@ -51,6 +51,7 @@ namespace EM_EateryManage
         }
         private void Food_Click(object sender, EventArgs e)
         {
+            this.Controls[0].Focus();
             // Gọi sự kiện FoodClicked
             FoodClicked?.Invoke(this, EventArgs.Empty);
         }
