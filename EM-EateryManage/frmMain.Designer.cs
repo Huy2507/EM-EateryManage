@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnBill = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSetting = new Guna.UI2.WinForms.Guna2Button();
@@ -39,7 +40,7 @@
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblClock = new System.Windows.Forms.Label();
             this.timerClock = new System.Windows.Forms.Timer(this.components);
-            this.btnBill = new Guna.UI2.WinForms.Guna2Button();
+            this.btnManageBill = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             this.guna2Panel2.BackColor = System.Drawing.Color.Wheat;
             this.guna2Panel2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.guna2Panel2.BorderThickness = 1;
+            this.guna2Panel2.Controls.Add(this.btnManageBill);
             this.guna2Panel2.Controls.Add(this.btnBill);
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.label1);
@@ -60,6 +62,25 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.Size = new System.Drawing.Size(200, 673);
             this.guna2Panel2.TabIndex = 0;
+            // 
+            // btnBill
+            // 
+            this.btnBill.BorderRadius = 24;
+            this.btnBill.BorderThickness = 2;
+            this.btnBill.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnBill.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.btnBill.ForeColor = System.Drawing.Color.Black;
+            this.btnBill.Location = new System.Drawing.Point(3, 390);
+            this.btnBill.Name = "btnBill";
+            this.btnBill.Size = new System.Drawing.Size(194, 82);
+            this.btnBill.TabIndex = 3;
+            this.btnBill.Text = "Thanh Toán";
+            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
             // 
             // label2
             // 
@@ -176,24 +197,24 @@
             this.timerClock.Interval = 1000;
             this.timerClock.Tick += new System.EventHandler(this.timerClock_Tick);
             // 
-            // btnBill
+            // btnManageBill
             // 
-            this.btnBill.BorderRadius = 24;
-            this.btnBill.BorderThickness = 2;
-            this.btnBill.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.btnBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnBill.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.btnBill.ForeColor = System.Drawing.Color.Black;
-            this.btnBill.Location = new System.Drawing.Point(3, 390);
-            this.btnBill.Name = "btnBill";
-            this.btnBill.Size = new System.Drawing.Size(194, 82);
-            this.btnBill.TabIndex = 3;
-            this.btnBill.Text = "Thanh Toán";
-            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
+            this.btnManageBill.BorderRadius = 24;
+            this.btnManageBill.BorderThickness = 2;
+            this.btnManageBill.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.btnManageBill.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnManageBill.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnManageBill.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnManageBill.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnManageBill.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnManageBill.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.btnManageBill.ForeColor = System.Drawing.Color.Black;
+            this.btnManageBill.Location = new System.Drawing.Point(3, 478);
+            this.btnManageBill.Name = "btnManageBill";
+            this.btnManageBill.Size = new System.Drawing.Size(194, 82);
+            this.btnManageBill.TabIndex = 4;
+            this.btnManageBill.Text = "Quản lý hóa đơn";
+            this.btnManageBill.Click += new System.EventHandler(this.btnManageBill_Click);
             // 
             // frmMain
             // 
@@ -228,5 +249,6 @@
         public System.Windows.Forms.Label lblClock;
         public System.Windows.Forms.Timer timerClock;
         private Guna.UI2.WinForms.Guna2Button btnBill;
+        private Guna.UI2.WinForms.Guna2Button btnManageBill;
     }
 }

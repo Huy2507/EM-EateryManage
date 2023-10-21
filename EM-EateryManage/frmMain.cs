@@ -24,6 +24,7 @@ namespace EM_EateryManage
         public frmADMIN openFormAdmin;
         public frmXem_TTCN xTTCN;
         public frmBill bill;
+        public frmBillManage manageBill;
         //
         public void frmMain_Load(object sender, EventArgs e)
         {
@@ -61,7 +62,7 @@ namespace EM_EateryManage
             if (btnOrder.Checked == false)
             {
                 btnOrder.Checked = !btnOrder.Checked;
-                btnBill.Checked = btnTable.Checked = btnSetting.Checked = false;
+                btnManageBill.Checked = btnBill.Checked = btnTable.Checked = btnSetting.Checked = false;
             }
             if (openedOrderForm != null)
             {
@@ -78,7 +79,7 @@ namespace EM_EateryManage
             if (btnTable.Checked == false)
             {
                 btnTable.Checked = !btnTable.Checked;
-                btnBill.Checked =btnOrder.Checked = btnSetting.Checked = false;
+                btnManageBill.Checked = btnBill.Checked =btnOrder.Checked = btnSetting.Checked = false;
 
             }
         }
@@ -88,7 +89,7 @@ namespace EM_EateryManage
             if (btnSetting.Checked == false)
             {
                 btnSetting.Checked = !btnSetting.Checked;
-                btnBill.Checked= btnOrder.Checked = btnTable.Checked = false;
+                btnManageBill.Checked = btnBill.Checked= btnOrder.Checked = btnTable.Checked = false;
 
             }
             if (openFormAdmin != null)
@@ -110,7 +111,7 @@ namespace EM_EateryManage
             if (btnBill.Checked == false)
             {
                 btnBill.Checked = !btnBill.Checked;
-                btnSetting.Checked =btnTable.Checked = btnOrder.Checked = false;
+                btnManageBill.Checked = btnSetting.Checked =btnTable.Checked = btnOrder.Checked = false;
 
             }
             if (bill != null)
@@ -120,6 +121,24 @@ namespace EM_EateryManage
             else
             {
                 AddForm(new frmBill());
+            }
+        }
+
+        private void btnManageBill_Click(object sender, EventArgs e)
+        {
+            if (btnBill.Checked == false)
+            {
+                btnManageBill.Checked = !btnManageBill.Checked;
+                btnBill.Checked = btnSetting.Checked = btnTable.Checked = btnOrder.Checked = false;
+
+            }
+            if (bill != null)
+            {
+                AddForm(manageBill); ;
+            }
+            else
+            {
+                AddForm(new frmBillManage());
             }
         }
     }

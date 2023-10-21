@@ -146,3 +146,4 @@ C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryMan
 C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.csproj.CopyComplete
 C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.exe
 C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM-EateryManage.pdb
+C:\Users\Sang\OneDrive\Tài liệu\Workspace\DoAn\EM-EateryManage\EM-EateryManage\obj\Debug\EM_EateryManage.frmBillManage.resources
