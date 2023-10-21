@@ -29,10 +29,17 @@
         private void InitializeComponent()
         {
             this.cbTable = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.lbHoaDon = new System.Windows.Forms.Label();
-            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txbTong = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cbGiamGia = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txbToTal = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnGiamGia = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // cbTable
@@ -48,86 +55,154 @@
             this.cbTable.ItemHeight = 30;
             this.cbTable.Location = new System.Drawing.Point(0, 0);
             this.cbTable.Name = "cbTable";
-            this.cbTable.Size = new System.Drawing.Size(800, 36);
+            this.cbTable.Size = new System.Drawing.Size(1062, 36);
             this.cbTable.TabIndex = 0;
-            this.cbTable.SelectedIndexChanged += new System.EventHandler(this.cbTable_SelectedIndexChanged);
             // 
-            // lbHoaDon
+            // panel1
             // 
-            this.lbHoaDon.AutoSize = true;
-            this.lbHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHoaDon.Location = new System.Drawing.Point(113, 77);
-            this.lbHoaDon.Name = "lbHoaDon";
-            this.lbHoaDon.Size = new System.Drawing.Size(64, 25);
-            this.lbHoaDon.TabIndex = 1;
-            this.lbHoaDon.Text = "label1";
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.txbTong);
+            this.panel1.Controls.Add(this.cbGiamGia);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnGiamGia);
+            this.panel1.Controls.Add(this.btnThanhToan);
+            this.panel1.Location = new System.Drawing.Point(5, 500);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1045, 127);
+            this.panel1.TabIndex = 6;
             // 
-            // btnThanhToan
+            // txbTong
             // 
-            this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThanhToan.Location = new System.Drawing.Point(531, 337);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(192, 49);
-            this.btnThanhToan.TabIndex = 2;
-            this.btnThanhToan.Text = "Thanh Toán";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            this.txbTong.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txbTong.DefaultText = "";
+            this.txbTong.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txbTong.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txbTong.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbTong.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txbTong.Enabled = false;
+            this.txbTong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbTong.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txbTong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txbTong.Location = new System.Drawing.Point(283, 42);
+            this.txbTong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txbTong.Name = "txbTong";
+            this.txbTong.PasswordChar = '\0';
+            this.txbTong.PlaceholderText = "";
+            this.txbTong.SelectedText = "";
+            this.txbTong.Size = new System.Drawing.Size(268, 48);
+            this.txbTong.TabIndex = 6;
+            // 
+            // cbGiamGia
+            // 
+            this.cbGiamGia.BackColor = System.Drawing.Color.Transparent;
+            this.cbGiamGia.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbGiamGia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGiamGia.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbGiamGia.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbGiamGia.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbGiamGia.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbGiamGia.ItemHeight = 30;
+            this.cbGiamGia.Items.AddRange(new object[] {
+            "0",
+            "10",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100"});
+            this.cbGiamGia.Location = new System.Drawing.Point(614, 76);
+            this.cbGiamGia.Name = "cbGiamGia";
+            this.cbGiamGia.Size = new System.Drawing.Size(208, 36);
+            this.cbGiamGia.TabIndex = 5;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(59, 348);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 61);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 25);
+            this.label1.Size = new System.Drawing.Size(258, 29);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Total";
+            this.label1.Text = "Tổng phải thanh toán";
             // 
-            // txbToTal
+            // btnGiamGia
             // 
-            this.txbToTal.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txbToTal.DefaultText = "";
-            this.txbToTal.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txbToTal.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txbToTal.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txbToTal.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txbToTal.Enabled = false;
-            this.txbToTal.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbToTal.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txbToTal.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbToTal.Location = new System.Drawing.Point(118, 337);
-            this.txbToTal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txbToTal.Name = "txbToTal";
-            this.txbToTal.PasswordChar = '\0';
-            this.txbToTal.PlaceholderText = "";
-            this.txbToTal.SelectedText = "";
-            this.txbToTal.Size = new System.Drawing.Size(298, 38);
-            this.txbToTal.TabIndex = 4;
+            this.btnGiamGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGiamGia.Location = new System.Drawing.Point(613, 18);
+            this.btnGiamGia.Name = "btnGiamGia";
+            this.btnGiamGia.Size = new System.Drawing.Size(209, 38);
+            this.btnGiamGia.TabIndex = 1;
+            this.btnGiamGia.Text = "Giảm giá";
+            this.btnGiamGia.UseVisualStyleBackColor = true;
+            this.btnGiamGia.Click += new System.EventHandler(this.btnGiamGia_Click);
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThanhToan.Location = new System.Drawing.Point(828, 18);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(213, 82);
+            this.btnThanhToan.TabIndex = 0;
+            this.btnThanhToan.Text = "Thanh Toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 36);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1062, 456);
+            this.panel2.TabIndex = 7;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1062, 456);
+            this.dataGridView1.TabIndex = 0;
             // 
             // frmBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txbToTal);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnThanhToan);
-            this.Controls.Add(this.lbHoaDon);
+            this.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.ClientSize = new System.Drawing.Size(1062, 639);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cbTable);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBill";
             this.Text = "frmBill";
+            this.Load += new System.EventHandler(this.frmBill_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private Guna.UI2.WinForms.Guna2ComboBox cbTable;
-        private System.Windows.Forms.Label lbHoaDon;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnGiamGia;
         private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2TextBox txbToTal;
+        private Guna.UI2.WinForms.Guna2ComboBox cbGiamGia;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private Guna.UI2.WinForms.Guna2TextBox txbTong;
     }
 }

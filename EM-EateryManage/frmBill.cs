@@ -28,39 +28,34 @@ namespace EM_EateryManage
                 cbTable.Items.Add("Table " + i.ToString());
             }
         }
-        private void xuatBill(int selectedTable)
+        public void AddDataToDGV()
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            try
             {
-                try
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                 {
                     connection.Open();
-                    string query = "SELECT * FROM dbo.BILLINFO WHERE table_id = @table_id";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@table_id", selectedTable);
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
 
-                    SqlDataReader reader = command.ExecuteReader();
-                    string labelHienThi = "Tên món ăn"+ "    " + "Số lượng" + "   " + "Giá" + "        "+ "Tổng\n";
-                    int totalPrice = 0;
-                    while (reader.Read())
-                    {
-                        string itemName = reader["item_name"].ToString();
-                        string quantity = reader["quantity"].ToString();
-                        string price = reader["unit_price"].ToString();
-                        string total = reader["line_total"].ToString();
-                        string Bill = itemName + "          " + quantity + "            " + price + "                 " + total + "\n";
-                        int tongMotmon = (int)decimal.Parse(price) * int.Parse(quantity);
-                        totalPrice += tongMotmon;
-                        labelHienThi = labelHienThi + Bill;
-                    }
-                    txbToTal.Text = totalPrice.ToString();
-                    lbHoaDon.Text = labelHienThi;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred: " + ex.Message);
+
+                    string query = "select item_name as N'Tên món', quantity as N'Số lượng', unit_price as N'Giá', line_total as N'Tổng'\r\nfrom BILLINFO WHERE STATUS = N'Chưa'";
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
+                    DataTable dataTable = new DataTable();
+
+                    // Đổ dữ liệu vào DataTable
+                    adapter.Fill(dataTable);
+
+                    // Gán DataTable làm nguồn dữ liệu cho DataGridView
+                    dataGridView1.DataSource = dataTable;
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+
         }
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
@@ -75,7 +70,7 @@ namespace EM_EateryManage
                         connection.Open();
                         int IDTable = cbTable.SelectedIndex + 1;
                         // Truy vấn để kiểm tra tài khoản
-                        string query = "DELETE FROM dbo.BILLINFO WHERE table_id = @table_id";
+                        string query = "UPDATE dbo.BILLINFO SET status=N'Rồi' WHERE table_id = @table_id";
                         SqlCommand command = new SqlCommand(query, connection);
                         command.Parameters.AddWithValue("@table_id", IDTable);
                         command.ExecuteNonQuery();
@@ -83,6 +78,15 @@ namespace EM_EateryManage
                     catch (Exception ex)
                     {
                         MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                    finally
+                    {
+                        int rowCount = dataGridView1.Rows.Count;
+                        for (int n = 0; n < rowCount; n++)
+                        {
+                            if (dataGridView1.Rows[0].IsNewRow == false)
+                                dataGridView1.Rows.RemoveAt(0);
+                        }
                     }
                 }
             }
@@ -92,10 +96,39 @@ namespace EM_EateryManage
             }
         }
 
-        private void cbTable_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void frmBill_Load(object sender, EventArgs e)
         {
-            int selected = cbTable.SelectedIndex + 1;
-            xuatBill(selected);
+            AddDataToDGV();
+        }
+
+        private void btnGiamGia_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+            {
+                decimal total = 0;
+                try
+                {
+                    connection.Open();
+                    int IDTable = cbTable.SelectedIndex + 1;
+                    // Truy vấn để kiểm tra tài khoản
+                    string query = "SELECT line_total FROM BILLINFO WHERE table_id = @table_id AND status = N'Chưa'";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@table_id", 1);
+                    SqlDataReader reader = command.ExecuteReader();
+                    while(reader.Read())
+                    {
+                        total += decimal.Parse(reader["line_total"].ToString());
+                    }
+                    decimal giamGia = (decimal.Parse(cbGiamGia.Text)/100) * total;
+                    decimal tongKet = (decimal)total - giamGia;
+                    txbTong.Text = tongKet.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
         }
     }
 }

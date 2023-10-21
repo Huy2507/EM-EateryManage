@@ -23,6 +23,7 @@ namespace EM_EateryManage
         public frmOrder openedOrderForm;
         public frmADMIN openFormAdmin;
         public frmXem_TTCN xTTCN;
+        public frmBill bill;
         //
         public void frmMain_Load(object sender, EventArgs e)
         {
@@ -60,7 +61,7 @@ namespace EM_EateryManage
             if (btnOrder.Checked == false)
             {
                 btnOrder.Checked = !btnOrder.Checked;
-                btnTable.Checked = btnSetting.Checked = false;
+                btnBill.Checked = btnTable.Checked = btnSetting.Checked = false;
             }
             if (openedOrderForm != null)
             {
@@ -77,7 +78,7 @@ namespace EM_EateryManage
             if (btnTable.Checked == false)
             {
                 btnTable.Checked = !btnTable.Checked;
-                btnOrder.Checked = btnSetting.Checked = false;
+                btnBill.Checked =btnOrder.Checked = btnSetting.Checked = false;
 
             }
         }
@@ -87,7 +88,7 @@ namespace EM_EateryManage
             if (btnSetting.Checked == false)
             {
                 btnSetting.Checked = !btnSetting.Checked;
-                btnOrder.Checked = btnTable.Checked = false;
+                btnBill.Checked= btnOrder.Checked = btnTable.Checked = false;
 
             }
             if (openFormAdmin != null)
@@ -102,6 +103,24 @@ namespace EM_EateryManage
         public void timerClock_Tick(object sender, EventArgs e)
         {
             lblClock.Text = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+        }
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            if (btnBill.Checked == false)
+            {
+                btnBill.Checked = !btnBill.Checked;
+                btnSetting.Checked =btnTable.Checked = btnOrder.Checked = false;
+
+            }
+            if (bill != null)
+            {
+                AddForm(bill); ;
+            }
+            else
+            {
+                AddForm(new frmBill());
+            }
         }
     }
 }
