@@ -36,10 +36,10 @@
             this.btnGiamGia = new System.Windows.Forms.Button();
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtgvBill = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).BeginInit();
             this.SuspendLayout();
             // 
             // cbTable
@@ -57,18 +57,19 @@
             this.cbTable.Name = "cbTable";
             this.cbTable.Size = new System.Drawing.Size(1062, 36);
             this.cbTable.TabIndex = 0;
+            this.cbTable.SelectedIndexChanged += new System.EventHandler(this.cbTable_SelectedIndexChanged);
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.txbTong);
             this.panel1.Controls.Add(this.cbGiamGia);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnGiamGia);
             this.panel1.Controls.Add(this.btnThanhToan);
-            this.panel1.Location = new System.Drawing.Point(5, 500);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 512);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1045, 127);
+            this.panel1.Size = new System.Drawing.Size(1062, 127);
             this.panel1.TabIndex = 6;
             // 
             // txbTong
@@ -83,7 +84,7 @@
             this.txbTong.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txbTong.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txbTong.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txbTong.Location = new System.Drawing.Point(283, 42);
+            this.txbTong.Location = new System.Drawing.Point(294, 35);
             this.txbTong.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txbTong.Name = "txbTong";
             this.txbTong.PasswordChar = '\0';
@@ -114,7 +115,7 @@
             "80",
             "90",
             "100"});
-            this.cbGiamGia.Location = new System.Drawing.Point(614, 76);
+            this.cbGiamGia.Location = new System.Drawing.Point(615, 54);
             this.cbGiamGia.Name = "cbGiamGia";
             this.cbGiamGia.Size = new System.Drawing.Size(208, 36);
             this.cbGiamGia.TabIndex = 5;
@@ -123,7 +124,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 61);
+            this.label1.Location = new System.Drawing.Point(3, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(258, 29);
             this.label1.TabIndex = 3;
@@ -132,7 +133,7 @@
             // btnGiamGia
             // 
             this.btnGiamGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGiamGia.Location = new System.Drawing.Point(613, 18);
+            this.btnGiamGia.Location = new System.Drawing.Point(614, 3);
             this.btnGiamGia.Name = "btnGiamGia";
             this.btnGiamGia.Size = new System.Drawing.Size(209, 38);
             this.btnGiamGia.TabIndex = 1;
@@ -143,7 +144,7 @@
             // btnThanhToan
             // 
             this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThanhToan.Location = new System.Drawing.Point(828, 18);
+            this.btnThanhToan.Location = new System.Drawing.Point(829, 8);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(213, 82);
             this.btnThanhToan.TabIndex = 0;
@@ -153,24 +154,24 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Controls.Add(this.dtgvBill);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 36);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1062, 456);
             this.panel2.TabIndex = 7;
             // 
-            // dataGridView1
+            // dtgvBill
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1062, 456);
-            this.dataGridView1.TabIndex = 0;
+            this.dtgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtgvBill.Location = new System.Drawing.Point(0, 0);
+            this.dtgvBill.Name = "dtgvBill";
+            this.dtgvBill.RowHeadersWidth = 51;
+            this.dtgvBill.RowTemplate.Height = 24;
+            this.dtgvBill.Size = new System.Drawing.Size(1062, 456);
+            this.dtgvBill.TabIndex = 0;
             // 
             // frmBill
             // 
@@ -188,7 +189,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvBill)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,7 +203,7 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cbGiamGia;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtgvBill;
         private Guna.UI2.WinForms.Guna2TextBox txbTong;
     }
 }

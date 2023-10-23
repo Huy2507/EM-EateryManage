@@ -79,5 +79,13 @@ namespace EM_EateryManage
         {
 
         }
+
+        private void dtgvManageBill_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int ID = int.Parse(dtgvManageBill.Rows[e.RowIndex].Cells[0].Value.ToString());
+            frmBillDetail fDetails = new frmBillDetail(ID);
+            fDetails.Show();
+            
+        }
     }
 }

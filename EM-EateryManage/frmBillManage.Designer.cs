@@ -99,6 +99,7 @@
             this.dtgvManageBill.RowTemplate.Height = 24;
             this.dtgvManageBill.Size = new System.Drawing.Size(1062, 537);
             this.dtgvManageBill.TabIndex = 0;
+            this.dtgvManageBill.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvManageBill_CellClick);
             // 
             // panel3
             // 
