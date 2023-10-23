@@ -114,7 +114,7 @@ namespace EM_EateryManage
                     // Truy vấn để kiểm tra tài khoản
                     string query = "SELECT line_total FROM BILLINFO WHERE table_id = @table_id AND status = N'Chưa'";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@table_id", 1);
+                    command.Parameters.AddWithValue("@table_id", IDTable);
                     SqlDataReader reader = command.ExecuteReader();
                     while(reader.Read())
                     {

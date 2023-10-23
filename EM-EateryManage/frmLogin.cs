@@ -43,7 +43,9 @@ namespace EM_EateryManage
                         {
                             frmMain FormMain = new frmMain();
                             Guna2Button btnsetting = FormMain.Controls.Find("btnSetting", true).FirstOrDefault() as Guna2Button;
+                            Guna2Button btnmanagebill = FormMain.Controls.Find("btnManageBill", true).FirstOrDefault() as Guna2Button;
                             btnsetting.Enabled = false;
+                            btnmanagebill.Enabled = false;
                             FormMain.Show();
                             this.Hide();
                         }

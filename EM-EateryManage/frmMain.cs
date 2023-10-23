@@ -24,7 +24,11 @@ namespace EM_EateryManage
         public frmADMIN openFormAdmin;
         public frmCustomer xTTCN;
         public frmBill bill;
+
         public frmCustomer customer;
+
+        public frmBillManage manageBill;
+
         //
         public void frmMain_Load(object sender, EventArgs e)
         {
@@ -62,7 +66,11 @@ namespace EM_EateryManage
             if (btnOrder.Checked == false)
             {
                 btnOrder.Checked = !btnOrder.Checked;
-                btnTTKH.Checked = btnBill.Checked = btnTable.Checked = btnSetting.Checked = false;
+
+                
+
+                btnTTKH.Checked = btnManageBill.Checked = btnBill.Checked = btnTable.Checked = btnSetting.Checked = false;
+
             }
             if (openedOrderForm != null)
             {
@@ -79,7 +87,9 @@ namespace EM_EateryManage
             if (btnTable.Checked == false)
             {
                 btnTable.Checked = !btnTable.Checked;
-                btnTTKH.Checked = btnBill.Checked =btnOrder.Checked = btnSetting.Checked = false;
+
+                btnTTKH.Checked =btnManageBill.Checked = btnBill.Checked =btnOrder.Checked = btnSetting.Checked = false;
+
 
             }
         }
@@ -89,7 +99,9 @@ namespace EM_EateryManage
             if (btnSetting.Checked == false)
             {
                 btnSetting.Checked = !btnSetting.Checked;
-                btnTTKH.Checked = btnBill.Checked= btnOrder.Checked = btnTable.Checked = false;
+
+                btnTTKH.Checked =btnManageBill.Checked = btnBill.Checked= btnOrder.Checked = btnTable.Checked = false;
+
 
             }
             if (openFormAdmin != null)
@@ -111,7 +123,9 @@ namespace EM_EateryManage
             if (btnBill.Checked == false)
             {
                 btnBill.Checked = !btnBill.Checked;
-                btnTTKH.Checked = btnSetting.Checked =btnTable.Checked = btnOrder.Checked = false;
+
+                btnTTKH.Checked =btnManageBill.Checked = btnSetting.Checked =btnTable.Checked = btnOrder.Checked = false;
+
 
             }
             if (bill != null)
@@ -123,6 +137,7 @@ namespace EM_EateryManage
                 AddForm(new frmBill());
             }
         }
+
 
         private void btnTTKH_Click(object sender, EventArgs e)
         {
@@ -139,6 +154,25 @@ namespace EM_EateryManage
             else
             {
                 AddForm(new frmCustomer());
+            }
+        }
+
+        private void btnManageBill_Click(object sender, EventArgs e)
+        {
+            if (btnManageBill.Checked == false)
+            {
+                btnManageBill.Checked = !btnManageBill.Checked;
+                btnBill.Checked = btnSetting.Checked = btnTable.Checked = btnOrder.Checked = false;
+
+            }
+            if (manageBill != null)
+            {
+                AddForm(manageBill); ;
+            }
+            else
+            {
+                AddForm(new frmBillManage());
+
             }
         }
     }
