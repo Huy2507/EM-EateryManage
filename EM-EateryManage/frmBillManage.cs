@@ -26,8 +26,10 @@ namespace EM_EateryManage
                 {
                     connection.Open();
                     DateTime createTime = dttpFromDate.Value;
-                    SqlCommand command = new SqlCommand("SELECT * FROM BILL WHERE create_time <= @createTime", connection);
+                    DateTime timeCreate = new DateTime(createTime.Year, createTime.Month, createTime.Day, 0, 0, 0);
+                    SqlCommand command = new SqlCommand("SELECT * FROM BILL WHERE create_time BETWEEN @timeCreate AND @createTime", connection);
                     command.Parameters.AddWithValue("@createTime", createTime);
+                    command.Parameters.AddWithValue("@timeCreate", timeCreate);
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
@@ -71,6 +73,11 @@ namespace EM_EateryManage
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
+        }
+
+        private void frmBillManage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

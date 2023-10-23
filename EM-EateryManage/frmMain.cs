@@ -126,13 +126,13 @@ namespace EM_EateryManage
 
         private void btnManageBill_Click(object sender, EventArgs e)
         {
-            if (btnBill.Checked == false)
+            if (btnManageBill.Checked == false)
             {
                 btnManageBill.Checked = !btnManageBill.Checked;
                 btnBill.Checked = btnSetting.Checked = btnTable.Checked = btnOrder.Checked = false;
 
             }
-            if (bill != null)
+            if (manageBill != null)
             {
                 AddForm(manageBill); ;
             }

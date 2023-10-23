@@ -77,7 +77,7 @@
             this.dttpFromDate.Name = "dttpFromDate";
             this.dttpFromDate.Size = new System.Drawing.Size(386, 58);
             this.dttpFromDate.TabIndex = 0;
-            this.dttpFromDate.Value = new System.DateTime(2023, 11, 25, 23, 59, 0, 0);
+            this.dttpFromDate.Value = new System.DateTime(2003, 11, 25, 23, 59, 59, 0);
             // 
             // panel2
             // 
@@ -90,6 +90,7 @@
             // 
             // dtgvManageBill
             // 
+            this.dtgvManageBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgvManageBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvManageBill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvManageBill.Location = new System.Drawing.Point(0, 0);
@@ -162,6 +163,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmBillManage";
             this.Text = "frmBillManage";
+            this.Load += new System.EventHandler(this.frmBillManage_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvManageBill)).EndInit();
