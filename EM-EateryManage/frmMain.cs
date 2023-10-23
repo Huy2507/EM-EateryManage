@@ -144,7 +144,7 @@ namespace EM_EateryManage
             if (btnTTKH.Checked == false)
             {
                 btnTTKH.Checked = !btnTTKH.Checked;
-                btnBill.Checked = btnSetting.Checked = btnTable.Checked = btnOrder.Checked = false;
+                btnManageBill.Checked = btnBill.Checked = btnSetting.Checked = btnTable.Checked = btnOrder.Checked = false;
 
             }
             if (customer != null)
@@ -162,7 +162,7 @@ namespace EM_EateryManage
             if (btnManageBill.Checked == false)
             {
                 btnManageBill.Checked = !btnManageBill.Checked;
-                btnBill.Checked = btnSetting.Checked = btnTable.Checked = btnOrder.Checked = false;
+                btnTTKH.Checked = btnBill.Checked = btnSetting.Checked = btnTable.Checked = btnOrder.Checked = false;
 
             }
             if (manageBill != null)
