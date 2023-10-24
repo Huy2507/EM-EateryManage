@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnManageBill = new Guna.UI2.WinForms.Guna2Button();
             this.btnTTKH = new Guna.UI2.WinForms.Guna2Button();
@@ -243,6 +244,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.panelOrder);
             this.Controls.Add(this.guna2Panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1280, 720);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
