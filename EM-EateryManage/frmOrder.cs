@@ -27,7 +27,8 @@ namespace EM_EateryManage
         DataTable dtOrder = new DataTable();
         public void AddDataTocbTable()
         {
-            string query = "SELECT * FROM QuanLyBan";
+            cbTable.Items.Clear();  
+            string query = "SELECT * FROM QuanLyBan WHERE trang_thai = N'Trống'";
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 connection.Open();
@@ -72,9 +73,40 @@ namespace EM_EateryManage
             decimal sumvalue = 0;
             for (int i = 0; i < dgvOrder.Rows.Count; i++)
             {
-                sumvalue += Convert.ToDecimal(dgvOrder.Rows[i].Cells[4].Value);
+                if (dgvOrder.Rows[i].Cells[4].Value != null)
+                {
+                    decimal value = decimal.Parse(dgvOrder.Rows[i].Cells[4].Value.ToString());
+                    if (decimal.TryParse(dgvOrder.Rows[i].Cells[4].Value.ToString(), out value))
+                    {
+                        string stringValue = dgvOrder.Rows[i].Cells[4].Value.ToString();
+                        if (!stringValue.Contains("."))
+                        {
+                            sumvalue += value / 1000;
+                        }
+                        else
+                        {
+                            sumvalue += value;
+                        }
+                    }
+                }
             }
-            lblTongTien.Text = sumvalue.ToString();
+            char firstCharacter;
+
+            for (int i = 0; i < sumvalue.ToString().Length; i++)
+            {
+                firstCharacter = sumvalue.ToString()[i];
+                if (firstCharacter == '0')
+                {
+                    sumvalue = sumvalue * 1000;
+                    lblTongTien.Text= sumvalue.ToString("0")+"đ";
+                }
+                else
+                {
+                    lblTongTien.Text = sumvalue.ToString() + "đ";
+                }
+                break;
+            }
+
         }
         public void btnFood(object sender, EventArgs e)
         {
@@ -103,9 +135,11 @@ namespace EM_EateryManage
                         cbTable.Focus();
                         return;
                     }
-                    dr["Table"] = Regex.Match(cbTable.Text, @"\d+").Value;
+                    dr["Table"] = cbTable.Text;
                     dr["Price"] = price;
-                    dr["Total Price"] = Convert.ToDecimal(dr["Amount"]) * Convert.ToDecimal(dr["Price"]);
+                    string price1 = dr["Price"].ToString();
+                    //price1 = price1.Replace(".", "");
+                    dr["Total Price"] = Convert.ToDecimal(dr["Amount"]) * Convert.ToDecimal(price1);
                     dtOrder.Rows.Add(dr);
                     dgvOrder.DataSource = dtOrder;
                 }
@@ -123,7 +157,21 @@ namespace EM_EateryManage
                         {
                             int _amount = Convert.ToInt32(dgvOrder.Rows[i].Cells[1].Value.ToString());
                             dgvOrder.Rows[i].Cells[1].Value = (_amount + 1).ToString();
-                            dgvOrder.Rows[i].Cells[4].Value = Convert.ToDecimal(dgvOrder.Rows[i].Cells[1].Value) * Convert.ToDecimal(dgvOrder.Rows[i].Cells[3].Value);
+                            
+                            string price1 = dgvOrder.Rows[i].Cells[3].Value.ToString();
+                            //price1 = price1.Replace(".", "");
+                            string ttprice = "";
+                            if (!(Convert.ToDecimal(dgvOrder.Rows[i].Cells[1].Value) * Convert.ToDecimal(price1)).ToString().Contains("."))
+                            {
+                                ttprice = (Convert.ToDecimal(dgvOrder.Rows[i].Cells[1].Value) * Convert.ToDecimal(price1)).ToString("0,0");
+                                ttprice = ttprice.Replace(",", ".");
+                                dgvOrder.Rows[i].Cells[4].Value = ttprice;
+                            }
+                            else
+                            {
+                                ttprice = (Convert.ToDecimal(dgvOrder.Rows[i].Cells[1].Value) * Convert.ToDecimal(price1)).ToString();
+                                dgvOrder.Rows[i].Cells[4].Value = ttprice;
+                            }
                             Sumtotal();
                             return;
                         }
@@ -140,7 +188,7 @@ namespace EM_EateryManage
                         return;
                     }
 
-                    string value = Regex.Match(cbTable.Text, @"\d+").Value;
+                    string value = cbTable.Text;
                     dr["Table"] = value;
                     dr["Price"] = price;
                     dr["Total Price"] = Convert.ToDecimal(dr["Amount"]) * Convert.ToDecimal(dr["Price"]);
@@ -171,6 +219,7 @@ namespace EM_EateryManage
             AddColumnToDGV();
             string a = "Tất Cả";
             AddDataToFlowlayoutPanel(a,"");
+            cbTrangThai.Text = "Chưa Thanh Toán";
         }
         public void AddDataToFlowlayoutPanel(string dm, string a)
         {
@@ -253,7 +302,23 @@ namespace EM_EateryManage
             {
                 DateTime currentTime = DateTime.Now;
                 int billid;
-
+                string gt = "";
+                try
+                {
+                    string query = "Select id from quanlyban where ten_ban = @1";
+                    using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(query, connection);
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@1", cbTable.Text);
+                        gt = cmd.ExecuteScalar().ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error!");
+                }
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                 {
                     connection.Open();
@@ -263,7 +328,7 @@ namespace EM_EateryManage
                     command.CommandText = query;
                     command.Parameters.Clear();
                     command.Parameters.AddWithValue("@createtime", currentTime);
-                    command.Parameters.AddWithValue("@totalamount", lblTongTien.Text);
+                    command.Parameters.AddWithValue("@totalamount", decimal.Parse(lblTongTien.Text.Replace("đ","")));
                     billid = Convert.ToInt32(command.ExecuteScalar());
                 }
 
@@ -276,7 +341,7 @@ namespace EM_EateryManage
                     {
                         if (!row.IsNewRow)
                         {
-                            string query = "INSERT INTO BILLINFO (bill_id, item_name, quantity, unit_price, line_total, table_id) VALUES (@billid, @name, @amount, @price, @total, @table)";
+                            string query = "INSERT INTO BILLINFO (bill_id, item_name, quantity, unit_price, line_total, table_id, status) VALUES (@billid, @name, @amount, @price, @total, @table, @status)";
                             command.CommandText = query;
                             command.Parameters.Clear();
                             command.Parameters.AddWithValue("@billid", billid);
@@ -284,7 +349,8 @@ namespace EM_EateryManage
                             command.Parameters.AddWithValue("@amount", row.Cells[1].Value);
                             command.Parameters.AddWithValue("@price", decimal.Parse(row.Cells[3].Value.ToString()));
                             command.Parameters.AddWithValue("@total", row.Cells[4].Value);
-                            command.Parameters.AddWithValue("@table", row.Cells[2].Value);
+                            command.Parameters.AddWithValue("@table", gt);
+                            command.Parameters.AddWithValue("@status", cbTrangThai.Text);
 
                             command.ExecuteNonQuery();
                         }
@@ -294,7 +360,7 @@ namespace EM_EateryManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred: " + ex.Message, "Error!");
             }
         }
 
@@ -306,6 +372,7 @@ namespace EM_EateryManage
                 if (dgvOrder.Rows[0].IsNewRow == false)
                     dgvOrder.Rows.RemoveAt(0);
             }
+            lblTongTien.Text = "...";
         }
         private void MyButtonDanhMuc_Click(object sender, EventArgs e)
         {
@@ -366,6 +433,11 @@ namespace EM_EateryManage
         private void btnX_Click(object sender, EventArgs e)
         {
             txtFindFood.Clear();
+        }
+
+        private void cbTable_Click(object sender, EventArgs e)
+        {
+            AddDataTocbTable();
         }
     }
 }

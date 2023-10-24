@@ -189,7 +189,7 @@ namespace EM_EateryManage
                         command.Parameters.AddWithValue("@Vitri", cbbViTRi.Text);
                         command.Parameters.AddWithValue("@sdt", txtSDTNV.Text);
                         command.Parameters.AddWithValue("@Diachi", txtDCNV.Text);
-                        command.Parameters.AddWithValue("@ngayvaolam", dtpkNgayVaoLam.Value.ToString());
+                        command.Parameters.AddWithValue("@ngayvaolam", DateTime.Parse(dtpkNgayVaoLam.Text.Replace("/","-")));
 
                         command.ExecuteNonQuery();
 
@@ -296,7 +296,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "INSERT INTO QuanLyBan (ten_Ban, so_ghe,detail) VALUES (@name, @SLGhe,@mota)";
+                    string query = "INSERT INTO QuanLyBan (ten_Ban, so_ghe,detail, trang_thai) VALUES (@name, @SLGhe,@mota, @tt)";
                     command.CommandText = query;
                     command.Parameters.Clear();
 
@@ -324,6 +324,7 @@ namespace EM_EateryManage
                             command.Parameters.AddWithValue("@name", txtTenBan.Text);
                             command.Parameters.AddWithValue("@SLGhe", cbbSLGhe.Text);
                             command.Parameters.AddWithValue("@mota", txtMota.Text);
+                            command.Parameters.AddWithValue("@tt", txttt.Text);
                         }
                         else
                         {

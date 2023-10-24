@@ -22,6 +22,7 @@ namespace EM_EateryManage
         public List<Form> displayedForms = new List<Form>();
         public frmOrder openedOrderForm;
         public frmADMIN openFormAdmin;
+        public frmTable openedTableForm;
         public frmCustomer xTTCN;
         public frmBill bill;
 
@@ -59,6 +60,10 @@ namespace EM_EateryManage
                 {
                     openFormAdmin = (frmADMIN)f;
                 }
+                if (f is frmTable)
+                {
+                    openedTableForm = (frmTable)f;
+                }
             }
         }
         private void btnOrder_Click(object sender, EventArgs e)
@@ -89,7 +94,14 @@ namespace EM_EateryManage
                 btnTable.Checked = !btnTable.Checked;
 
                 btnTTKH.Checked =btnManageBill.Checked = btnBill.Checked =btnOrder.Checked = btnSetting.Checked = false;
-
+                if (openedTableForm != null)
+                {
+                    AddForm(openedTableForm);
+                }
+                else
+                {
+                    AddForm(new frmTable());
+                }
 
             }
         }

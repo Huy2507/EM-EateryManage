@@ -63,7 +63,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "select * from customer where [Họ Tên] like N'%" + txtTimKH.Text + "%' or [Mã Khách Hàng(AUTO)] like N'%" + txtTimKH.Text + "%' or SĐT like N'%" + txtTimKH.Text + "%' or email like N'%" + txtTimKH.Text + "%'";
+                    string query = "select * from customer where [Họ Tên] like N'%" + txtTimKH.Text + "%' or [Mã Khách Hàng(AUTO)] like N'%" + txtTimKH.Text + "%' or phone_number like N'%" + txtTimKH.Text + "%' or email like N'%" + txtTimKH.Text + "%'";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
 
@@ -116,7 +116,7 @@ namespace EM_EateryManage
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
 
-                    string query = "INSERT INTO Customer ([Họ Tên], Email, SĐT) VALUES (@name, @email, @sdt)";
+                    string query = "INSERT INTO Customer ([Họ Tên], Email, phone_number) VALUES (@name, @email, @sdt)";
                     command.CommandText = query;
                     command.Parameters.Clear();
 
@@ -146,7 +146,7 @@ namespace EM_EateryManage
                         }
                         else
                         {
-                            MessageBox.Show("Vui Lòng Nhập Đầy Đủ Tên và SĐT Khách Hàng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Vui Lòng Nhập Đầy Đủ Tên và phone_number Khách Hàng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         command.Parameters.AddWithValue("@email", txtEmailKH.Text);
 
@@ -179,7 +179,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "UPDATE customer SET [Họ Tên] = @1, Email = @2, SĐT = @3 WHERE [Mã Khách Hàng(AUTO)] = @0";
+                    string query = "UPDATE customer SET [Họ Tên] = @1, Email = @2, phone_number = @3 WHERE customer_id = @0";
                     command.CommandText = query;
                     command.Parameters.Clear();
 
@@ -240,7 +240,7 @@ namespace EM_EateryManage
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
 
-                    string query = "delete from customer WHERE [Mã Khách Hàng(AUTO)] = @6";
+                    string query = "delete from customer WHERE customer_id = @6";
                     command.CommandText = query;
                     command.Parameters.Clear();
 
