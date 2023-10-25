@@ -410,5 +410,11 @@ namespace EM_EateryManage
                 }
             }
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearDatTruoc();
+            lblid.Visible = txtIDDT.Visible = false;
+        }
     }
 }
