@@ -342,9 +342,11 @@
             this.txtSDTKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSDTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDTKH.Location = new System.Drawing.Point(185, 296);
+            this.txtSDTKH.MaxLength = 10;
             this.txtSDTKH.Name = "txtSDTKH";
             this.txtSDTKH.Size = new System.Drawing.Size(281, 27);
             this.txtSDTKH.TabIndex = 53;
+            this.txtSDTKH.Text = "0";
             this.txtSDTKH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTKH_KeyPress);
             // 
             // panel3
