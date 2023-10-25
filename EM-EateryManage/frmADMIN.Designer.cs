@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tpTTNV = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblIDNV = new System.Windows.Forms.Label();
@@ -59,14 +62,17 @@
             this.tpDoanhThu = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnXuatEXCEL = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnDisplayBill = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dtpkNgayDi = new System.Windows.Forms.DateTimePicker();
+            this.dtpkDenNgay = new System.Windows.Forms.DateTimePicker();
+            this.dtpkTuNgay = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dtpkNgayDen = new System.Windows.Forms.DateTimePicker();
-            this.dgvBill = new System.Windows.Forms.DataGridView();
+            this.txtTotalAmount = new System.Windows.Forms.TextBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dgvReport = new System.Windows.Forms.DataGridView();
+            this.label39 = new System.Windows.Forms.Label();
             this.tpBanAn = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -79,10 +85,12 @@
             this.btnSuaBan = new System.Windows.Forms.Button();
             this.btnThemBan = new System.Windows.Forms.Button();
             this.lblIDBan = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.txtIDBan = new System.Windows.Forms.TextBox();
+            this.txttt = new System.Windows.Forms.TextBox();
             this.txtMota = new System.Windows.Forms.TextBox();
             this.txtTenBan = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -133,8 +141,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnThemTK = new System.Windows.Forms.Button();
             this.tabConTrol1 = new System.Windows.Forms.TabControl();
-            this.txttt = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.tpTTNV.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -144,7 +151,8 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
             this.tpBanAn.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -383,6 +391,9 @@
             this.txtSDTNV.Name = "txtSDTNV";
             this.txtSDTNV.Size = new System.Drawing.Size(281, 27);
             this.txtSDTNV.TabIndex = 33;
+            this.txtSDTNV.Text = "0";
+            this.txtSDTNV.TextChanged += new System.EventHandler(this.txtSDTNV_TextChanged);
+            this.txtSDTNV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTNV_KeyPress);
             // 
             // label35
             // 
@@ -519,21 +530,32 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panel4.Controls.Add(this.btnXuatEXCEL);
             this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.label12);
             this.panel4.Controls.Add(this.btnDisplayBill);
-            this.panel4.Controls.Add(this.dateTimePicker1);
-            this.panel4.Controls.Add(this.dtpkNgayDi);
+            this.panel4.Controls.Add(this.dtpkDenNgay);
+            this.panel4.Controls.Add(this.dtpkTuNgay);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1048, 130);
+            this.panel4.Size = new System.Drawing.Size(1048, 91);
             this.panel4.TabIndex = 1;
+            // 
+            // btnXuatEXCEL
+            // 
+            this.btnXuatEXCEL.Location = new System.Drawing.Point(892, 20);
+            this.btnXuatEXCEL.Name = "btnXuatEXCEL";
+            this.btnXuatEXCEL.Size = new System.Drawing.Size(140, 60);
+            this.btnXuatEXCEL.TabIndex = 35;
+            this.btnXuatEXCEL.Text = "Xuất File Excel";
+            this.btnXuatEXCEL.UseVisualStyleBackColor = true;
+            this.btnXuatEXCEL.Click += new System.EventHandler(this.btnXuatEXCEL_Click);
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(405, 56);
+            this.label14.Location = new System.Drawing.Point(6, 25);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(78, 20);
             this.label14.TabIndex = 8;
@@ -542,7 +564,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(405, 87);
+            this.label12.Location = new System.Drawing.Point(6, 56);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(90, 20);
             this.label12.TabIndex = 8;
@@ -550,62 +572,99 @@
             // 
             // btnDisplayBill
             // 
-            this.btnDisplayBill.Location = new System.Drawing.Point(680, 51);
+            this.btnDisplayBill.Location = new System.Drawing.Point(709, 20);
             this.btnDisplayBill.Name = "btnDisplayBill";
             this.btnDisplayBill.Size = new System.Drawing.Size(177, 60);
             this.btnDisplayBill.TabIndex = 34;
-            this.btnDisplayBill.Text = "Hiển Thị Hóa Đơn";
+            this.btnDisplayBill.Text = "Xem Thống Kê";
             this.btnDisplayBill.UseVisualStyleBackColor = true;
+            this.btnDisplayBill.Click += new System.EventHandler(this.btnDisplayBill_Click);
             // 
-            // dateTimePicker1
+            // dtpkDenNgay
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(517, 84);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(157, 27);
-            this.dateTimePicker1.TabIndex = 33;
+            this.dtpkDenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpkDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpkDenNgay.Location = new System.Drawing.Point(118, 53);
+            this.dtpkDenNgay.Name = "dtpkDenNgay";
+            this.dtpkDenNgay.Size = new System.Drawing.Size(157, 27);
+            this.dtpkDenNgay.TabIndex = 33;
             // 
-            // dtpkNgayDi
+            // dtpkTuNgay
             // 
-            this.dtpkNgayDi.CustomFormat = "dd/MM/yyyy";
-            this.dtpkNgayDi.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpkNgayDi.Location = new System.Drawing.Point(517, 51);
-            this.dtpkNgayDi.Name = "dtpkNgayDi";
-            this.dtpkNgayDi.Size = new System.Drawing.Size(157, 27);
-            this.dtpkNgayDi.TabIndex = 32;
+            this.dtpkTuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpkTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpkTuNgay.Location = new System.Drawing.Point(118, 20);
+            this.dtpkTuNgay.Name = "dtpkTuNgay";
+            this.dtpkTuNgay.Size = new System.Drawing.Size(157, 27);
+            this.dtpkTuNgay.TabIndex = 32;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.dtpkNgayDen);
-            this.panel3.Controls.Add(this.dgvBill);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 80);
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.label41);
+            this.panel3.Controls.Add(this.txtTotalAmount);
+            this.panel3.Controls.Add(this.chart1);
+            this.panel3.Controls.Add(this.dgvReport);
+            this.panel3.Location = new System.Drawing.Point(0, 86);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1048, 520);
+            this.panel3.Size = new System.Drawing.Size(1048, 514);
             this.panel3.TabIndex = 0;
             // 
-            // dtpkNgayDen
+            // txtTotalAmount
             // 
-            this.dtpkNgayDen.CustomFormat = "dd/MM/yyyy";
-            this.dtpkNgayDen.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpkNgayDen.Location = new System.Drawing.Point(374, -50);
-            this.dtpkNgayDen.Name = "dtpkNgayDen";
-            this.dtpkNgayDen.Size = new System.Drawing.Size(125, 27);
-            this.dtpkNgayDen.TabIndex = 5;
+            this.txtTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTotalAmount.Enabled = false;
+            this.txtTotalAmount.Location = new System.Drawing.Point(281, 473);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.Size = new System.Drawing.Size(244, 27);
+            this.txtTotalAmount.TabIndex = 3;
+            this.txtTotalAmount.TextChanged += new System.EventHandler(this.txtTotalAmount_TextChanged);
             // 
-            // dgvBill
+            // chart1
             // 
-            this.dgvBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvBill.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dgvBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBill.Location = new System.Drawing.Point(0, 0);
-            this.dgvBill.Name = "dgvBill";
-            this.dgvBill.RowHeadersWidth = 51;
-            this.dgvBill.RowTemplate.Height = 24;
-            this.dgvBill.Size = new System.Drawing.Size(1048, 520);
-            this.dgvBill.TabIndex = 4;
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(543, 11);
+            this.chart1.Name = "chart1";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Doanh Thu";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(500, 444);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
+            // 
+            // dgvReport
+            // 
+            this.dgvReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dgvReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvReport.Location = new System.Drawing.Point(0, 11);
+            this.dgvReport.Name = "dgvReport";
+            this.dgvReport.RowHeadersVisible = false;
+            this.dgvReport.RowHeadersWidth = 51;
+            this.dgvReport.RowTemplate.Height = 24;
+            this.dgvReport.Size = new System.Drawing.Size(537, 444);
+            this.dgvReport.TabIndex = 0;
+            // 
+            // label39
+            // 
+            this.label39.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(55, 473);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(153, 20);
+            this.label39.TabIndex = 2;
+            this.label39.Text = "Tổng Doanh Thu:";
             // 
             // tpBanAn
             // 
@@ -641,6 +700,7 @@
             this.panel10.Controls.Add(this.btnThemBan);
             this.panel10.Controls.Add(this.lblIDBan);
             this.panel10.Controls.Add(this.label39);
+            this.panel10.Controls.Add(this.label40);
             this.panel10.Controls.Add(this.label38);
             this.panel10.Controls.Add(this.label21);
             this.panel10.Controls.Add(this.label22);
@@ -757,6 +817,15 @@
             this.lblIDBan.Text = "ID";
             this.lblIDBan.Visible = false;
             // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(19, 322);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(99, 20);
+            this.label40.TabIndex = 47;
+            this.label40.Text = "Trạng Thái";
+            // 
             // label38
             // 
             this.label38.AutoSize = true;
@@ -794,6 +863,17 @@
             this.txtIDBan.Size = new System.Drawing.Size(254, 27);
             this.txtIDBan.TabIndex = 30;
             this.txtIDBan.Visible = false;
+            // 
+            // txttt
+            // 
+            this.txttt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txttt.Enabled = false;
+            this.txttt.Location = new System.Drawing.Point(163, 322);
+            this.txttt.Name = "txttt";
+            this.txttt.ReadOnly = true;
+            this.txttt.Size = new System.Drawing.Size(254, 27);
+            this.txttt.TabIndex = 30;
+            this.txttt.Text = "Trống";
             // 
             // txtMota
             // 
@@ -1380,25 +1460,15 @@
             this.tabConTrol1.Size = new System.Drawing.Size(1062, 639);
             this.tabConTrol1.TabIndex = 0;
             // 
-            // txttt
+            // label41
             // 
-            this.txttt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txttt.Enabled = false;
-            this.txttt.Location = new System.Drawing.Point(163, 320);
-            this.txttt.Name = "txttt";
-            this.txttt.ReadOnly = true;
-            this.txttt.Size = new System.Drawing.Size(254, 27);
-            this.txttt.TabIndex = 30;
-            this.txttt.Text = "Trống";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(19, 320);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(99, 20);
-            this.label39.TabIndex = 47;
-            this.label39.Text = "Trạng Thái";
+            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(219, 473);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(56, 20);
+            this.label41.TabIndex = 4;
+            this.label41.Text = "Tổng:";
             // 
             // frmADMIN
             // 
@@ -1422,7 +1492,9 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBill)).EndInit();
+            this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.tpBanAn.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
@@ -1475,11 +1547,9 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnDisplayBill;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dtpkNgayDi;
+        private System.Windows.Forms.DateTimePicker dtpkDenNgay;
+        private System.Windows.Forms.DateTimePicker dtpkTuNgay;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.DateTimePicker dtpkNgayDen;
-        private System.Windows.Forms.DataGridView dgvBill;
         private System.Windows.Forms.TabPage tpBanAn;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
@@ -1551,7 +1621,13 @@
         private System.Windows.Forms.Label lblIDNV;
         private System.Windows.Forms.TextBox txtIDNV;
         private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.DataGridView dgvReport;
+        private System.Windows.Forms.Button btnXuatEXCEL;
+        private System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TextBox txttt;
+        private System.Windows.Forms.Label label41;
     }
 }

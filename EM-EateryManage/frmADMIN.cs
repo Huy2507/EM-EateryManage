@@ -13,6 +13,11 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using EM_EateryManage;
 using System.Text.RegularExpressions;
+using Microsoft.Reporting.WinForms;
+using System.IO;
+using NPOI;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
 
 namespace EM_EateryManage
 {
@@ -29,8 +34,69 @@ namespace EM_EateryManage
             AddDataToDGV_BanAn();
             AddDataToDGV_TaiKhoan();
             AddDataToDGVNV();
+            getDataFromBill();
         }
         #region Các Hàm Đổ Dữ Liệu Từ CSDL Vào_DGV
+
+        public void getDataFromBill()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM BILL WHERE create_time BETWEEN @TuNgay AND @DenNgay";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
+                    command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dt);
+                    dgvReport.DataSource = dt;
+
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public void AddDataToChart()
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT * FROM BILL WHERE create_time BETWEEN @TuNgay AND @DenNgay";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
+                    command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    adapter.Fill(dt);
+                    chart1.DataSource = dt;
+                    chart1.ChartAreas["ChartArea1"].AxisX.Title = "VNĐ";
+                    chart1.ChartAreas["ChartArea1"].AxisY.Title = "Tháng";
+                    chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
+                    for(int i = 0; i<dt.Rows.Count;i++)
+                    {
+                        chart1.Series["Doanh Thu"].Points.AddXY(dt.Rows[i]["total_amount"], dt.Rows[i]["create_time"]);
+                    }    
+                    connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         public void AddDataToDGVNV()
         {
@@ -1130,8 +1196,104 @@ namespace EM_EateryManage
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
         }
+
         #endregion
 
-        
+        #region Thống Kê
+
+        private void TongDoanhThu()
+        {
+            int total = dgvReport.RowCount-1;
+            decimal sum = 0;
+            for (int i = 0; i < total; i++)
+            {
+                sum += decimal.Parse(dgvReport.Rows[i].Cells["Total_Amount"].Value.ToString().Replace(".",""));
+            }
+            txtTotalAmount.Text = sum.ToString();
+        }
+        private void btnDisplayBill_Click(object sender, EventArgs e)
+        {
+            getDataFromBill();
+            AddDataToChart();
+            TongDoanhThu();
+            
+        }
+
+        #endregion
+
+        private void txtSDTNV_TextChanged(object sender, EventArgs e)
+        {
+            txtSDTNV.MaxLength = 10;
+        }
+
+        private void txtSDTNV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnXuatEXCEL_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files (*.xls)|*.xls";
+            saveFileDialog.ShowDialog();
+            if (saveFileDialog == null)
+            {
+                saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel Files (*.xls)|*.xls";
+            }
+            // Tạo đối tượng Workbook
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            
+
+            // Tạo đối tượng Worksheet
+            HSSFSheet worksheet = (HSSFSheet)workbook.CreateSheet("Data");
+
+            // Thêm dữ liệu từ DataGridView vào Worksheet
+            for (int i = 0; i < dgvReport.Rows.Count-1; i++)
+            {
+                HSSFRow row = (HSSFRow)worksheet.CreateRow(i);
+                for (int j = 0; j < dgvReport.Columns.Count; j++)
+                {
+                    HSSFCell cell = (HSSFCell)row.CreateCell(j);
+                    // Kiểm tra xem đối tượng DataGridViewCell đã được khởi tạo hay chưa
+                    if (dgvReport.CurrentCell == null)
+                    {
+                        return;
+                    }
+
+                    // Kiểm tra xem giá trị của thuộc tính Value có bằng null hay không
+                    if (dgvReport.CurrentCell.Value == null)
+                    {
+                        return;
+                    }
+
+                    // Truy cập giá trị của thuộc tính Value
+                    string value = dgvReport.CurrentCell.Value.ToString();
+
+                    cell.SetCellValue(dgvReport[j, i].Value.ToString());
+                }
+            }
+
+            // Lưu file Excel
+            string fileName = saveFileDialog.FileName;
+            using (FileStream fileStream = new FileStream(fileName, FileMode.Create))
+            {
+                workbook.Write(fileStream);
+            }
+
+            // Mở file Excel
+            System.Diagnostics.Process.Start(fileName);
+        }
+
+        private void txtTotalAmount_TextChanged(object sender, EventArgs e)
+        {
+            double.TryParse(txtTotalAmount.Text, out double value);
+            txtTotalAmount.Text = value.ToString("#,###");
+
+            
+        }
     }
 }

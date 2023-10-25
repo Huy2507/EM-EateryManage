@@ -43,9 +43,7 @@ namespace EM_EateryManage
                         {
                             frmMain FormMain = new frmMain();
                             Guna2Button btnsetting = FormMain.Controls.Find("btnSetting", true).FirstOrDefault() as Guna2Button;
-                            Guna2Button btnmanagebill = FormMain.Controls.Find("btnManageBill", true).FirstOrDefault() as Guna2Button;
                             btnsetting.Enabled = false;
-                            btnmanagebill.Enabled = false;
                             FormMain.Show();
                             this.Hide();
                         }
@@ -72,7 +70,15 @@ namespace EM_EateryManage
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult result = MessageBox.Show("Bạn Có Chắc Muốn Thoát Khỏi Chương Trình?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

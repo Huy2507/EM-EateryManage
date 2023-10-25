@@ -187,5 +187,20 @@ namespace EM_EateryManage
 
             }
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn Có Chắc Muốn Đăng Xuất?","",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if(result == DialogResult.Yes)
+            {
+                this.Close();
+                frmLogin f = new frmLogin();
+                f.ShowDialog();
+            }
+            else
+            {
+                return;
+            }
+        }
     }
 }

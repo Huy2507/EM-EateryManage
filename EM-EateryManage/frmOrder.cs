@@ -131,7 +131,7 @@ namespace EM_EateryManage
 
                     if (cbTable.SelectedIndex < 0)
                     {
-                        MessageBox.Show("Chossen Table!!!");
+                        MessageBox.Show("Vui Lòng Chọn Bàn Trước Khi Đặt Món!","Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         cbTable.Focus();
                         return;
                     }
@@ -147,7 +147,7 @@ namespace EM_EateryManage
                 {
                     if (cbTable.SelectedIndex < 0)
                     {
-                        MessageBox.Show("Chossen Table!!!");
+                        MessageBox.Show("Vui Lòng Chọn Bàn Trước Khi Đặt Món!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         cbTable.Focus();
                         return;
                     }
@@ -319,6 +319,25 @@ namespace EM_EateryManage
                 {
                     MessageBox.Show("Error: " + ex.Message, "Error!");
                 }
+
+                try
+                {
+                    string query = "update quanlyban set trang_thai = @1 where id = @2";
+                    using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                    {
+                        connection.Open();
+                        SqlCommand cmd = new SqlCommand(query, connection);
+                        cmd.Parameters.Clear();
+                        cmd.Parameters.AddWithValue("@1", "Đang Bận");
+                        cmd.Parameters.AddWithValue("@2", gt);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Error!");
+                }
+
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                 {
                     connection.Open();

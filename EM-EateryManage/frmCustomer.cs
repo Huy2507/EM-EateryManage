@@ -63,7 +63,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "select * from customer where [Họ Tên] like N'%" + txtTimKH.Text + "%' or [Mã Khách Hàng(AUTO)] like N'%" + txtTimKH.Text + "%' or phone_number like N'%" + txtTimKH.Text + "%' or email like N'%" + txtTimKH.Text + "%'";
+                    string query = "select * from customer where [Họ Tên] like N'%" + txtTimKH.Text + "%' or customer_id like N'%" + txtTimKH.Text + "%' or phone_number like N'%" + txtTimKH.Text + "%' or email like N'%" + txtTimKH.Text + "%'";
                     SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
                     DataTable dataTable = new DataTable();
 
@@ -116,7 +116,7 @@ namespace EM_EateryManage
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
 
-                    string query = "INSERT INTO Customer ([Họ Tên], Email, phone_number) VALUES (@name, @email, @sdt)";
+                    string query = "INSERT INTO Customer ([Họ Tên], Email, phone_number, Ngay_Sinh, Gioi_Tinh) VALUES (@name, @email, @sdt,@ns, @GT)";
                     command.CommandText = query;
                     command.Parameters.Clear();
 
@@ -149,6 +149,8 @@ namespace EM_EateryManage
                             MessageBox.Show("Vui Lòng Nhập Đầy Đủ Tên và phone_number Khách Hàng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         command.Parameters.AddWithValue("@email", txtEmailKH.Text);
+                        command.Parameters.AddWithValue("@ns", dtpkNgaySinhKH.Value.ToString());
+                        command.Parameters.AddWithValue("@gt", cbbGTinhKH.Text);
 
                         command.ExecuteNonQuery();
 

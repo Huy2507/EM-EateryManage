@@ -30,9 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.txtTimKH = new Guna.UI2.WinForms.Guna2TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.btnSua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
@@ -41,18 +38,24 @@
             this.txtTenKH = new System.Windows.Forms.TextBox();
             this.txtEmailKH = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.txtIDKH = new System.Windows.Forms.TextBox();
             this.lblIDKH = new System.Windows.Forms.Label();
-            this.btnXoa = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.dgvKH = new System.Windows.Forms.DataGridView();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txtTimKH = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtSDTKH = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.dgvKH = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtpkNgaySinhKH = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbbGTinhKH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel13.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,6 +71,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panel2.Controls.Add(this.cbbGTinhKH);
+            this.panel2.Controls.Add(this.dtpkNgaySinhKH);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label28);
             this.panel2.Controls.Add(this.btnSua);
             this.panel2.Controls.Add(this.btnThem);
@@ -79,7 +86,6 @@
             this.panel2.Controls.Add(this.label32);
             this.panel2.Controls.Add(this.txtIDKH);
             this.panel2.Controls.Add(this.lblIDKH);
-            this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.label36);
             this.panel2.Controls.Add(this.panel13);
             this.panel2.Controls.Add(this.txtSDTKH);
@@ -90,59 +96,12 @@
             this.panel2.Size = new System.Drawing.Size(1044, 592);
             this.panel2.TabIndex = 0;
             // 
-            // panel3
-            // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.dgvKH);
-            this.panel3.Location = new System.Drawing.Point(475, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(566, 586);
-            this.panel3.TabIndex = 0;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.label37.Location = new System.Drawing.Point(20, 30);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(129, 20);
-            this.label37.TabIndex = 17;
-            this.label37.Text = "KH Muốn Tìm:";
-            // 
-            // txtTimKH
-            // 
-            this.txtTimKH.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.txtTimKH.BorderColor = System.Drawing.Color.Gray;
-            this.txtTimKH.BorderRadius = 20;
-            this.txtTimKH.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTimKH.DefaultText = "";
-            this.txtTimKH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtTimKH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtTimKH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtTimKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTimKH.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtTimKH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTimKH.Location = new System.Drawing.Point(173, 21);
-            this.txtTimKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtTimKH.Name = "txtTimKH";
-            this.txtTimKH.PasswordChar = '\0';
-            this.txtTimKH.PlaceholderText = "";
-            this.txtTimKH.SelectedText = "";
-            this.txtTimKH.Size = new System.Drawing.Size(281, 41);
-            this.txtTimKH.TabIndex = 10;
-            this.txtTimKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtTimKH.TextChanged += new System.EventHandler(this.txtTimKH_TextChanged);
-            // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.Red;
-            this.label28.Location = new System.Drawing.Point(40, 478);
+            this.label28.Location = new System.Drawing.Point(15, 453);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(250, 20);
             this.label28.TabIndex = 45;
@@ -151,7 +110,7 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(179, 515);
+            this.btnSua.Location = new System.Drawing.Point(266, 515);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(126, 71);
             this.btnSua.TabIndex = 56;
@@ -162,7 +121,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(47, 515);
+            this.btnThem.Location = new System.Drawing.Point(101, 515);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(126, 71);
             this.btnThem.TabIndex = 54;
@@ -222,6 +181,17 @@
             this.label31.TabIndex = 41;
             this.label31.Text = "Tên KH";
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.Color.Transparent;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(37, 303);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(46, 20);
+            this.label32.TabIndex = 42;
+            this.label32.Text = "SDT";
+            // 
             // txtIDKH
             // 
             this.txtIDKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -246,17 +216,6 @@
             this.lblIDKH.Text = "ID:";
             this.lblIDKH.Visible = false;
             // 
-            // btnXoa
-            // 
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.Location = new System.Drawing.Point(311, 515);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(126, 71);
-            this.btnXoa.TabIndex = 57;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -279,6 +238,63 @@
             this.panel13.Size = new System.Drawing.Size(457, 75);
             this.panel13.TabIndex = 55;
             // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.label37.Location = new System.Drawing.Point(20, 30);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(129, 20);
+            this.label37.TabIndex = 17;
+            this.label37.Text = "KH Muốn Tìm:";
+            // 
+            // txtTimKH
+            // 
+            this.txtTimKH.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.txtTimKH.BorderColor = System.Drawing.Color.Gray;
+            this.txtTimKH.BorderRadius = 20;
+            this.txtTimKH.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTimKH.DefaultText = "";
+            this.txtTimKH.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTimKH.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTimKH.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTimKH.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTimKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTimKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTimKH.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtTimKH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTimKH.Location = new System.Drawing.Point(173, 21);
+            this.txtTimKH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtTimKH.Name = "txtTimKH";
+            this.txtTimKH.PasswordChar = '\0';
+            this.txtTimKH.PlaceholderText = "";
+            this.txtTimKH.SelectedText = "";
+            this.txtTimKH.Size = new System.Drawing.Size(281, 41);
+            this.txtTimKH.TabIndex = 10;
+            this.txtTimKH.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTimKH.TextChanged += new System.EventHandler(this.txtTimKH_TextChanged);
+            // 
+            // txtSDTKH
+            // 
+            this.txtSDTKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSDTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSDTKH.Location = new System.Drawing.Point(185, 296);
+            this.txtSDTKH.Name = "txtSDTKH";
+            this.txtSDTKH.Size = new System.Drawing.Size(281, 27);
+            this.txtSDTKH.TabIndex = 53;
+            this.txtSDTKH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTKH_KeyPress);
+            // 
+            // panel3
+            // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.dgvKH);
+            this.panel3.Location = new System.Drawing.Point(475, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(566, 586);
+            this.panel3.TabIndex = 0;
+            // 
             // dgvKH
             // 
             this.dgvKH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -295,26 +311,55 @@
             this.dgvKH.TabIndex = 0;
             this.dgvKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKH_CellClick);
             // 
-            // txtSDTKH
+            // label1
             // 
-            this.txtSDTKH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSDTKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSDTKH.Location = new System.Drawing.Point(185, 296);
-            this.txtSDTKH.Name = "txtSDTKH";
-            this.txtSDTKH.Size = new System.Drawing.Size(281, 27);
-            this.txtSDTKH.TabIndex = 53;
-            this.txtSDTKH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTKH_KeyPress);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 350);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 20);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Ngày Sinh";
             // 
-            // label32
+            // dtpkNgaySinhKH
             // 
-            this.label32.AutoSize = true;
-            this.label32.BackColor = System.Drawing.Color.Transparent;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(37, 303);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(46, 20);
-            this.label32.TabIndex = 42;
-            this.label32.Text = "SDT";
+            this.dtpkNgaySinhKH.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpkNgaySinhKH.CustomFormat = "dd/MM/yyyy";
+            this.dtpkNgaySinhKH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpkNgaySinhKH.Location = new System.Drawing.Point(185, 348);
+            this.dtpkNgaySinhKH.Name = "dtpkNgaySinhKH";
+            this.dtpkNgaySinhKH.Size = new System.Drawing.Size(281, 22);
+            this.dtpkNgaySinhKH.TabIndex = 60;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(32, 402);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 20);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "Giới Tính";
+            // 
+            // cbbGTinhKH
+            // 
+            this.cbbGTinhKH.BackColor = System.Drawing.Color.Transparent;
+            this.cbbGTinhKH.BorderColor = System.Drawing.SystemColors.ControlText;
+            this.cbbGTinhKH.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbbGTinhKH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbbGTinhKH.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbGTinhKH.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbbGTinhKH.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbbGTinhKH.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cbbGTinhKH.ItemHeight = 30;
+            this.cbbGTinhKH.Items.AddRange(new object[] {
+            "Nam",
+            "Nữ",
+            "Không Xác Định"});
+            this.cbbGTinhKH.Location = new System.Drawing.Point(185, 402);
+            this.cbbGTinhKH.Name = "cbbGTinhKH";
+            this.cbbGTinhKH.Size = new System.Drawing.Size(281, 36);
+            this.cbbGTinhKH.TabIndex = 62;
             // 
             // frmCustomer
             // 
@@ -331,9 +376,9 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKH)).EndInit();
             this.ResumeLayout(false);
 
@@ -352,7 +397,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox txtIDKH;
         private System.Windows.Forms.Label lblIDKH;
-        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label37;
@@ -361,5 +405,9 @@
         private System.Windows.Forms.DataGridView dgvKH;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox txtSDTKH;
+        private System.Windows.Forms.DateTimePicker dtpkNgaySinhKH;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ComboBox cbbGTinhKH;
     }
 }
