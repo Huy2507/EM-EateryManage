@@ -232,8 +232,27 @@ namespace EM_EateryManage
             }
         }
 
-        private void btnXoa_Click(object sender, EventArgs e)
+        private void btnTichDiem_Click(object sender, EventArgs e)
         {
+            int i = 0;
+            try
+            {
+                string query = "Select Diem_Tich_Luy from customer where customer_id = @1";
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand(query, connection);
+                    cmd.Parameters.Clear();
+                    cmd.Parameters.AddWithValue("@1", txtIDKH.Text);
+                    i = int.Parse(cmd.ExecuteScalar().ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!");
+            }
+
+
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
                 try
@@ -241,18 +260,37 @@ namespace EM_EateryManage
                     connection.Open();
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
+                    
 
-                    string query = "delete from customer WHERE customer_id = @6";
+                    string query = "UPDATE customer SET Diem_Tich_Luy = @1 WHERE customer_id = @0";
                     command.CommandText = query;
                     command.Parameters.Clear();
 
 
+
                     if (txtIDKH.Text != "")
                     {
-                        DialogResult result = (MessageBox.Show("Bạn Có Chắc Chắn Muốn Xóa Khách Hàng Này?", "Lưu ý!", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
+                        DialogResult result = (MessageBox.Show("Bạn Có Chắc Chắn Muốn Tích Điểm Cho Khách Hàng Này?", "Lưu ý!", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
                         if (result == DialogResult.Yes)
                         {
-                            command.Parameters.AddWithValue("@6", txtIDKH.Text);
+
+                            command.Parameters.AddWithValue("@0", txtIDKH.Text);
+                            command.Parameters.AddWithValue("@1", i+10);
+
+
+                            // Thực thi câu lệnh update
+                            command.ExecuteNonQuery();
+
+                            // Hiển thị thông báo sửa thành công
+                            MessageBox.Show("Tích Điểm Thành Công!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            AddDataToDGV_Customer();
+                            lblIDKH.Visible = false;
+                            txtIDKH.Visible = false;
+                            txtIDKH.Text = "";
+                            txtTenKH.Text = "";
+                            txtEmailKH.Text = "";
+                            txtSDTKH.Text = "";
+                            connection.Close();
                         }
                         else
                         {
@@ -261,24 +299,9 @@ namespace EM_EateryManage
                     }
                     else
                     {
-                        MessageBox.Show("Vui lòng chọn khách hàng muốn xóa!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Vui lòng chọn khách hàng muốn Tích Điểm!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
-
-                    // Thực thi câu lệnh update
-                    command.ExecuteNonQuery();
-
-                    // Hiển thị thông báo xóa thành công
-                    MessageBox.Show("Xóa Khách Hàng Thành Công!", "Thông Báo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    AddDataToDGV_Customer();
-                    lblIDKH.Visible = false;
-                    txtIDKH.Visible = false;
-                    txtIDKH.Text = "";
-                    txtTenKH.Text = "";
-                    txtEmailKH.Text = "";
-                    txtSDTKH.Text = "";
-                    connection.Close();
-
 
                 }
                 catch (Exception ex)

@@ -52,6 +52,7 @@
             this.dtpkNgaySinhKH = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.cbbGTinhKH = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnTichDiem = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -76,6 +77,7 @@
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label28);
+            this.panel2.Controls.Add(this.btnTichDiem);
             this.panel2.Controls.Add(this.btnSua);
             this.panel2.Controls.Add(this.btnThem);
             this.panel2.Controls.Add(this.label29);
@@ -110,7 +112,7 @@
             // btnSua
             // 
             this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.Location = new System.Drawing.Point(266, 515);
+            this.btnSua.Location = new System.Drawing.Point(196, 515);
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(126, 71);
             this.btnSua.TabIndex = 56;
@@ -121,7 +123,7 @@
             // btnThem
             // 
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Location = new System.Drawing.Point(101, 515);
+            this.btnThem.Location = new System.Drawing.Point(64, 515);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(126, 71);
             this.btnThem.TabIndex = 54;
@@ -361,6 +363,17 @@
             this.cbbGTinhKH.Size = new System.Drawing.Size(281, 36);
             this.cbbGTinhKH.TabIndex = 62;
             // 
+            // btnTichDiem
+            // 
+            this.btnTichDiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTichDiem.Location = new System.Drawing.Point(328, 515);
+            this.btnTichDiem.Name = "btnTichDiem";
+            this.btnTichDiem.Size = new System.Drawing.Size(126, 71);
+            this.btnTichDiem.TabIndex = 56;
+            this.btnTichDiem.Text = "Tích Điểm";
+            this.btnTichDiem.UseVisualStyleBackColor = true;
+            this.btnTichDiem.Click += new System.EventHandler(this.btnTichDiem_Click);
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -409,5 +422,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cbbGTinhKH;
+        private System.Windows.Forms.Button btnTichDiem;
     }
 }
