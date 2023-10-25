@@ -116,7 +116,7 @@ namespace EM_EateryManage
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
 
-                    string query = "INSERT INTO Customer ([Họ Tên], Email, phone_number, Ngay_Sinh, Gioi_Tinh) VALUES (@name, @email, @sdt,@ns, @GT)";
+                    string query = "INSERT INTO Customer ([Họ Tên], Email, phone_number, Ngay_Sinh, Gioi_Tinh, Diem_Tich_Luy) VALUES (@name, @email, @sdt,@ns, @GT,@DTL)";
                     command.CommandText = query;
                     command.Parameters.Clear();
 
@@ -151,6 +151,8 @@ namespace EM_EateryManage
                         command.Parameters.AddWithValue("@email", txtEmailKH.Text);
                         command.Parameters.AddWithValue("@ns", dtpkNgaySinhKH.Value.ToString());
                         command.Parameters.AddWithValue("@gt", cbbGTinhKH.Text);
+                        int i = 10;
+                        command.Parameters.AddWithValue("@DTL", i);
 
                         command.ExecuteNonQuery();
 
@@ -160,6 +162,7 @@ namespace EM_EateryManage
                         txtTenKH.Text = "";
                         txtSDTKH.Text = "";
                         txtEmailKH.Text = "";
+                        cbbGTinhKH.Text = "";
                         connection.Close();
                     }
                 }
@@ -181,7 +184,7 @@ namespace EM_EateryManage
                     command.Connection = connection;
 
 
-                    string query = "UPDATE customer SET [Họ Tên] = @1, Email = @2, phone_number = @3 WHERE customer_id = @0";
+                    string query = "UPDATE customer SET [Họ Tên] = @1, Email = @2, phone_number = @3, Ngay_Sinh = @4, Gioi_Tinh = @5 WHERE customer_id = @0";
                     command.CommandText = query;
                     command.Parameters.Clear();
 
@@ -197,7 +200,9 @@ namespace EM_EateryManage
                             command.Parameters.AddWithValue("@1", txtTenKH.Text);
                             command.Parameters.AddWithValue("@2", txtEmailKH.Text);
                             command.Parameters.AddWithValue("@3", txtSDTKH.Text);
-                            
+                            command.Parameters.AddWithValue("@4", dtpkNgaySinhKH.Value.ToString());
+                            command.Parameters.AddWithValue("@5", cbbGTinhKH.Text);
+
 
                             // Thực thi câu lệnh update
                             command.ExecuteNonQuery();
@@ -211,6 +216,7 @@ namespace EM_EateryManage
                             txtTenKH.Text = "";
                             txtEmailKH.Text = "";
                             txtSDTKH.Text = "";
+                            cbbGTinhKH.Text = "";
                             connection.Close();
                         }
                         else
@@ -244,7 +250,15 @@ namespace EM_EateryManage
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.Clear();
                     cmd.Parameters.AddWithValue("@1", txtIDKH.Text);
-                    i = int.Parse(cmd.ExecuteScalar().ToString());
+                    
+                    if(txtIDKH.Text != "")
+                    {
+                        i = int.Parse(cmd.ExecuteScalar().ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Vui Lòng Chọn Khách Hàng Muốn Tích Điểm!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
                 }
             }
             catch (Exception ex)
@@ -266,16 +280,14 @@ namespace EM_EateryManage
                     command.CommandText = query;
                     command.Parameters.Clear();
 
-
-
-                    if (txtIDKH.Text != "")
+                    if(txtIDKH.Text != "")
                     {
                         DialogResult result = (MessageBox.Show("Bạn Có Chắc Chắn Muốn Tích Điểm Cho Khách Hàng Này?", "Lưu ý!", MessageBoxButtons.YesNo, MessageBoxIcon.Question));
                         if (result == DialogResult.Yes)
                         {
 
                             command.Parameters.AddWithValue("@0", txtIDKH.Text);
-                            command.Parameters.AddWithValue("@1", i+10);
+                            command.Parameters.AddWithValue("@1", i + 10);
 
 
                             // Thực thi câu lệnh update
@@ -299,7 +311,6 @@ namespace EM_EateryManage
                     }
                     else
                     {
-                        MessageBox.Show("Vui lòng chọn khách hàng muốn Tích Điểm!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         return;
                     }
 
