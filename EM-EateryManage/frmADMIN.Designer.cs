@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tpTTNV = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblIDNV = new System.Windows.Forms.Label();
@@ -62,6 +62,8 @@
             this.tpDoanhThu = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txtIDKhachHang = new System.Windows.Forms.TextBox();
             this.btnXuatEXCEL = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -142,8 +144,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnThemTK = new System.Windows.Forms.Button();
             this.tabConTrol1 = new System.Windows.Forms.TabControl();
-            this.txtIDKhachHang = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
             this.tpTTNV.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -547,8 +547,25 @@
             this.panel4.Size = new System.Drawing.Size(1048, 91);
             this.panel4.TabIndex = 1;
             // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(444, 25);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(136, 20);
+            this.label42.TabIndex = 37;
+            this.label42.Text = "ID Khách Hàng";
+            // 
+            // txtIDKhachHang
+            // 
+            this.txtIDKhachHang.Location = new System.Drawing.Point(389, 53);
+            this.txtIDKhachHang.Name = "txtIDKhachHang";
+            this.txtIDKhachHang.Size = new System.Drawing.Size(243, 27);
+            this.txtIDKhachHang.TabIndex = 36;
+            // 
             // btnXuatEXCEL
             // 
+            this.btnXuatEXCEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnXuatEXCEL.Location = new System.Drawing.Point(892, 20);
             this.btnXuatEXCEL.Name = "btnXuatEXCEL";
             this.btnXuatEXCEL.Size = new System.Drawing.Size(140, 60);
@@ -577,6 +594,7 @@
             // 
             // btnDisplayBill
             // 
+            this.btnDisplayBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDisplayBill.Location = new System.Drawing.Point(709, 20);
             this.btnDisplayBill.Name = "btnDisplayBill";
             this.btnDisplayBill.Size = new System.Drawing.Size(177, 60);
@@ -587,20 +605,20 @@
             // 
             // dtpkDenNgay
             // 
-            this.dtpkDenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpkDenNgay.CustomFormat = "dd/MM/yyyy hh:mm:ss";
             this.dtpkDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkDenNgay.Location = new System.Drawing.Point(118, 53);
             this.dtpkDenNgay.Name = "dtpkDenNgay";
-            this.dtpkDenNgay.Size = new System.Drawing.Size(157, 27);
+            this.dtpkDenNgay.Size = new System.Drawing.Size(265, 27);
             this.dtpkDenNgay.TabIndex = 33;
             // 
             // dtpkTuNgay
             // 
-            this.dtpkTuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dtpkTuNgay.CustomFormat = "dd/MM/yyyy hh:mm:ss";
             this.dtpkTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkTuNgay.Location = new System.Drawing.Point(118, 20);
             this.dtpkTuNgay.Name = "dtpkTuNgay";
-            this.dtpkTuNgay.Size = new System.Drawing.Size(157, 27);
+            this.dtpkTuNgay.Size = new System.Drawing.Size(265, 27);
             this.dtpkTuNgay.TabIndex = 32;
             // 
             // panel3
@@ -642,16 +660,16 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.chart1.Legends.Add(legend7);
             this.chart1.Location = new System.Drawing.Point(543, 11);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Doanh Thu Cả Năm";
-            this.chart1.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Doanh Thu Cả Năm";
+            this.chart1.Series.Add(series7);
             this.chart1.Size = new System.Drawing.Size(500, 444);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -660,7 +678,7 @@
             // 
             this.dgvReport.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReport.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReport.Location = new System.Drawing.Point(0, 11);
@@ -1478,22 +1496,6 @@
             this.tabConTrol1.SelectedIndex = 0;
             this.tabConTrol1.Size = new System.Drawing.Size(1062, 639);
             this.tabConTrol1.TabIndex = 0;
-            // 
-            // txtIDKhachHang
-            // 
-            this.txtIDKhachHang.Location = new System.Drawing.Point(294, 49);
-            this.txtIDKhachHang.Name = "txtIDKhachHang";
-            this.txtIDKhachHang.Size = new System.Drawing.Size(243, 27);
-            this.txtIDKhachHang.TabIndex = 36;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(359, 20);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(136, 20);
-            this.label42.TabIndex = 37;
-            this.label42.Text = "ID Khách Hàng";
             // 
             // frmADMIN
             // 
