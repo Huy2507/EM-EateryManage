@@ -91,7 +91,7 @@ namespace EM_EateryManage
                 {
                     connection.Open();
 
-                    string query = "SELECT MONTH(Create_Time) AS N'Tháng', SUM(CAST(REPLACE(total_amount, '.', '') AS INT)) AS N'VNĐ'\r\nFROM BILL\r\nGROUP BY MONTH(Create_Time)";
+                    string query = "SELECT MONTH(Create_Time) AS N'Tháng', SUM(CAST(REPLACE(total_amount, '.', '') AS INT)) AS N'VNĐ'\r\nFROM BILL\r\nGROUP BY MONTH(Create_Time),year(create_time)\r\nhaving year(create_time) = year(GETDATE())\r\n";
                     SqlCommand command = new SqlCommand(query, connection);
 
                     DataTable dt = new DataTable();
