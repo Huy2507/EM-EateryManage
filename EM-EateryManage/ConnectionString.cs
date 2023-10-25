@@ -8,6 +8,6 @@ namespace EM_EateryManage
 {
     class ConnectionString
     {
-        public static string connectionString = @"Data Source=NAMHANDSOME\NGOCNAM1010;Initial Catalog=Quanlyquanan_DB;Integrated Security=True";
+        public static string connectionString = @"Data Source=Namhandsome\ngocnam1010;Initial Catalog=Quanlyquanan_DB;Integrated Security=True";
     }
 }

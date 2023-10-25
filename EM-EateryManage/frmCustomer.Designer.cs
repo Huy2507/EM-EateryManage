@@ -53,6 +53,7 @@
             this.txtSDTKH = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvKH = new System.Windows.Forms.DataGridView();
+            this.lblTbEmail = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -72,6 +73,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panel2.Controls.Add(this.lblTbEmail);
             this.panel2.Controls.Add(this.cbbGTinhKH);
             this.panel2.Controls.Add(this.dtpkNgaySinhKH);
             this.panel2.Controls.Add(this.label2);
@@ -231,6 +233,7 @@
             this.txtEmailKH.Name = "txtEmailKH";
             this.txtEmailKH.Size = new System.Drawing.Size(281, 27);
             this.txtEmailKH.TabIndex = 49;
+            this.txtEmailKH.Leave += new System.EventHandler(this.txtEmailKH_Leave);
             // 
             // label31
             // 
@@ -377,6 +380,18 @@
             this.dgvKH.TabIndex = 0;
             this.dgvKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKH_CellClick);
             // 
+            // lblTbEmail
+            // 
+            this.lblTbEmail.AutoSize = true;
+            this.lblTbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTbEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblTbEmail.Location = new System.Drawing.Point(187, 272);
+            this.lblTbEmail.Name = "lblTbEmail";
+            this.lblTbEmail.Size = new System.Drawing.Size(264, 16);
+            this.lblTbEmail.TabIndex = 63;
+            this.lblTbEmail.Text = "Vui lòng kiểm tra lại email. Phải có @";
+            this.lblTbEmail.Visible = false;
+            // 
             // frmCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -426,5 +441,6 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cbbGTinhKH;
         private System.Windows.Forms.Button btnTichDiem;
+        private System.Windows.Forms.Label lblTbEmail;
     }
 }

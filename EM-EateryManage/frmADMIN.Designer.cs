@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tpTTNV = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lblTbEmail = new System.Windows.Forms.Label();
             this.lblIDNV = new System.Windows.Forms.Label();
             this.txtIDNV = new System.Windows.Forms.TextBox();
             this.cbbViTRi = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -184,6 +185,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panel6.Controls.Add(this.lblTbEmail);
             this.panel6.Controls.Add(this.lblIDNV);
             this.panel6.Controls.Add(this.txtIDNV);
             this.panel6.Controls.Add(this.cbbViTRi);
@@ -212,6 +214,18 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1048, 600);
             this.panel6.TabIndex = 0;
+            // 
+            // lblTbEmail
+            // 
+            this.lblTbEmail.AutoSize = true;
+            this.lblTbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTbEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblTbEmail.Location = new System.Drawing.Point(177, 195);
+            this.lblTbEmail.Name = "lblTbEmail";
+            this.lblTbEmail.Size = new System.Drawing.Size(264, 16);
+            this.lblTbEmail.TabIndex = 43;
+            this.lblTbEmail.Text = "Vui lòng kiểm tra lại email. Phải có @";
+            this.lblTbEmail.Visible = false;
             // 
             // lblIDNV
             // 
@@ -251,7 +265,7 @@
             "Thu Ngân",
             "Bảo Vệ",
             "Quản Lý (Manager)"});
-            this.cbbViTRi.Location = new System.Drawing.Point(176, 293);
+            this.cbbViTRi.Location = new System.Drawing.Point(176, 323);
             this.cbbViTRi.Name = "cbbViTRi";
             this.cbbViTRi.Size = new System.Drawing.Size(281, 36);
             this.cbbViTRi.TabIndex = 40;
@@ -260,7 +274,7 @@
             // 
             this.dtpkNgayVaoLam.CustomFormat = "dd/MM/yyyy";
             this.dtpkNgayVaoLam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpkNgayVaoLam.Location = new System.Drawing.Point(176, 260);
+            this.dtpkNgayVaoLam.Location = new System.Drawing.Point(176, 290);
             this.dtpkNgayVaoLam.Name = "dtpkNgayVaoLam";
             this.dtpkNgayVaoLam.Size = new System.Drawing.Size(281, 27);
             this.dtpkNgayVaoLam.TabIndex = 39;
@@ -312,7 +326,7 @@
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.Color.Red;
-            this.label34.Location = new System.Drawing.Point(9, 293);
+            this.label34.Location = new System.Drawing.Point(9, 323);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(16, 20);
             this.label34.TabIndex = 28;
@@ -344,6 +358,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(281, 27);
             this.txtEmail.TabIndex = 30;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label31
             // 
@@ -360,7 +375,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.Color.Transparent;
-            this.label32.Location = new System.Drawing.Point(25, 234);
+            this.label32.Location = new System.Drawing.Point(25, 264);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(71, 20);
             this.label32.TabIndex = 23;
@@ -370,7 +385,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.BackColor = System.Drawing.Color.Transparent;
-            this.label33.Location = new System.Drawing.Point(25, 201);
+            this.label33.Location = new System.Drawing.Point(25, 231);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(46, 20);
             this.label33.TabIndex = 25;
@@ -380,7 +395,7 @@
             // 
             this.lblNgayVaoLam.AutoSize = true;
             this.lblNgayVaoLam.BackColor = System.Drawing.Color.Transparent;
-            this.lblNgayVaoLam.Location = new System.Drawing.Point(25, 260);
+            this.lblNgayVaoLam.Location = new System.Drawing.Point(25, 290);
             this.lblNgayVaoLam.Name = "lblNgayVaoLam";
             this.lblNgayVaoLam.Size = new System.Drawing.Size(131, 20);
             this.lblNgayVaoLam.TabIndex = 24;
@@ -389,7 +404,7 @@
             // txtSDTNV
             // 
             this.txtSDTNV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSDTNV.Location = new System.Drawing.Point(176, 194);
+            this.txtSDTNV.Location = new System.Drawing.Point(176, 224);
             this.txtSDTNV.Name = "txtSDTNV";
             this.txtSDTNV.Size = new System.Drawing.Size(281, 27);
             this.txtSDTNV.TabIndex = 33;
@@ -401,7 +416,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.BackColor = System.Drawing.Color.Transparent;
-            this.label35.Location = new System.Drawing.Point(26, 293);
+            this.label35.Location = new System.Drawing.Point(26, 323);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(55, 20);
             this.label35.TabIndex = 21;
@@ -476,7 +491,7 @@
             // txtDCNV
             // 
             this.txtDCNV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDCNV.Location = new System.Drawing.Point(176, 227);
+            this.txtDCNV.Location = new System.Drawing.Point(176, 257);
             this.txtDCNV.Name = "txtDCNV";
             this.txtDCNV.Size = new System.Drawing.Size(281, 27);
             this.txtDCNV.TabIndex = 34;
@@ -550,7 +565,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(444, 25);
+            this.label42.Location = new System.Drawing.Point(467, 24);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(136, 20);
             this.label42.TabIndex = 37;
@@ -558,7 +573,7 @@
             // 
             // txtIDKhachHang
             // 
-            this.txtIDKhachHang.Location = new System.Drawing.Point(389, 53);
+            this.txtIDKhachHang.Location = new System.Drawing.Point(402, 53);
             this.txtIDKhachHang.Name = "txtIDKhachHang";
             this.txtIDKhachHang.Size = new System.Drawing.Size(243, 27);
             this.txtIDKhachHang.TabIndex = 36;
@@ -660,16 +675,16 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea7.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.chart1.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(543, 11);
             this.chart1.Name = "chart1";
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Doanh Thu Cả Năm";
-            this.chart1.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Doanh Thu Cả Năm";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(500, 444);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -1658,5 +1673,6 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox txtIDKhachHang;
+        private System.Windows.Forms.Label lblTbEmail;
     }
 }
