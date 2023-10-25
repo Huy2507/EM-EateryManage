@@ -321,5 +321,17 @@ namespace EM_EateryManage
                 }
             }
         }
+
+        private void txtEmailKH_Leave(object sender, EventArgs e)
+        {
+            if (!txtEmailKH.Text.Contains("@"))
+            {
+                lblTbEmail.Visible = true;
+            }
+            else
+            {
+                lblTbEmail.Visible = false;
+            }
+        }
     }
 }

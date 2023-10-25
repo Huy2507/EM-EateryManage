@@ -1311,5 +1311,17 @@ namespace EM_EateryManage
 
             
         }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if(!txtEmail.Text.Contains("@"))
+            {
+                lblTbEmail.Visible = true;
+            }
+            else
+            {
+                lblTbEmail.Visible = false;
+            }
+        }
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tpTTNV = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblIDNV = new System.Windows.Forms.Label();
@@ -62,6 +62,8 @@
             this.tpDoanhThu = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label42 = new System.Windows.Forms.Label();
+            this.txtIDKhachHang = new System.Windows.Forms.TextBox();
             this.btnXuatEXCEL = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -142,8 +144,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnThemTK = new System.Windows.Forms.Button();
             this.tabConTrol1 = new System.Windows.Forms.TabControl();
-            this.txtIDKhachHang = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
+            this.lblTbEmail = new System.Windows.Forms.Label();
             this.tpTTNV.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -184,6 +185,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panel6.Controls.Add(this.lblTbEmail);
             this.panel6.Controls.Add(this.lblIDNV);
             this.panel6.Controls.Add(this.txtIDNV);
             this.panel6.Controls.Add(this.cbbViTRi);
@@ -251,7 +253,7 @@
             "Thu Ngân",
             "Bảo Vệ",
             "Quản Lý (Manager)"});
-            this.cbbViTRi.Location = new System.Drawing.Point(176, 293);
+            this.cbbViTRi.Location = new System.Drawing.Point(176, 323);
             this.cbbViTRi.Name = "cbbViTRi";
             this.cbbViTRi.Size = new System.Drawing.Size(281, 36);
             this.cbbViTRi.TabIndex = 40;
@@ -260,7 +262,7 @@
             // 
             this.dtpkNgayVaoLam.CustomFormat = "dd/MM/yyyy";
             this.dtpkNgayVaoLam.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpkNgayVaoLam.Location = new System.Drawing.Point(176, 260);
+            this.dtpkNgayVaoLam.Location = new System.Drawing.Point(176, 290);
             this.dtpkNgayVaoLam.Name = "dtpkNgayVaoLam";
             this.dtpkNgayVaoLam.Size = new System.Drawing.Size(281, 27);
             this.dtpkNgayVaoLam.TabIndex = 39;
@@ -312,7 +314,7 @@
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.Color.Red;
-            this.label34.Location = new System.Drawing.Point(9, 293);
+            this.label34.Location = new System.Drawing.Point(9, 323);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(16, 20);
             this.label34.TabIndex = 28;
@@ -344,6 +346,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(281, 27);
             this.txtEmail.TabIndex = 30;
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // label31
             // 
@@ -360,7 +363,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.BackColor = System.Drawing.Color.Transparent;
-            this.label32.Location = new System.Drawing.Point(25, 234);
+            this.label32.Location = new System.Drawing.Point(25, 264);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(71, 20);
             this.label32.TabIndex = 23;
@@ -370,7 +373,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.BackColor = System.Drawing.Color.Transparent;
-            this.label33.Location = new System.Drawing.Point(25, 201);
+            this.label33.Location = new System.Drawing.Point(25, 231);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(46, 20);
             this.label33.TabIndex = 25;
@@ -380,7 +383,7 @@
             // 
             this.lblNgayVaoLam.AutoSize = true;
             this.lblNgayVaoLam.BackColor = System.Drawing.Color.Transparent;
-            this.lblNgayVaoLam.Location = new System.Drawing.Point(25, 260);
+            this.lblNgayVaoLam.Location = new System.Drawing.Point(25, 290);
             this.lblNgayVaoLam.Name = "lblNgayVaoLam";
             this.lblNgayVaoLam.Size = new System.Drawing.Size(131, 20);
             this.lblNgayVaoLam.TabIndex = 24;
@@ -389,7 +392,7 @@
             // txtSDTNV
             // 
             this.txtSDTNV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSDTNV.Location = new System.Drawing.Point(176, 194);
+            this.txtSDTNV.Location = new System.Drawing.Point(176, 224);
             this.txtSDTNV.Name = "txtSDTNV";
             this.txtSDTNV.Size = new System.Drawing.Size(281, 27);
             this.txtSDTNV.TabIndex = 33;
@@ -401,7 +404,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.BackColor = System.Drawing.Color.Transparent;
-            this.label35.Location = new System.Drawing.Point(26, 293);
+            this.label35.Location = new System.Drawing.Point(26, 323);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(55, 20);
             this.label35.TabIndex = 21;
@@ -476,7 +479,7 @@
             // txtDCNV
             // 
             this.txtDCNV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDCNV.Location = new System.Drawing.Point(176, 227);
+            this.txtDCNV.Location = new System.Drawing.Point(176, 257);
             this.txtDCNV.Name = "txtDCNV";
             this.txtDCNV.Size = new System.Drawing.Size(281, 27);
             this.txtDCNV.TabIndex = 34;
@@ -546,6 +549,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1048, 91);
             this.panel4.TabIndex = 1;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(359, 20);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(136, 20);
+            this.label42.TabIndex = 37;
+            this.label42.Text = "ID Khách Hàng";
+            // 
+            // txtIDKhachHang
+            // 
+            this.txtIDKhachHang.Location = new System.Drawing.Point(294, 49);
+            this.txtIDKhachHang.Name = "txtIDKhachHang";
+            this.txtIDKhachHang.Size = new System.Drawing.Size(243, 27);
+            this.txtIDKhachHang.TabIndex = 36;
             // 
             // btnXuatEXCEL
             // 
@@ -642,16 +661,16 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(543, 11);
             this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Doanh Thu Cả Năm";
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Doanh Thu Cả Năm";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(500, 444);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -1479,21 +1498,17 @@
             this.tabConTrol1.Size = new System.Drawing.Size(1062, 639);
             this.tabConTrol1.TabIndex = 0;
             // 
-            // txtIDKhachHang
+            // lblTbEmail
             // 
-            this.txtIDKhachHang.Location = new System.Drawing.Point(294, 49);
-            this.txtIDKhachHang.Name = "txtIDKhachHang";
-            this.txtIDKhachHang.Size = new System.Drawing.Size(243, 27);
-            this.txtIDKhachHang.TabIndex = 36;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(359, 20);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(136, 20);
-            this.label42.TabIndex = 37;
-            this.label42.Text = "ID Khách Hàng";
+            this.lblTbEmail.AutoSize = true;
+            this.lblTbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTbEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblTbEmail.Location = new System.Drawing.Point(177, 195);
+            this.lblTbEmail.Name = "lblTbEmail";
+            this.lblTbEmail.Size = new System.Drawing.Size(264, 16);
+            this.lblTbEmail.TabIndex = 43;
+            this.lblTbEmail.Text = "Vui lòng kiểm tra lại email. Phải có @";
+            this.lblTbEmail.Visible = false;
             // 
             // frmADMIN
             // 
@@ -1656,5 +1671,6 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.TextBox txtIDKhachHang;
+        private System.Windows.Forms.Label lblTbEmail;
     }
 }
