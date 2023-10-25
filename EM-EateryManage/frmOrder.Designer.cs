@@ -93,14 +93,14 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvOrder.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrder.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvOrder.Location = new System.Drawing.Point(601, 42);
+            this.dgvOrder.Location = new System.Drawing.Point(621, 42);
             this.dgvOrder.Name = "dgvOrder";
             this.dgvOrder.ReadOnly = true;
             this.dgvOrder.RowHeadersVisible = false;
             this.dgvOrder.RowHeadersWidth = 51;
             this.dgvOrder.RowTemplate.Height = 24;
             this.dgvOrder.RowTemplate.ReadOnly = true;
-            this.dgvOrder.Size = new System.Drawing.Size(461, 416);
+            this.dgvOrder.Size = new System.Drawing.Size(441, 422);
             this.dgvOrder.TabIndex = 0;
             this.dgvOrder.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvOrder.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -132,7 +132,7 @@
             this.flpnlMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flpnlMenu.Location = new System.Drawing.Point(0, 79);
             this.flpnlMenu.Name = "flpnlMenu";
-            this.flpnlMenu.Size = new System.Drawing.Size(601, 569);
+            this.flpnlMenu.Size = new System.Drawing.Size(622, 569);
             this.flpnlMenu.TabIndex = 2;
             // 
             // panel1
@@ -140,9 +140,9 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btnCancelOrder);
             this.panel1.Controls.Add(this.btnConfirmOrder);
-            this.panel1.Location = new System.Drawing.Point(601, 532);
+            this.panel1.Location = new System.Drawing.Point(621, 532);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 107);
+            this.panel1.Size = new System.Drawing.Size(441, 107);
             this.panel1.TabIndex = 5;
             // 
             // btnCancelOrder
@@ -157,7 +157,7 @@
             this.btnCancelOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnCancelOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnCancelOrder.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelOrder.Location = new System.Drawing.Point(32, 17);
+            this.btnCancelOrder.Location = new System.Drawing.Point(19, 17);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(178, 73);
             this.btnCancelOrder.TabIndex = 0;
@@ -176,7 +176,7 @@
             this.btnConfirmOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnConfirmOrder.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnConfirmOrder.ForeColor = System.Drawing.Color.Black;
-            this.btnConfirmOrder.Location = new System.Drawing.Point(255, 17);
+            this.btnConfirmOrder.Location = new System.Drawing.Point(231, 17);
             this.btnConfirmOrder.Name = "btnConfirmOrder";
             this.btnConfirmOrder.Size = new System.Drawing.Size(178, 73);
             this.btnConfirmOrder.TabIndex = 0;
@@ -214,7 +214,7 @@
             this.panel2.Controls.Add(this.flpnlMenu);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(601, 648);
+            this.panel2.Size = new System.Drawing.Size(622, 648);
             this.panel2.TabIndex = 0;
             // 
             // panel4
@@ -222,7 +222,7 @@
             this.panel4.Controls.Add(this.btnX);
             this.panel4.Controls.Add(this.txtFindFood);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(255, 0);
+            this.panel4.Location = new System.Drawing.Point(276, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(346, 37);
             this.panel4.TabIndex = 4;
@@ -287,7 +287,7 @@
             this.pnDanhMuc.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnDanhMuc.Location = new System.Drawing.Point(0, 37);
             this.pnDanhMuc.Name = "pnDanhMuc";
-            this.pnDanhMuc.Size = new System.Drawing.Size(601, 42);
+            this.pnDanhMuc.Size = new System.Drawing.Size(622, 42);
             this.pnDanhMuc.TabIndex = 3;
             // 
             // btnDrink
@@ -305,7 +305,7 @@
             this.btnDrink.ForeColor = System.Drawing.Color.Black;
             this.btnDrink.Location = new System.Drawing.Point(547, 0);
             this.btnDrink.Name = "btnDrink";
-            this.btnDrink.Size = new System.Drawing.Size(54, 42);
+            this.btnDrink.Size = new System.Drawing.Size(72, 42);
             this.btnDrink.TabIndex = 10;
             this.btnDrink.Text = "Nước";
             this.btnDrink.Click += new System.EventHandler(this.MyButtonDanhMuc_Click);
@@ -556,18 +556,18 @@
             this.panel3.Controls.Add(this.lbl1);
             this.panel3.Controls.Add(this.lblTongTien);
             this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel3.Location = new System.Drawing.Point(601, 463);
+            this.panel3.Location = new System.Drawing.Point(621, 463);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(461, 35);
+            this.panel3.Size = new System.Drawing.Size(441, 35);
             this.panel3.TabIndex = 9;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.cbTrangThai);
             this.panel5.Controls.Add(this.label3);
-            this.panel5.Location = new System.Drawing.Point(601, 494);
+            this.panel5.Location = new System.Drawing.Point(621, 494);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(461, 38);
+            this.panel5.Size = new System.Drawing.Size(441, 38);
             this.panel5.TabIndex = 10;
             // 
             // cbTrangThai
@@ -584,7 +584,7 @@
             this.cbTrangThai.Items.AddRange(new object[] {
             "Chưa Thanh Toán",
             "Đã Thanh Toán"});
-            this.cbTrangThai.Location = new System.Drawing.Point(281, 0);
+            this.cbTrangThai.Location = new System.Drawing.Point(261, 0);
             this.cbTrangThai.Name = "cbTrangThai";
             this.cbTrangThai.Size = new System.Drawing.Size(180, 36);
             this.cbTrangThai.TabIndex = 8;

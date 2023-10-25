@@ -35,6 +35,7 @@
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnClear = new Guna.UI2.WinForms.Guna2Button();
             this.txtIDDT = new System.Windows.Forms.TextBox();
             this.txtSdt = new System.Windows.Forms.TextBox();
             this.btnXoa = new Guna.UI2.WinForms.Guna2Button();
@@ -90,6 +91,7 @@
             this.guna2Panel1.Controls.Add(this.label1);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2Panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(836, 521);
@@ -170,6 +172,7 @@
             this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.guna2Panel3.BorderRadius = 5;
             this.guna2Panel3.BorderThickness = 2;
+            this.guna2Panel3.Controls.Add(this.btnClear);
             this.guna2Panel3.Controls.Add(this.txtIDDT);
             this.guna2Panel3.Controls.Add(this.txtSdt);
             this.guna2Panel3.Controls.Add(this.btnXoa);
@@ -188,6 +191,24 @@
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(311, 421);
             this.guna2Panel3.TabIndex = 9;
+            // 
+            // btnClear
+            // 
+            this.btnClear.BorderRadius = 12;
+            this.btnClear.BorderThickness = 2;
+            this.btnClear.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnClear.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnClear.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnClear.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.Black;
+            this.btnClear.Location = new System.Drawing.Point(16, 319);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(283, 45);
+            this.btnClear.TabIndex = 14;
+            this.btnClear.Text = "Clear";
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtIDDT
             // 
@@ -220,7 +241,7 @@
             this.btnXoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnXoa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnXoa.ForeColor = System.Drawing.Color.Black;
-            this.btnXoa.Location = new System.Drawing.Point(16, 355);
+            this.btnXoa.Location = new System.Drawing.Point(16, 370);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(82, 45);
             this.btnXoa.TabIndex = 8;
@@ -238,7 +259,7 @@
             this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnThem.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnThem.ForeColor = System.Drawing.Color.Black;
-            this.btnThem.Location = new System.Drawing.Point(209, 355);
+            this.btnThem.Location = new System.Drawing.Point(209, 370);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(90, 45);
             this.btnThem.TabIndex = 10;
@@ -256,7 +277,7 @@
             this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Location = new System.Drawing.Point(113, 355);
+            this.btnUpdate.Location = new System.Drawing.Point(113, 370);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(82, 45);
             this.btnUpdate.TabIndex = 9;
@@ -462,35 +483,39 @@
             // 
             // txtDetail
             // 
+            this.txtDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDetail.Location = new System.Drawing.Point(133, 331);
             this.txtDetail.Multiline = true;
             this.txtDetail.Name = "txtDetail";
             this.txtDetail.ReadOnly = true;
-            this.txtDetail.Size = new System.Drawing.Size(386, 22);
+            this.txtDetail.Size = new System.Drawing.Size(386, 84);
             this.txtDetail.TabIndex = 13;
             // 
             // txtSoGhe
             // 
+            this.txtSoGhe.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoGhe.Location = new System.Drawing.Point(133, 172);
             this.txtSoGhe.Name = "txtSoGhe";
             this.txtSoGhe.ReadOnly = true;
-            this.txtSoGhe.Size = new System.Drawing.Size(386, 22);
+            this.txtSoGhe.Size = new System.Drawing.Size(386, 26);
             this.txtSoGhe.TabIndex = 13;
             // 
             // txtIDBan
             // 
+            this.txtIDBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDBan.Location = new System.Drawing.Point(133, 82);
             this.txtIDBan.Name = "txtIDBan";
             this.txtIDBan.ReadOnly = true;
-            this.txtIDBan.Size = new System.Drawing.Size(386, 22);
+            this.txtIDBan.Size = new System.Drawing.Size(386, 26);
             this.txtIDBan.TabIndex = 13;
             // 
             // txtTenBan
             // 
+            this.txtTenBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenBan.Location = new System.Drawing.Point(133, 124);
             this.txtTenBan.Name = "txtTenBan";
             this.txtTenBan.ReadOnly = true;
-            this.txtTenBan.Size = new System.Drawing.Size(386, 22);
+            this.txtTenBan.Size = new System.Drawing.Size(386, 26);
             this.txtTenBan.TabIndex = 13;
             // 
             // label9
@@ -666,5 +691,6 @@
         private System.Windows.Forms.Label lblid;
         private Guna.UI2.WinForms.Guna2Button btnXoa;
         private Guna.UI2.WinForms.Guna2Button btnThem;
+        private Guna.UI2.WinForms.Guna2Button btnClear;
     }
 }
