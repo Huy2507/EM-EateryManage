@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tpTTNV = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblIDNV = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.dtpkDenNgay = new System.Windows.Forms.DateTimePicker();
             this.dtpkTuNgay = new System.Windows.Forms.DateTimePicker();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label41 = new System.Windows.Forms.Label();
             this.txtTotalAmount = new System.Windows.Forms.TextBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dgvReport = new System.Windows.Forms.DataGridView();
@@ -141,7 +142,8 @@
             this.label25 = new System.Windows.Forms.Label();
             this.btnThemTK = new System.Windows.Forms.Button();
             this.tabConTrol1 = new System.Windows.Forms.TabControl();
-            this.label41 = new System.Windows.Forms.Label();
+            this.txtIDKhachHang = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.tpTTNV.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -499,6 +501,7 @@
             this.dgvNV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNV.Location = new System.Drawing.Point(3, 3);
             this.dgvNV.Name = "dgvNV";
+            this.dgvNV.ReadOnly = true;
             this.dgvNV.RowHeadersWidth = 51;
             this.dgvNV.RowTemplate.Height = 24;
             this.dgvNV.Size = new System.Drawing.Size(579, 594);
@@ -530,6 +533,8 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panel4.Controls.Add(this.label42);
+            this.panel4.Controls.Add(this.txtIDKhachHang);
             this.panel4.Controls.Add(this.btnXuatEXCEL);
             this.panel4.Controls.Add(this.label14);
             this.panel4.Controls.Add(this.label12);
@@ -612,13 +617,23 @@
             this.panel3.Size = new System.Drawing.Size(1048, 514);
             this.panel3.TabIndex = 0;
             // 
+            // label41
+            // 
+            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(104, 473);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(56, 20);
+            this.label41.TabIndex = 4;
+            this.label41.Text = "Tổng:";
+            // 
             // txtTotalAmount
             // 
             this.txtTotalAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtTotalAmount.Enabled = false;
-            this.txtTotalAmount.Location = new System.Drawing.Point(281, 473);
+            this.txtTotalAmount.Location = new System.Drawing.Point(166, 473);
             this.txtTotalAmount.Name = "txtTotalAmount";
-            this.txtTotalAmount.Size = new System.Drawing.Size(244, 27);
+            this.txtTotalAmount.Size = new System.Drawing.Size(256, 27);
             this.txtTotalAmount.TabIndex = 3;
             this.txtTotalAmount.TextChanged += new System.EventHandler(this.txtTotalAmount_TextChanged);
             // 
@@ -627,16 +642,16 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(543, 11);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Doanh Thu";
-            this.chart1.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Doanh Thu Cả Năm";
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(500, 444);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
@@ -650,6 +665,7 @@
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReport.Location = new System.Drawing.Point(0, 11);
             this.dgvReport.Name = "dgvReport";
+            this.dgvReport.ReadOnly = true;
             this.dgvReport.RowHeadersVisible = false;
             this.dgvReport.RowHeadersWidth = 51;
             this.dgvReport.RowTemplate.Height = 24;
@@ -724,6 +740,7 @@
             this.dgvBanAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBanAn.Location = new System.Drawing.Point(426, 3);
             this.dgvBanAn.Name = "dgvBanAn";
+            this.dgvBanAn.ReadOnly = true;
             this.dgvBanAn.RowHeadersWidth = 51;
             this.dgvBanAn.RowTemplate.Height = 24;
             this.dgvBanAn.Size = new System.Drawing.Size(617, 594);
@@ -926,6 +943,7 @@
             this.dgvDSMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDSMonAn.Location = new System.Drawing.Point(469, 6);
             this.dgvDSMonAn.Name = "dgvDSMonAn";
+            this.dgvDSMonAn.ReadOnly = true;
             this.dgvDSMonAn.RowHeadersWidth = 51;
             this.dgvDSMonAn.RowTemplate.Height = 24;
             this.dgvDSMonAn.Size = new System.Drawing.Size(579, 594);
@@ -1272,6 +1290,7 @@
             this.dgvACC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvACC.Location = new System.Drawing.Point(0, 3);
             this.dgvACC.Name = "dgvACC";
+            this.dgvACC.ReadOnly = true;
             this.dgvACC.RowHeadersWidth = 51;
             this.dgvACC.RowTemplate.Height = 24;
             this.dgvACC.Size = new System.Drawing.Size(595, 592);
@@ -1460,15 +1479,21 @@
             this.tabConTrol1.Size = new System.Drawing.Size(1062, 639);
             this.tabConTrol1.TabIndex = 0;
             // 
-            // label41
+            // txtIDKhachHang
             // 
-            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(219, 473);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(56, 20);
-            this.label41.TabIndex = 4;
-            this.label41.Text = "Tổng:";
+            this.txtIDKhachHang.Location = new System.Drawing.Point(294, 49);
+            this.txtIDKhachHang.Name = "txtIDKhachHang";
+            this.txtIDKhachHang.Size = new System.Drawing.Size(243, 27);
+            this.txtIDKhachHang.TabIndex = 36;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(359, 20);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(136, 20);
+            this.label42.TabIndex = 37;
+            this.label42.Text = "ID Khách Hàng";
             // 
             // frmADMIN
             // 
@@ -1629,5 +1654,7 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TextBox txttt;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.TextBox txtIDKhachHang;
     }
 }

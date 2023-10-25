@@ -46,17 +46,35 @@ namespace EM_EateryManage
                 {
                     connection.Open();
 
-                    string query = "SELECT * FROM BILL WHERE create_time BETWEEN @TuNgay AND @DenNgay";
-                    SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
-                    command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+                    string query = "SELECT * FROM BILL\r\nWHERE (create_time BETWEEN @TuNgay AND @DenNgay)\r\nAND (customer_id = @id)";
+                    string query1 = "SELECT * FROM BILL\r\nWHERE (create_time BETWEEN @TuNgay AND @DenNgay)";
+                    if(txtIDKhachHang.Text != "")
+                    {
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
+                        command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+                        command.Parameters.AddWithValue("@id", txtIDKhachHang.Text);
 
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    adapter.Fill(dt);
-                    dgvReport.DataSource = dt;
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        dgvReport.DataSource = dt;
 
-                    connection.Close();
+                        connection.Close();
+                    }    
+                    else
+                    {
+                        SqlCommand command = new SqlCommand(query1, connection);
+                        command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
+                        command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        dgvReport.DataSource = dt;
+
+                        connection.Close();
+                    }
                 }
             }
             catch (Exception ex)
@@ -73,21 +91,19 @@ namespace EM_EateryManage
                 {
                     connection.Open();
 
-                    string query = "SELECT * FROM BILL WHERE create_time BETWEEN @TuNgay AND @DenNgay";
+                    string query = "SELECT MONTH(Create_Time) AS N'Tháng', SUM(CAST(REPLACE(total_amount, '.', '') AS INT)) AS N'VNĐ'\r\nFROM BILL\r\nGROUP BY MONTH(Create_Time)";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
-                    command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
 
                     DataTable dt = new DataTable();
                     SqlDataAdapter adapter = new SqlDataAdapter(command);
                     adapter.Fill(dt);
                     chart1.DataSource = dt;
-                    chart1.ChartAreas["ChartArea1"].AxisX.Title = "VNĐ";
-                    chart1.ChartAreas["ChartArea1"].AxisY.Title = "Tháng";
+                    chart1.ChartAreas["ChartArea1"].AxisX.Title = "Tháng";
+                    chart1.ChartAreas["ChartArea1"].AxisY.Title = "VNĐ";
                     chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
                     for(int i = 0; i<dt.Rows.Count;i++)
                     {
-                        chart1.Series["Doanh Thu"].Points.AddXY(dt.Rows[i]["total_amount"], dt.Rows[i]["create_time"]);
+                        chart1.Series["Doanh Thu Cả Năm"].Points.AddXY(dt.Rows[i]["Tháng"], dt.Rows[i]["VNĐ"]);
                     }    
                     connection.Close();
                 }
