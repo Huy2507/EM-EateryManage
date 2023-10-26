@@ -20,6 +20,20 @@ namespace EM_EateryManage
         {
             InitializeComponent();
             AddDataTocbTable();
+            checkComboBoxCount();
+        }
+        private void checkComboBoxCount()
+        {
+            if(cbTable.Items.Count > 0)
+            {
+                btnThanhToan.Enabled = true;
+                btnGiamGia.Enabled = true;
+            }
+            else
+            {
+                btnThanhToan.Enabled = false;
+                btnGiamGia.Enabled = false;
+            }
         }
         private void AddDataTocbTable()
         {
@@ -40,6 +54,7 @@ namespace EM_EateryManage
         }
         public void AddDataToDGV()
         {
+            
             try
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
@@ -92,7 +107,18 @@ namespace EM_EateryManage
         private int findBillID()
         {
             int i = 0;
-            int IDTableCheck = cbTable.SelectedIndex + 1;
+            string value = cbTable.SelectedItem.ToString();
+            bool isVIP = value.Equals("Bàn Xịn");
+            int tableID = 0;
+            if (isVIP == true)
+            {
+                tableID = 7;
+            }
+            else
+            {
+                string[] arrListStr = value.Split(' ');
+                tableID = int.Parse(arrListStr[1]);
+            }
             try
             {
                 string query = "Select bill_id from BILLINFO where status = N'Rồi' and table_id = @tableID";
@@ -101,7 +127,7 @@ namespace EM_EateryManage
                     connection.Open();
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.Clear();
-                    cmd.Parameters.AddWithValue("@tableID", IDTableCheck);
+                    cmd.Parameters.AddWithValue("@tableID", tableID);
 
                     if (txbSoDienThoaiCustomer.Text != "")
                     {
@@ -161,7 +187,7 @@ namespace EM_EateryManage
                 try
                 {
                     connection.Open();
-                    int IDTable = cbTable.SelectedIndex + 1;
+                    string value = cbTable.SelectedItem.ToString();
                     // Truy vấn để kiểm tra tài khoản
                     string query = "UPDATE dbo.BILL SET status=N'Rồi', customer_id = @id WHERE bill_id = @BILLID";
                     SqlCommand command = new SqlCommand(query, connection);
@@ -178,7 +204,23 @@ namespace EM_EateryManage
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             DialogResult check = MessageBox.Show("Bạn đã chắc chắn kiểm tra kĩ đơn hàng và thanh toán?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            int IDTableCheck = cbTable.SelectedIndex + 1;
+            if (cbTable.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn bàn để thanh toán!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            string value = cbTable.SelectedItem.ToString();
+            bool isVIP = value.Equals("Bàn Xịn");
+            int tableIDCheck = 0;
+            if (isVIP == true)
+            {
+                tableIDCheck = 7;
+            }
+            else
+            {
+                string[] arrListStr = value.Split(' ');
+                tableIDCheck = int.Parse(arrListStr[1]);
+            }
             if (check == System.Windows.Forms.DialogResult.Yes)
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
@@ -186,11 +228,22 @@ namespace EM_EateryManage
                     try
                     {
                         connection.Open();
-                        int IDTable = cbTable.SelectedIndex + 1;
+                        string value1 = cbTable.SelectedItem.ToString();
+                        bool isVIP1 = value1.Equals("Bàn Xịn");
+                        int tableID = 0;
+                        if (isVIP1 == true)
+                        {
+                            tableID = 7;
+                        }
+                        else
+                        {
+                            string[] arrListStr = value.Split(' ');
+                            tableID = int.Parse(arrListStr[1]);
+                        }
                         // Truy vấn để kiểm tra tài khoản
                         string query = "UPDATE dbo.BILLINFO SET status=N'Rồi' WHERE table_id = @table_id";
                         SqlCommand command = new SqlCommand(query, connection);
-                        command.Parameters.AddWithValue("@table_id", IDTable);
+                        command.Parameters.AddWithValue("@table_id", tableID);
                         command.ExecuteNonQuery();
                     }
                     catch (Exception ex)
@@ -208,8 +261,9 @@ namespace EM_EateryManage
                     }
                 }
                 UpdateCustomer();
-                changeTableStatus(IDTableCheck);
+                changeTableStatus(tableIDCheck);
                 txbTong.Text = "";
+                checkComboBoxCount();
             }
             else
             {
@@ -225,11 +279,22 @@ namespace EM_EateryManage
                 try
                 {
                     connection.Open();
-                    int IDTable = cbTable.SelectedIndex + 1;
+                    string value = cbTable.SelectedItem.ToString();
+                    bool isVIP = value.Equals("Bàn Xịn");
+                    int tableID = 0;
+                    if (isVIP == true)
+                    {
+                        tableID = 7;
+                    }
+                    else
+                    {
+                        string[] arrListStr = value.Split(' ');
+                        tableID = int.Parse(arrListStr[1]);
+                    }
                     // Truy vấn để kiểm tra tài khoản
                     string query = "SELECT line_total FROM BILLINFO WHERE table_id = @table_id AND status = N'Chưa thanh toán'";
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@table_id", IDTable);
+                    command.Parameters.AddWithValue("@table_id", tableID);
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -266,7 +331,14 @@ namespace EM_EateryManage
 
                     if (txbSoDienThoaiCustomer.Text != "")
                     {
-                        i = int.Parse(cmd.ExecuteScalar().ToString());
+                        try
+                        {
+                            i = int.Parse(cmd.ExecuteScalar().ToString());
+                        }catch(Exception ex)
+                        {
+                            i = 0;
+                            MessageBox.Show("Số điện thoại vừa nhập chưa đăng ký điểm tích lũy!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
                     }
                     else
                     {
@@ -291,10 +363,30 @@ namespace EM_EateryManage
         private void btnGiamGia_Click(object sender, EventArgs e)
         {
 
+            if(txbGiamGia.Text == "")
+            {
+                txbGiamGia.Text = "0";
+            }
+            if (cbTable.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn bàn để giảm giá!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
             int giamGia = int.Parse(txbGiamGia.Text);
             bool isDiscount = false;
-
-
+            
+            string value = cbTable.SelectedItem.ToString();
+            bool isVIP = value.Equals("Bàn Xịn");
+            int tableID = 0;
+            if (isVIP == true)
+            {
+                tableID = 7;
+            }
+            else
+            {
+                string[] arrListStr = value.Split(' ');
+                tableID = int.Parse(arrListStr[1]);
+            }
 
             using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
             {
@@ -302,10 +394,10 @@ namespace EM_EateryManage
                 {
                     connection.Open();
                     // Truy vấn để kiểm tra tài khoản
-                    string query = "UPDATE BILLINFO SET discount = @discount";
+                    string query = "UPDATE BILLINFO SET discount = @discount WHERE table_id = @tableID AND status = N'Chưa thanh toán'";
                     SqlCommand command = new SqlCommand(query, connection);
-                    
                     command.Parameters.AddWithValue("@discount", giamGia);
+                    command.Parameters.AddWithValue("@tableID", tableID);
                     command.ExecuteNonQuery();
                     isDiscount = true;
                 }
@@ -331,9 +423,21 @@ namespace EM_EateryManage
                 
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                 {
-                    int tableID = cbTable.SelectedIndex + 1;
+                    string value = cbTable.SelectedItem.ToString();
+                    bool isVIP = value.Equals("Bàn Xịn");
+                    int tableID = 0;
+                    if (isVIP == true)
+                    {
+                        tableID = 7;
+                    }
+                    else
+                    {
+                        string[] arrListStr = value.Split(' ');
+                        tableID = int.Parse(arrListStr[1]);
+                    }
+                    
                     connection.Open();
-                    SqlCommand command = new SqlCommand("select bill_id as N'ID',item_name as N'Tên món', quantity as N'Số lượng', unit_price as N'Giá', line_total as N'Tổng'\r\nfrom BILLINFO WHERE STATUS = N'Chưa thanh toán' AND table_id = @tableID", connection);
+                    SqlCommand command = new SqlCommand("select bill_id as N'ID',item_name as N'Tên món', quantity as N'Số lượng', unit_price as N'Giá', line_total as N'Tổng' from BILLINFO WHERE STATUS = N'Chưa thanh toán' AND table_id = @tableID", connection);
                     command.Parameters.AddWithValue("@tableID", tableID);
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
