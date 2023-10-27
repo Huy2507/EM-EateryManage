@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblTbEmail = new System.Windows.Forms.Label();
             this.cbbGTinhKH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dtpkNgaySinhKH = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.txtSDTKH = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dgvKH = new System.Windows.Forms.DataGridView();
-            this.lblTbEmail = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel13.SuspendLayout();
@@ -100,6 +100,18 @@
             this.panel2.Size = new System.Drawing.Size(1044, 592);
             this.panel2.TabIndex = 0;
             // 
+            // lblTbEmail
+            // 
+            this.lblTbEmail.AutoSize = true;
+            this.lblTbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTbEmail.ForeColor = System.Drawing.Color.Red;
+            this.lblTbEmail.Location = new System.Drawing.Point(187, 272);
+            this.lblTbEmail.Name = "lblTbEmail";
+            this.lblTbEmail.Size = new System.Drawing.Size(138, 16);
+            this.lblTbEmail.TabIndex = 63;
+            this.lblTbEmail.Text = "Email phải là *@*.*";
+            this.lblTbEmail.Visible = false;
+            // 
             // cbbGTinhKH
             // 
             this.cbbGTinhKH.BackColor = System.Drawing.Color.Transparent;
@@ -126,9 +138,11 @@
             this.dtpkNgaySinhKH.CustomFormat = "dd/MM/yyyy";
             this.dtpkNgaySinhKH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpkNgaySinhKH.Location = new System.Drawing.Point(185, 348);
+            this.dtpkNgaySinhKH.MaxDate = new System.DateTime(2023, 10, 27, 0, 0, 0, 0);
             this.dtpkNgaySinhKH.Name = "dtpkNgaySinhKH";
             this.dtpkNgaySinhKH.Size = new System.Drawing.Size(281, 22);
             this.dtpkNgaySinhKH.TabIndex = 60;
+            this.dtpkNgaySinhKH.Value = new System.DateTime(2023, 10, 27, 0, 0, 0, 0);
             // 
             // label2
             // 
@@ -349,7 +363,6 @@
             this.txtSDTKH.Name = "txtSDTKH";
             this.txtSDTKH.Size = new System.Drawing.Size(281, 27);
             this.txtSDTKH.TabIndex = 53;
-            this.txtSDTKH.Text = "0";
             this.txtSDTKH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTKH_KeyPress);
             // 
             // panel3
@@ -379,18 +392,6 @@
             this.dgvKH.Size = new System.Drawing.Size(560, 583);
             this.dgvKH.TabIndex = 0;
             this.dgvKH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKH_CellClick);
-            // 
-            // lblTbEmail
-            // 
-            this.lblTbEmail.AutoSize = true;
-            this.lblTbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTbEmail.ForeColor = System.Drawing.Color.Red;
-            this.lblTbEmail.Location = new System.Drawing.Point(187, 272);
-            this.lblTbEmail.Name = "lblTbEmail";
-            this.lblTbEmail.Size = new System.Drawing.Size(264, 16);
-            this.lblTbEmail.TabIndex = 63;
-            this.lblTbEmail.Text = "Vui lòng kiểm tra lại email. Phải có @";
-            this.lblTbEmail.Visible = false;
             // 
             // frmCustomer
             // 

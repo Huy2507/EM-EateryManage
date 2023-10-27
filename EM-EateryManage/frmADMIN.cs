@@ -18,6 +18,10 @@ using System.IO;
 using NPOI;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
+using System.Text.RegularExpressions;
+
+
+
 
 namespace EM_EateryManage
 {
@@ -35,7 +39,80 @@ namespace EM_EateryManage
             AddDataToDGV_TaiKhoan();
             AddDataToDGVNV();
             getDataFromBill();
+            //AddSeriesAndAreas();
         }
+
+
+        #region Các Hàm Dự Bị
+
+        /// <summary>
+        /// //////////////////////////////////////Các Hàm Dự Bị
+        /// </summary>
+        private void AddSeriesAndAreas()
+        {
+            chart1.Series.Add("Doanh Thu Theo IDKH");
+            chart1.ChartAreas.Add("ChartArea2");
+        }
+        public void AddDataToChart()
+        {
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
+                {
+                    connection.Open();
+
+                    string query = "SELECT sum(CAST(REPLACE(total_amount, '.', '') AS INT)) as N'Tổng', customer_id as N'Mã Khách Hàng' FROM BILL WHERE (create_time BETWEEN @tungay AND @denngay)AND (customer_id = @id) group by customer_id";
+                    string query1 = "SELECT sum(CAST(REPLACE(total_amount, '.', '') AS INT)) as N'Tổng', customer_id as N'Mã Khách Hàng' FROM BILL WHERE (create_time BETWEEN @tungay AND @denngay) group by customer_id";
+                    if (txtIDKhachHang.Text != "")
+                    {
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
+                        command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+                        command.Parameters.AddWithValue("@id", txtIDKhachHang.Text);
+
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        chart1.DataSource = dt;
+                        chart1.ChartAreas["ChartArea1"].AxisX.Title = "Mã Khách Hàng";
+                        chart1.ChartAreas["ChartArea1"].AxisY.Title = "Tổng";
+                        chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            chart1.Series["Doanh Thu Theo IDKH"].Points.AddXY(dt.Rows[i]["Mã Khách Hàng"], dt.Rows[i]["Tổng"]);
+                        }
+                        connection.Close();
+                    }
+                    else
+                    {
+                        SqlCommand command = new SqlCommand(query1, connection);
+                        command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
+                        command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        chart1.DataSource = dt;
+                        chart1.ChartAreas["ChartArea1"].AxisX.Title = "Mã Khách Hàng";
+                        chart1.ChartAreas["ChartArea1"].AxisY.Title = "Tổng";
+                        chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            chart1.Series["Doanh Thu Theo IDKH"].Points.AddXY(dt.Rows[i]["Mã Khách Hàng"], dt.Rows[i]["Tổng"]);
+                        }
+
+                        connection.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+
         #region Các Hàm Đổ Dữ Liệu Từ CSDL Vào_DGV
 
         public void getDataFromBill()
@@ -83,28 +160,62 @@ namespace EM_EateryManage
             }
         }
 
-        public void AddDataToChart()
+        public void AddDataToChartCaNam()
         {
+            
             try
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString.connectionString))
                 {
                     connection.Open();
 
-                    string query = "SELECT MONTH(Create_Time) AS N'Tháng', SUM(CAST(REPLACE(total_amount, '.', '') AS INT)) AS N'VNĐ'\r\nFROM BILL\r\nGROUP BY MONTH(Create_Time),year(create_time)\r\nhaving year(create_time) = year(GETDATE())\r\n";
-                    SqlCommand command = new SqlCommand(query, connection);
-
-                    DataTable dt = new DataTable();
-                    SqlDataAdapter adapter = new SqlDataAdapter(command);
-                    adapter.Fill(dt);
-                    chart1.DataSource = dt;
-                    chart1.ChartAreas["ChartArea1"].AxisX.Title = "Tháng";
-                    chart1.ChartAreas["ChartArea1"].AxisY.Title = "VNĐ";
-                    chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
-                    for(int i = 0; i<dt.Rows.Count;i++)
+                    string query = "SELECT MONTH(Create_Time) AS N'Tháng', SUM(CAST(REPLACE(total_amount, '.', '') AS INT)) AS N'VNĐ' FROM BILL where create_time between @tungay and @denngay GROUP BY MONTH(Create_Time),year(create_time)\r\nhaving year(create_time) = year(GETDATE())\r\n";
+                    string query1 = "SELECT MONTH(Create_Time) AS N'Tháng', SUM(CAST(REPLACE(total_amount, '.', '') AS INT)) AS N'VNĐ' FROM BILL where create_time between @tungay and @denngay AND (customer_id = @id) GROUP BY MONTH(Create_Time),year(create_time)\r\nhaving year(create_time) = year(GETDATE())\r\n";
+                    if (txtIDKhachHang.Text != "")
                     {
-                        chart1.Series["Doanh Thu Cả Năm"].Points.AddXY(dt.Rows[i]["Tháng"], dt.Rows[i]["VNĐ"]);
-                    }    
+                        SqlCommand command = new SqlCommand(query1, connection);
+                        command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
+                        command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+                        command.Parameters.AddWithValue("@id", txtIDKhachHang.Text);
+
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        chart1.DataSource = dt;
+                        chart1.ChartAreas.Clear();
+                        chart1.Series.Clear();
+                        chart1.ChartAreas.Add("ChartArea1");
+                        chart1.Series.Add("Doanh Thu");
+                        chart1.ChartAreas["ChartArea1"].AxisX.Title = "Tháng";
+                        chart1.ChartAreas["ChartArea1"].AxisY.Title = "VNĐ";
+                        chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            chart1.Series["Doanh Thu"].Points.AddXY(dt.Rows[i]["Tháng"], dt.Rows[i]["VNĐ"]);
+                        }
+                    }
+                    else
+                    {
+                        SqlCommand command = new SqlCommand(query, connection);
+                        command.Parameters.AddWithValue("@TuNgay", dtpkTuNgay.Value);
+                        command.Parameters.AddWithValue("@DenNgay", dtpkDenNgay.Value);
+
+                        DataTable dt = new DataTable();
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        adapter.Fill(dt);
+                        chart1.DataSource = dt;
+                        chart1.ChartAreas.Clear();
+                        chart1.Series.Clear();
+                        chart1.ChartAreas.Add("ChartArea1");
+                        chart1.Series.Add("Doanh Thu");
+                        chart1.ChartAreas["ChartArea1"].AxisX.Title = "Tháng";
+                        chart1.ChartAreas["ChartArea1"].AxisY.Title = "VNĐ";
+                        chart1.ChartAreas["ChartArea1"].AxisX.Interval = 1;
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            chart1.Series["Doanh Thu"].Points.AddXY(dt.Rows[i]["Tháng"], dt.Rows[i]["VNĐ"]);
+                        }
+                    }
                     connection.Close();
                 }
             }
@@ -113,6 +224,8 @@ namespace EM_EateryManage
                 MessageBox.Show(ex.Message);
             }
         }
+        
+        
 
         public void AddDataToDGVNV()
         {
@@ -258,20 +371,40 @@ namespace EM_EateryManage
                     }
                     if (usernameExists == false)
                     {
+                        string email = txtEmail.Text;
+                        int atIndex = email.IndexOf("@");
+                        int dotIndex = email.IndexOf(".");
+                        bool isValid = atIndex < dotIndex;
 
-                        if (txtTenNV.Text != "" && txtEmail.Text != "" && cbbViTRi.Text != "")
+                        if (txtTenNV.Text != "" && email != "" && cbbViTRi.Text != "" && email.Contains("@")  && email.Contains(".") && isValid)
                         {
                             command.Parameters.AddWithValue("@name", txtTenNV.Text);
                             command.Parameters.AddWithValue("@email", txtEmail.Text);
+                            command.Parameters.AddWithValue("@Vitri", cbbViTRi.Text);
                         }
                         else
                         {
                             MessageBox.Show("Vui Lòng Nhập Đầy Đủ Tên, Email Và Vị Trí!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        command.Parameters.AddWithValue("@Vitri", cbbViTRi.Text);
-                        command.Parameters.AddWithValue("@sdt", txtSDTNV.Text);
+
+                        if (txtSDTNV.Text !="")
+                        {
+                            if (txtSDTNV.Text[0] == '0')
+                            {
+                                command.Parameters.AddWithValue("@sdt", txtSDTNV.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("SĐT phải bắt đầu từ 0 và tối đa 10 số!", "Lỗi");
+                            }
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@sdt", txtSDTNV.Text);
+                        }
+                        
                         command.Parameters.AddWithValue("@Diachi", txtDCNV.Text);
-                        command.Parameters.AddWithValue("@ngayvaolam", DateTime.Parse(dtpkNgayVaoLam.Text.Replace("/","-")));
+                        command.Parameters.AddWithValue("@ngayvaolam", DateTime.Parse(dtpkNgayVaoLam.Value.ToString().Replace("/","-")));
 
                         command.ExecuteNonQuery();
 
@@ -297,7 +430,7 @@ namespace EM_EateryManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                
             }
         }
 
@@ -537,9 +670,36 @@ namespace EM_EateryManage
 
                             command.Parameters.AddWithValue("@0", txtIDNV.Text);
                             command.Parameters.AddWithValue("@1", txtTenNV.Text);
-                            command.Parameters.AddWithValue("@2", txtEmail.Text);
+
+                            string email = txtEmail.Text;
+                            int atIndex = email.IndexOf("@");
+                            int dotIndex = email.IndexOf(".");
+                            bool isValid = atIndex < dotIndex;
+                            if (email != "" && email.Contains("@") && email.Contains(".") && isValid)
+                            {
+                                command.Parameters.AddWithValue("@2", txtEmail.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email Không Hợp Lệ!", "Lỗi");
+                            }
                             command.Parameters.AddWithValue("@3", cbbViTRi.Text);
-                            command.Parameters.AddWithValue("@4", txtSDTNV.Text);
+
+                            if (txtSDTNV.Text != "")
+                            {
+                                if (txtSDTNV.Text[0] == '0')
+                                {
+                                    command.Parameters.AddWithValue("@4", txtSDTNV.Text);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("SĐT phải bắt đầu từ 0 và tối đa 10 số!", "Lỗi");
+                                }
+                            }
+                            else
+                            {
+                                command.Parameters.AddWithValue("@4", txtSDTNV.Text);
+                            }
                             command.Parameters.AddWithValue("@5", txtDCNV.Text);
                             command.Parameters.AddWithValue("@6", dtpkNgayVaoLam.Value.ToString());
 
@@ -573,7 +733,7 @@ namespace EM_EateryManage
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An Error Occured:" + ex.Message);
+                    
                 }
             }
         }
@@ -1049,6 +1209,39 @@ namespace EM_EateryManage
 
         #region Các Hàm Phụ
 
+        private void txtSDTNV_TextChanged(object sender, EventArgs e)
+        {
+            txtSDTNV.MaxLength = 10;
+        }
+
+        private void txtSDTNV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtTotalAmount_TextChanged(object sender, EventArgs e)
+        {
+            double.TryParse(txtTotalAmount.Text, out double value);
+            txtTotalAmount.Text = value.ToString("#,###");
+
+
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            if (!txtEmail.Text.Contains("@") || !txtEmail.Text.Contains("."))
+            {
+                lblTbEmail.Visible = true;
+            }
+            else
+            {
+                lblTbEmail.Visible = false;
+            }
+        }
+
         private void dgvNV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -1230,98 +1423,116 @@ namespace EM_EateryManage
         private void btnDisplayBill_Click(object sender, EventArgs e)
         {
             getDataFromBill();
-            AddDataToChart();
+            AddDataToChartCaNam();
             TongDoanhThu();
             
         }
 
         #endregion
 
-        private void txtSDTNV_TextChanged(object sender, EventArgs e)
-        {
-            txtSDTNV.MaxLength = 10;
-        }
 
-        private void txtSDTNV_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
+        #region Xuất Excel
         private void btnXuatEXCEL_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Excel Files (*.xls)|*.xls";
-            saveFileDialog.ShowDialog();
-            if (saveFileDialog == null)
+            try
             {
-                saveFileDialog = new SaveFileDialog();
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "Excel Files (*.xls)|*.xls";
-            }
-            // Tạo đối tượng Workbook
-            HSSFWorkbook workbook = new HSSFWorkbook();
-            
-
-            // Tạo đối tượng Worksheet
-            HSSFSheet worksheet = (HSSFSheet)workbook.CreateSheet("Data");
-
-            // Thêm dữ liệu từ DataGridView vào Worksheet
-            for (int i = 0; i < dgvReport.Rows.Count-1; i++)
-            {
-                HSSFRow row = (HSSFRow)worksheet.CreateRow(i);
-                for (int j = 0; j < dgvReport.Columns.Count; j++)
+                saveFileDialog.ShowDialog();
+                if (saveFileDialog == null)
                 {
-                    HSSFCell cell = (HSSFCell)row.CreateCell(j);
-                    // Kiểm tra xem đối tượng DataGridViewCell đã được khởi tạo hay chưa
-                    if (dgvReport.CurrentCell == null)
-                    {
-                        return;
-                    }
-
-                    // Kiểm tra xem giá trị của thuộc tính Value có bằng null hay không
-                    if (dgvReport.CurrentCell.Value == null)
-                    {
-                        return;
-                    }
-
-                    // Truy cập giá trị của thuộc tính Value
-                    string value = dgvReport.CurrentCell.Value.ToString();
-
-                    cell.SetCellValue(dgvReport[j, i].Value.ToString());
+                    saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Filter = "Excel Files (*.xls)|*.xls";
                 }
-            }
 
-            // Lưu file Excel
-            string fileName = saveFileDialog.FileName;
-            using (FileStream fileStream = new FileStream(fileName, FileMode.Create))
+                // Tạo đối tượng Workbook
+                HSSFWorkbook workbook = new HSSFWorkbook();
+
+                // Tạo đối tượng Worksheet
+                HSSFSheet worksheet = (HSSFSheet)workbook.CreateSheet("Data");
+
+                // Tạo một hàng để thụt xuống
+                HSSFRow headerRow = (HSSFRow)worksheet.CreateRow(0);
+
+                // Tạo đối tượng Color
+                Color color = Color.Blue;
+
+                // Chuyển đổi giá trị kiểu Color sang giá trị kiểu short
+                short shortColor = (short)color.ToArgb();
+
+                IFont font = workbook.CreateFont();
+                font.FontName = "Times New Roman";
+                font.Color = shortColor;
+                font.IsBold = true;
+                worksheet.DefaultColumnWidth = 20;
+                
+                
+                // Thêm tên cột vào hàng
+                for (int i = 0; i < dgvReport.Columns.Count; i++)
+                {
+                    HSSFCell headerCell = (HSSFCell)headerRow.CreateCell(i);
+                    headerCell.SetCellValue(dgvReport.Columns[i].HeaderText.ToUpper());
+                    headerCell.CellStyle.SetFont(font);
+                    headerCell.CellStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
+                    //headerCell.CellStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
+                    //headerCell.CellStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
+                    //headerCell.CellStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
+                    //headerCell.CellStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
+                }
+
+                // Thêm dữ liệu từ DataGridView vào Worksheet
+                for (int i = 0; i < dgvReport.Rows.Count - 1; i++)
+                {
+                    HSSFRow row = (HSSFRow)worksheet.CreateRow(i + 1);
+                    for (int j = 0; j < dgvReport.Columns.Count; j++)
+                    {
+                        HSSFCell cell = (HSSFCell)row.CreateCell(j);
+                        // Kiểm tra xem đối tượng DataGridViewCell đã được khởi tạo hay chưa
+                        if (dgvReport.CurrentCell == null)
+                        {
+                            return;
+                        }
+
+                        // Kiểm tra xem giá trị của thuộc tính Value có bằng null hay không
+                        if (dgvReport.CurrentCell.Value == null)
+                        {
+                            return;
+                        }
+
+                        // Truy cập giá trị của thuộc tính Value
+                        string value = dgvReport[j, i].Value.ToString();
+
+                        cell.SetCellValue(dgvReport[j, i].Value.ToString());
+                        //cell.CellStyle.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Left;
+                        //cell.CellStyle.BorderTop = NPOI.SS.UserModel.BorderStyle.Medium;
+                        //cell.CellStyle.BorderLeft = NPOI.SS.UserModel.BorderStyle.Medium;
+                        //cell.CellStyle.BorderRight = NPOI.SS.UserModel.BorderStyle.Medium;
+                        //cell.CellStyle.BorderBottom = NPOI.SS.UserModel.BorderStyle.Medium;
+                    }
+                }
+                int index = worksheet.LastRowNum + 2;
+                HSSFRow totalRow = (HSSFRow)worksheet.CreateRow(index);
+                HSSFCell totalCell_Name = (HSSFCell)totalRow.CreateCell(0);
+                HSSFCell totalCell_value = (HSSFCell)totalRow.CreateCell(1);
+                totalCell_Name.SetCellValue("Tổng:");
+                totalCell_value.SetCellValue(txtTotalAmount.Text);
+
+                // Lưu file Excel
+                string fileName = saveFileDialog.FileName;
+                using (FileStream fileStream = new FileStream(fileName, FileMode.Create))
+                {
+                    workbook.Write(fileStream);
+                }
+
+                
+                // Mở file Excel
+                System.Diagnostics.Process.Start(fileName);
+            }
+            catch (Exception ex)
             {
-                workbook.Write(fileStream);
-            }
-
-            // Mở file Excel
-            System.Diagnostics.Process.Start(fileName);
-        }
-
-        private void txtTotalAmount_TextChanged(object sender, EventArgs e)
-        {
-            double.TryParse(txtTotalAmount.Text, out double value);
-            txtTotalAmount.Text = value.ToString("#,###");
-
-            
-        }
-
-        private void txtEmail_Leave(object sender, EventArgs e)
-        {
-            if(!txtEmail.Text.Contains("@"))
-            {
-                lblTbEmail.Visible = true;
-            }
-            else
-            {
-                lblTbEmail.Visible = false;
+                MessageBox.Show(ex.Message);
             }
         }
+        #endregion
     }
 }

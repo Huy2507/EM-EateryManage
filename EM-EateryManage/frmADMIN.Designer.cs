@@ -222,9 +222,9 @@
             this.lblTbEmail.ForeColor = System.Drawing.Color.Red;
             this.lblTbEmail.Location = new System.Drawing.Point(177, 195);
             this.lblTbEmail.Name = "lblTbEmail";
-            this.lblTbEmail.Size = new System.Drawing.Size(264, 16);
+            this.lblTbEmail.Size = new System.Drawing.Size(138, 16);
             this.lblTbEmail.TabIndex = 43;
-            this.lblTbEmail.Text = "Vui lòng kiểm tra lại email. Phải có @";
+            this.lblTbEmail.Text = "Email phải là *@*.*";
             this.lblTbEmail.Visible = false;
             // 
             // lblIDNV
@@ -408,7 +408,6 @@
             this.txtSDTNV.Name = "txtSDTNV";
             this.txtSDTNV.Size = new System.Drawing.Size(281, 27);
             this.txtSDTNV.TabIndex = 33;
-            this.txtSDTNV.Text = "0";
             this.txtSDTNV.TextChanged += new System.EventHandler(this.txtSDTNV_TextChanged);
             this.txtSDTNV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDTNV_KeyPress);
             // 
@@ -565,7 +564,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(467, 24);
+            this.label42.Location = new System.Drawing.Point(435, 25);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(136, 20);
             this.label42.TabIndex = 37;
@@ -575,15 +574,15 @@
             // 
             this.txtIDKhachHang.Location = new System.Drawing.Point(402, 53);
             this.txtIDKhachHang.Name = "txtIDKhachHang";
-            this.txtIDKhachHang.Size = new System.Drawing.Size(243, 27);
+            this.txtIDKhachHang.Size = new System.Drawing.Size(201, 27);
             this.txtIDKhachHang.TabIndex = 36;
             // 
             // btnXuatEXCEL
             // 
             this.btnXuatEXCEL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXuatEXCEL.Location = new System.Drawing.Point(892, 20);
+            this.btnXuatEXCEL.Location = new System.Drawing.Point(892, 16);
             this.btnXuatEXCEL.Name = "btnXuatEXCEL";
-            this.btnXuatEXCEL.Size = new System.Drawing.Size(140, 60);
+            this.btnXuatEXCEL.Size = new System.Drawing.Size(140, 64);
             this.btnXuatEXCEL.TabIndex = 35;
             this.btnXuatEXCEL.Text = "Xuất File Excel";
             this.btnXuatEXCEL.UseVisualStyleBackColor = true;
@@ -610,9 +609,9 @@
             // btnDisplayBill
             // 
             this.btnDisplayBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDisplayBill.Location = new System.Drawing.Point(709, 20);
+            this.btnDisplayBill.Location = new System.Drawing.Point(755, 16);
             this.btnDisplayBill.Name = "btnDisplayBill";
-            this.btnDisplayBill.Size = new System.Drawing.Size(177, 60);
+            this.btnDisplayBill.Size = new System.Drawing.Size(131, 64);
             this.btnDisplayBill.TabIndex = 34;
             this.btnDisplayBill.Text = "Xem Thống Kê";
             this.btnDisplayBill.UseVisualStyleBackColor = true;
@@ -683,7 +682,7 @@
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
-            series1.Name = "Doanh Thu Cả Năm";
+            series1.Name = "Doanh Thu";
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(500, 444);
             this.chart1.TabIndex = 1;

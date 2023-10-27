@@ -142,13 +142,40 @@ namespace EM_EateryManage
                         if (txtTenKH.Text != "" && txtSDTKH.Text != "")
                         {
                             command.Parameters.AddWithValue("@name", txtTenKH.Text);
-                            command.Parameters.AddWithValue("@sdt", txtSDTKH.Text);
+                            if (txtSDTKH.Text[0] == '0')
+                            {
+                                command.Parameters.AddWithValue("@sdt", txtSDTKH.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("SĐT phải bắt đầu từ 0 và tối đa 10 số!", "Lỗi");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Vui Lòng Nhập Đầy Đủ Tên và phone_number Khách Hàng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Vui Lòng Nhập Đầy Đủ Tên và SĐT Khách Hàng!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                        command.Parameters.AddWithValue("@email", txtEmailKH.Text);
+
+                        if (txtEmailKH.Text != "")
+                        {
+                            string email = txtEmailKH.Text;
+                            int atIndex = email.IndexOf("@");
+                            int dotIndex = email.IndexOf(".");
+                            bool isValid = atIndex < dotIndex;
+                            if (email != "" && email.Contains("@") && email.Contains(".") && isValid)
+                            {
+                                command.Parameters.AddWithValue("@email", email);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Email Không Hợp Lệ!", "Thông Báo!");
+                            }
+                        }
+                        else
+                        {
+                            command.Parameters.AddWithValue("@email", txtEmailKH.Text);
+                        }
+
                         command.Parameters.AddWithValue("@ns", dtpkNgaySinhKH.Value.ToString());
                         command.Parameters.AddWithValue("@gt", cbbGTinhKH.Text);
                         int i = 10;
@@ -169,7 +196,7 @@ namespace EM_EateryManage
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                
             }
         }
 
@@ -198,8 +225,34 @@ namespace EM_EateryManage
 
                             command.Parameters.AddWithValue("@0", txtIDKH.Text);
                             command.Parameters.AddWithValue("@1", txtTenKH.Text);
-                            command.Parameters.AddWithValue("@2", txtEmailKH.Text);
-                            command.Parameters.AddWithValue("@3", txtSDTKH.Text);
+                            if (txtEmailKH.Text !="")
+                            {
+                                string email = txtEmailKH.Text;
+                                int atIndex = email.IndexOf("@");
+                                int dotIndex = email.IndexOf(".");
+                                bool isValid = atIndex < dotIndex;
+                                if (email.Contains("@") && email.Contains(".") && isValid)
+                                {
+                                    command.Parameters.AddWithValue("@2", email);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Email Không Hợp Lệ!", "Thông Báo!");
+                                }
+                            }
+                            else
+                            {
+                                command.Parameters.AddWithValue("@2", txtEmailKH.Text);
+                            }
+
+                            if (txtSDTKH.Text[0] == '0')
+                            {
+                                command.Parameters.AddWithValue("@3", txtSDTKH.Text);
+                            }
+                            else
+                            {
+                                MessageBox.Show("SĐT phải bắt đầu từ 0 và tối đa 10 số!", "Lỗi");
+                            }
                             command.Parameters.AddWithValue("@4", dtpkNgaySinhKH.Value.ToString());
                             command.Parameters.AddWithValue("@5", cbbGTinhKH.Text);
 
@@ -233,7 +286,7 @@ namespace EM_EateryManage
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("An Error Occured:" + ex.Message);
+                    
                 }
             }
         }
@@ -324,7 +377,7 @@ namespace EM_EateryManage
 
         private void txtEmailKH_Leave(object sender, EventArgs e)
         {
-            if (!txtEmailKH.Text.Contains("@"))
+            if (!txtEmailKH.Text.Contains("@") || !txtEmailKH.Text.Contains("."))
             {
                 lblTbEmail.Visible = true;
             }
