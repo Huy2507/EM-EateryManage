@@ -1209,6 +1209,24 @@ namespace EM_EateryManage
 
         #region Các Hàm Phụ
 
+        private void dtpkDenNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpkTuNgay.Value > dtpkDenNgay.Value)
+            {
+                MessageBox.Show("Lỗi");
+                dtpkTuNgay.Value = dtpkDenNgay.Value;
+            }
+        }
+
+        private void dtpkTuNgay_ValueChanged(object sender, EventArgs e)
+        {
+            if (dtpkTuNgay.Value > dtpkDenNgay.Value)
+            {
+                MessageBox.Show("Lỗi");
+                dtpkTuNgay.Value = dtpkDenNgay.Value;
+            }
+        }
+
         private void txtSDTNV_TextChanged(object sender, EventArgs e)
         {
             txtSDTNV.MaxLength = 10;
@@ -1535,22 +1553,6 @@ namespace EM_EateryManage
         }
         #endregion
 
-        private void dtpkDenNgay_ValueChanged(object sender, EventArgs e)
-        {
-            if (dtpkTuNgay.Value > dtpkDenNgay.Value)
-            {
-                MessageBox.Show("Lỗi");
-                dtpkTuNgay.Value = dtpkDenNgay.Value;
-            }
-        }
-
-        private void dtpkTuNgay_ValueChanged(object sender, EventArgs e)
-        {
-            if (dtpkTuNgay.Value > dtpkDenNgay.Value)
-            {
-                MessageBox.Show("Lỗi");
-                dtpkTuNgay.Value = dtpkDenNgay.Value;
-            }
-        }
+        
     }
 }
